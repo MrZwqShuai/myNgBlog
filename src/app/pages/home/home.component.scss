@@ -1,0 +1,49 @@
+.home-banner {
+  width: 100%;
+  height: 30rem;
+  border: 1px solid rebeccapurple;
+  img {
+    width: 100%;
+    height: 100%;
+  }
+  :host ::ng-deep .ant-carousel .slick-slide {
+    text-align: center;
+    height: 160px;
+    line-height: 160px;
+    background: #364d79;
+    color: #fff;
+    overflow: hidden;
+  }
+  h3 {
+    color: #fff;
+  }
+}
+.home-content {
+  display: flex;
+  width: 100%;
+  height: 80rem;
+  justify-content: center;
+  align-content: center;
+  .home-content-left, .home-content-center, .home-content-right {
+    border: 1px solid olive;
+  }
+  .home-content-left {
+    flex: 1;
+    background: -webkit-linear-gradient(left top, #056dc8 , #70b5ec); /* Safari 5.1 - 6.0 */
+    background: -o-linear-gradient(bottom right, #056dc8, #70b5ec); /* Opera 11.1 - 12.0 */
+    background: -moz-linear-gradient(bottom right, #056dc8, #70b5ec); /* Firefox 3.6 - 15 */
+    background: linear-gradient(to bottom right, #056dc8 , #70b5ec); /* 标准的语法 */
+  }
+  .home-content-center {
+    flex: 8;
+    .pagination {
+      position: fixed;
+      bottom: .5rem;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+  }
+  .home-content-right {
+    flex: 1;
+  }
+}

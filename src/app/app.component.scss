@@ -1,0 +1,44 @@
+.wrapper {
+  background-color: #181919;
+  header {
+    position: fixed;
+    width: 100%;
+    height: 3.5rem;
+    top: 0;
+    left: 0;
+  }
+}
+
+.header-content {
+  display: flex;
+  width: 100%;
+  height: 3.5rem;
+  background-color: #1495fd;
+  .logo-container {
+    width: 10rem;
+    height: 100%;
+    float: left;
+  }
+  .logo {
+    width: 3rem;
+    height: 3rem;
+    margin: auto;
+    padding-top: .18rem;
+    a img {
+      width: 100%;
+      height: auto;
+    }
+  }
+  .top-menu {
+    float: left;
+  }
+  .search-container {
+    display: flex;
+    justify-content: flex-end;
+    align-content: center;
+    width: 100%;
+    height: 3.5rem;
+    float: left;
+  }
+}
+

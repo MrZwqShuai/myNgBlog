@@ -1,0 +1,18 @@
+<div class="home-container">
+  <div class="home-banner">
+    <nz-carousel [nzEffect]="'scrollx'" nzAutoPlay>
+        <div nz-carousel-content *ngFor="let index of array"><img [src]="array" alt=""></div>
+      </nz-carousel>
+  </div>
+  <div class="home-content">
+    <div class="home-content-left">
+
+    </div>
+    <div class="home-content-center">
+        <nz-pagination [nzPageIndex]="1" [nzTotal]="50" class="pagination"></nz-pagination>
+    </div>
+    <div class="home-content-right">
+      
+    </div>
+  </div>
+</div>
