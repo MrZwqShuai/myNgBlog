@@ -2,17 +2,24 @@
   display: flex;
   padding-left: 0;
   background-color: rgb(20, 149, 253);
-  li {
+  .menu-item {
     width: 8.2rem;
     height: 3.5rem;
     line-height: 3.5rem;
     text-align: center;
-    font-size: 1rem;
+    font-size: .6rem;
     color: #fff;
     border-left: 1px solid rgba(2, 109, 201, 0.57);
     a {
       text-decoration: none;
       color: #fff;
     }
+  }
+  .menu-item:hover{
+    color: #000 !important;
+    border-bottom: 2px solid #000 !important;
+  }
+  li .portfolio:hover{
+    color: #000 !important;
   }
 }

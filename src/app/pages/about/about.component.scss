@@ -1,0 +1,18 @@
+.about-container {
+    margin-top: 4rem;
+}
+   :host ::ng-deep .custom-image img {
+        display: block;
+      }
+
+      :host ::ng-deep .custom-card {
+        padding: 10px 16px;
+      }
+
+      :host ::ng-deep .custom-card p {
+        color: #999;
+      }
+
+      :host ::ng-deep .ant-card-body {
+        padding: 0;
+      }
