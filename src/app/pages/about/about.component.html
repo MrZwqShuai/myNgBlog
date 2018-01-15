@@ -1,5 +1,5 @@
 <div class="about-container" nz-row [nzGutter]="8">
-    <nz-card  nz-col [nzSpan]="6" style="width:240px" *ngFor="let card of cards">
+    <nz-card  nz-col [nzSpan]="6" style="width:240px" *ngFor="let card of cards ; let i = index"  [routerLink] = "['./detail',i]">
       <ng-template #body>
         <div class="custom-image">
           <img alt="example" width="100%" src="https://os.alipayobjects.com/rmsportal/QBnOOoLaAfKPirc.png"/>

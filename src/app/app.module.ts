@@ -11,6 +11,7 @@ import { FormsModule } from '@angular/forms';
 import { TopMenuComponent } from './pages/top-menu/top-menu.component';
 import { PortfolioComponent } from './pages/portfolio/portfolio.component';
 import { AboutComponent } from './pages/about/about.component';
+import { DetailComponent } from './pages/about/detail/detail.component';
 
 @NgModule({
   declarations: [
@@ -19,6 +20,7 @@ import { AboutComponent } from './pages/about/about.component';
     TopMenuComponent,
     PortfolioComponent,
     AboutComponent,
+    DetailComponent,
   ],
   imports: [
     BrowserModule,
@@ -33,7 +35,11 @@ import { AboutComponent } from './pages/about/about.component';
       component: PortfolioComponent
     }, {
       path: 'about',
-      component: AboutComponent
+      component: AboutComponent,
+      children: [{
+        path: 'detail/:id',
+        component: DetailComponent
+      }]
     }])
   ],
   providers: [],

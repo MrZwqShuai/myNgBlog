@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { setTimeout } from 'timers';
+// import { setTimeout } from 'timers';
 
 @Component({
   selector: 'app-home',
