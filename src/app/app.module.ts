@@ -35,12 +35,11 @@ import { DetailComponent } from './pages/about/detail/detail.component';
       component: PortfolioComponent
     }, {
       path: 'about',
-      component: AboutComponent,
-      children: [{
-        path: 'detail/:id',
-        component: DetailComponent
-      }]
-    }])
+      component: AboutComponent
+    }, {
+      path: 'about/:id',
+      component: DetailComponent
+    }], { useHash: true })
   ],
   providers: [],
   bootstrap: [AppComponent]
