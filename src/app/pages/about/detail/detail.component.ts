@@ -7,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DetailComponent implements OnInit {
 
+  admin: String = 'admin';
+
   constructor() { }
 
   ngOnInit() {

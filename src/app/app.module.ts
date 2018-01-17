@@ -12,6 +12,7 @@ import { TopMenuComponent } from './pages/top-menu/top-menu.component';
 import { PortfolioComponent } from './pages/portfolio/portfolio.component';
 import { AboutComponent } from './pages/about/about.component';
 import { DetailComponent } from './pages/about/detail/detail.component';
+import { MyvideoComponent } from './pages/home/myvideo/myvideo.component';
 
 @NgModule({
   declarations: [
@@ -21,6 +22,7 @@ import { DetailComponent } from './pages/about/detail/detail.component';
     PortfolioComponent,
     AboutComponent,
     DetailComponent,
+    MyvideoComponent,
   ],
   imports: [
     BrowserModule,

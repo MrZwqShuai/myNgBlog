@@ -2,6 +2,7 @@
   width: 100%;
   height: 100rem;
 }
+
 .home-banner {
   width: 100%;
   height: auto;
@@ -10,7 +11,7 @@
     width: 100%;
     height: 100%;
   }
-  :host ::ng-deep .ant-carousel .slick-slide {
+   :host ::ng-deep .ant-carousel .slick-slide {
     text-align: center;
     height: 160px;
     line-height: 160px;
@@ -22,24 +23,124 @@
     color: #fff;
   }
 }
+
 .home-content {
   display: flex;
   width: 100%;
   height: 80rem;
   justify-content: center;
   align-content: center;
-  .home-content-left, .home-content-center, .home-content-right {
-    border: 1px solid olive;
-  }
   .home-content-left {
-    flex: 1;
-    background: -webkit-linear-gradient(left top, #056dc8 , #70b5ec); /* Safari 5.1 - 6.0 */
-    background: -o-linear-gradient(bottom right, #056dc8, #70b5ec); /* Opera 11.1 - 12.0 */
-    background: -moz-linear-gradient(bottom right, #056dc8, #70b5ec); /* Firefox 3.6 - 15 */
-    background: linear-gradient(to bottom right, #056dc8 , #70b5ec); /* 标准的语法 */
+    flex: 1.5;
+    background: -webkit-linear-gradient(left top, #056dc8, #70b5ec);
+    /* Safari 5.1 - 6.0 */
+    background: -o-linear-gradient(bottom right, #056dc8, #70b5ec);
+    /* Opera 11.1 - 12.0 */
+    background: -moz-linear-gradient(bottom right, #056dc8, #70b5ec);
+    /* Firefox 3.6 - 15 */
+    background: linear-gradient(to bottom right, #056dc8, #70b5ec);
+    /* 标准的语法 */
+    .left-personal-information {
+      width: 100%;
+      height: 13rem;
+      .avatar {
+        margin-top: 2rem;
+        text-align: center;
+      }
+      .details {
+        width: 100%;
+        height: 3.5rem;
+        margin-top: 1.2rem;
+        ul {
+          width: 100%;
+          height: 100%;
+          overflow: hidden;
+          li {
+            width: 33.2%;
+            height: 80%;
+            float: left;
+            border-right: 1px solid #5ea7e7;
+            color: #fff;
+            box-sizing: border-box;
+            span {
+              display: block;
+              width: 100%;
+              height: 50%;
+              text-align: center;
+            }
+          }
+          li:nth-child(3) {
+            border-right: none;
+          }
+        }
+      }
+    }
+    .left-file-technology {
+      width: 100%;
+      height: 100%;
+      .technology-header {
+        width: 94%;
+        margin: 0 auto;
+        font-size: .8rem;
+        background-color: rgba(0, 0, 0, 0.56);
+        margin: 0 auto;
+        h3 {
+          text-align: center;
+          background: url('../../../assets/books.png') no-repeat;
+          background-size: 1.5rem auto;
+          background-position: 1.2rem 2px;
+          color: #fff;
+        }
+      }
+      .technology-main {
+        width: 94%;
+        margin: 0 auto;
+      }
+    }
   }
   .home-content-center {
-    flex: 8;
+    flex: 7;
+    .center-vieo-container {
+      width: 70rem;
+      height: 22.5rem;
+      margin: 2.5rem auto;
+      border-bottom: 1px solid #959595;
+      .video-main {
+        display: inline-block;
+      }
+      .video-desc {
+        width: 37.5rem;
+        display: inline-block;
+        float: right;
+        .desc-more {
+          display: inline-block;
+          width: 7rem;
+          height: 2rem;
+          margin-top: 2rem;
+          line-height: 2rem;
+          text-align: center;
+          border-radius: .4rem;
+          background: #0088ff;
+          color: #fff;
+        }
+      }
+    }
+    .center-picture-set {
+      width: 70rem;
+      height: 22.5rem;
+      margin: 2.5rem auto;
+      .pic-box {
+        width: 19%;
+        height: 7rem;
+        margin-left: 1%;
+        margin-top: 1%;
+        float: left;
+        img {
+          width: 100%;
+          height: 100%;
+        }
+      }
+    }
     .pagination {
       position: fixed;
       bottom: .5rem;
@@ -48,6 +149,14 @@
     }
   }
   .home-content-right {
-    flex: 1;
+    flex: 1.5;
+    border-left: 1px solid rgba(158, 158, 158, 0.22);
+    .right-calendar-box {
+      padding-top: 1.2rem;
+    }
   }
+}
+
+.ant-collapse-content {
+  color: #fff !important;
 }

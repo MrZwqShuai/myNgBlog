@@ -1,7 +1,31 @@
 .article-container {
-    margin-top: 4rem;
+    width: 60rem;
+    height: auto;
+    margin: 4rem auto 0 auto;
     background-color: #fff;
     .head-title {
-        text-align: center;
+        text-align: left;
+    }
+    .article-header-author {
+        display: flex;
+        align-content: center;
+        margin-top: 1.6rem;
+        .right {
+            margin-left: 1.2rem;
+        }
+        .author {
+            margin-top: .35rem;
+        }
+        .article-details {
+            margin-top: .5rem;
+        }
+    }
+    .article-content {
+        margin-top: 2rem;
+        .content-p{
+            margin-bottom: 2rem;
+            font-size: 1rem;
+            letter-spacing: 0.1rem;
+        }
     }
 }
