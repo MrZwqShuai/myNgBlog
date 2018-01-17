@@ -31,7 +31,7 @@
   justify-content: center;
   align-content: center;
   .home-content-left {
-    flex: 1.5;
+    flex: 2;
     background: -webkit-linear-gradient(left top, #056dc8, #70b5ec);
     /* Safari 5.1 - 6.0 */
     background: -o-linear-gradient(bottom right, #056dc8, #70b5ec);
@@ -99,7 +99,7 @@
     }
   }
   .home-content-center {
-    flex: 7;
+    flex: 6;
     .center-vieo-container {
       width: 70rem;
       height: 22.5rem;
@@ -149,7 +149,7 @@
     }
   }
   .home-content-right {
-    flex: 1.5;
+    flex: 2;
     border-left: 1px solid rgba(158, 158, 158, 0.22);
     .right-calendar-box {
       padding-top: 1.2rem;

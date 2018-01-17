@@ -1,11 +1,15 @@
 import { Component, OnInit } from '@angular/core';
+import { HomeService } from './home.service';
 // import { setTimeout } from 'timers';
 
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
-  styleUrls: ['./home.component.scss']
+  styleUrls: ['./home.component.scss'],
+  providers: [HomeService]
 })
+
+
 export class HomeComponent implements OnInit {
 
   avatar: String = "../../../assets/avatar.png";
@@ -48,12 +52,22 @@ export class HomeComponent implements OnInit {
       name: 'Angular4+'
     }
   ];
-  constructor() { }
+  constructor(private _homeService: HomeService) { }
 
   ngOnInit() {
+    this.getHomeInfos()
     this.avatar = "../../../assets/avatar.png";
     this.array = ['../../../assets/banner.jpg', '../../../assets/banner.jpg', '../../../assets/banner.jpg', '../../../assets/banner.jpg', '../../../assets/banner.jpg'];
-    this.arrays = ['../../../assets/banner.jpg', '../../../assets/banner.jpg', '../../../assets/banner.jpg', '../../../assets/banner.jpg', '../../../assets/banner.jpg','../../../assets/banner.jpg', '../../../assets/banner.jpg', '../../../assets/banner.jpg', '../../../assets/banner.jpg', '../../../assets/banner.jpg','../../../assets/banner.jpg', '../../../assets/banner.jpg', '../../../assets/banner.jpg', '../../../assets/banner.jpg', '../../../assets/banner.jpg'];
+    this.arrays = ['../../../assets/banner.jpg', '../../../assets/banner.jpg', '../../../assets/banner.jpg', '../../../assets/banner.jpg', '../../../assets/banner.jpg', '../../../assets/banner.jpg', '../../../assets/banner.jpg', '../../../assets/banner.jpg', '../../../assets/banner.jpg', '../../../assets/banner.jpg', '../../../assets/banner.jpg', '../../../assets/banner.jpg', '../../../assets/banner.jpg', '../../../assets/banner.jpg', '../../../assets/banner.jpg'];
+  }
+
+  getHomeInfos() {
+    return this._homeService.getHomeInfos()
+      .subscribe(
+        arrs => {
+          console.log(arrs, '----')
+        }
+      )
   }
 
 }

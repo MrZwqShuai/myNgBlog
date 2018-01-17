@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router'
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
+import { HttpModule } from '@angular/http';
 import { NgZorroAntdModule } from 'ng-zorro-antd';
 
 
@@ -27,6 +28,7 @@ import { MyvideoComponent } from './pages/home/myvideo/myvideo.component';
   imports: [
     BrowserModule,
     FormsModule,
+    HttpModule,
     BrowserAnimationsModule,
     NgZorroAntdModule.forRoot(),
     RouterModule.forRoot([{
