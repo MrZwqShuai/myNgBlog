@@ -14,6 +14,7 @@ import { PortfolioComponent } from './pages/portfolio/portfolio.component';
 import { AboutComponent } from './pages/about/about.component';
 import { DetailComponent } from './pages/about/detail/detail.component';
 import { MyvideoComponent } from './pages/home/myvideo/myvideo.component';
+import { SpeacialColumnComponent } from './pages/speacial-column/speacial-column.component';
 
 @NgModule({
   declarations: [
@@ -24,6 +25,7 @@ import { MyvideoComponent } from './pages/home/myvideo/myvideo.component';
     AboutComponent,
     DetailComponent,
     MyvideoComponent,
+    SpeacialColumnComponent,
   ],
   imports: [
     BrowserModule,
@@ -35,8 +37,8 @@ import { MyvideoComponent } from './pages/home/myvideo/myvideo.component';
       path: 'home',
       component: HomeComponent
     }, {
-      path: 'portfolio',
-      component: PortfolioComponent
+      path: 'article',
+      component: SpeacialColumnComponent
     }, {
       path: 'about',
       component: AboutComponent
