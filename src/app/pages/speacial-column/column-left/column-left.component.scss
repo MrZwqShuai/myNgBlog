@@ -1,0 +1,15 @@
+.column-left-container {
+    width: 60%;
+    height: 20rem;
+    .tab-dashboard {
+        overflow: hidden;
+        li {
+            width: 10rem;
+            height: 3rem;
+            float: left;
+            line-height: 3rem;
+            text-align: center;
+            border: 1px solid cornflowerblue;
+        }
+    }
+}

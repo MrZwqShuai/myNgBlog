@@ -15,6 +15,8 @@ import { AboutComponent } from './pages/about/about.component';
 import { DetailComponent } from './pages/about/detail/detail.component';
 import { MyvideoComponent } from './pages/home/myvideo/myvideo.component';
 import { SpeacialColumnComponent } from './pages/speacial-column/speacial-column.component';
+import { ColumnLeftComponent } from './pages/speacial-column/column-left/column-left.component';
+import { ColumnRightComponent } from './pages/speacial-column/column-right/column-right.component';
 
 @NgModule({
   declarations: [
@@ -26,6 +28,8 @@ import { SpeacialColumnComponent } from './pages/speacial-column/speacial-column
     DetailComponent,
     MyvideoComponent,
     SpeacialColumnComponent,
+    ColumnLeftComponent,
+    ColumnRightComponent,
   ],
   imports: [
     BrowserModule,
