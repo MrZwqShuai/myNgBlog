@@ -1,3 +1,10 @@
-<p>
-  右边容器
-</p>
+<div class="column-right-container">
+  <div class="hot-column">
+    <div class="hot-column-header">
+      热门文章
+    </div>
+    <div class="hot-column-list">
+      <div class="hot-column-item" *ngFor="let hotNote of hotNotes, let i = index">{{i+1}}.{{hotNote.title}}</div>
+    </div>
+  </div>
+</div>

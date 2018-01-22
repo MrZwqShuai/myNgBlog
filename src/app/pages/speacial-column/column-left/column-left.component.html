@@ -13,12 +13,19 @@
         <div class="author-img">
           <img src="" alt="">
         </div>
-        <div class="author-name">{{note.author}}</div>
-        <div class="create-time">{{note.createDate}}</div>
+        <div class="article-details">
+        <span class="author-name">{{note.author}}</span>
+        <span class="create-time">{{note.createDate}}</span>
+        </div>
       </div>
       <a href="#" class="title">{{note.title}}</a>
       <div class="content">{{note.content}}</div>
-      <div class="meta">{{note.meta}}</div>
+      <div class="meta">
+        <a href="#" class="note-tag">杂谈</a>
+        <a href="#" class="note-view">3000</a>
+        <a href="#" class="note-comment">200</a>
+        <a href="#" class="note-like">300</a>
+      </div>
     </div>
     <div class="article-container-right">
       <div class="article-thumbnail">

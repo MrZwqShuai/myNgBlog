@@ -7,6 +7,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ColumnRightComponent implements OnInit {
 
+  public hotNotes: Array<Object> = [{
+    title: '程序生涯'
+  }, {
+    title: '篮球生涯'
+  }, {
+    title: '游戏生涯'
+  }];
+
   constructor() { }
 
   ngOnInit() {

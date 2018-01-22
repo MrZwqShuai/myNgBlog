@@ -38,6 +38,10 @@ import { ColumnRightComponent } from './pages/speacial-column/column-right/colum
     BrowserAnimationsModule,
     NgZorroAntdModule.forRoot(),
     RouterModule.forRoot([{
+      path: '',
+      pathMatch: 'full',
+      redirectTo: 'home'
+    },{
       path: 'home',
       component: HomeComponent
     }, {
