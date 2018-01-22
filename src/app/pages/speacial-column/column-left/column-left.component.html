@@ -1,9 +1,30 @@
 <div class="column-left-container">
   <div class="tab-dashboard">
     <ul class="tab-ul">
-      <li class="nav-active">推荐文章</li>
-      <li>热门文章</li>
-      <li>最新文章</li>
+      <li *ngFor="let nav of navList,let i = index" [ngClass]="{'nav-active': i==idx}" (click)="selectNav(i)">{{nav.title}}</li>
     </ul>
+    <div class="line-tab">
+    </div>
+  </div>
+  <div class="article-list-container">
+      <div class="article-note" *ngFor="let note of notes">
+    <div class="article-container-left">
+      <div class="article-header-author">
+        <div class="author-img">
+          <img src="" alt="">
+        </div>
+        <div class="author-name">{{note.author}}</div>
+        <div class="create-time">{{note.createDate}}</div>
+      </div>
+      <a href="#" class="title">{{note.title}}</a>
+      <div class="content">{{note.content}}</div>
+      <div class="meta">{{note.meta}}</div>
+    </div>
+    <div class="article-container-right">
+      <div class="article-thumbnail">
+          <img src="https://upload-images.jianshu.io/upload_images/2759192-e06b647fc555892f.jpg?imageMogr2/auto-orient/strip|imageView2/1/w/300/h/240" alt="">
+    </div>  
+  </div>
+    </div>
   </div>
 </div>  

@@ -3,7 +3,7 @@ import { Http } from '@angular/http';
 import { Observable } from 'rxjs/RX';
 import 'rxjs/Rx';
 
-const HOMEINFOS_URL = `assets/homejson/home.json`;
+const HOMEINFOS_URL = `http://localhost:8087/%E5%BC%A0%E6%96%87%E5%BC%BA`;
 @Injectable()
 export class HomeService {
     constructor(private _http: Http) {

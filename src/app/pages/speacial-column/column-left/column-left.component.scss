@@ -1,19 +1,58 @@
 .column-left-container {
-    width: 60%;
+    width: 46rem;
     height: 20rem;
+    float: left;
     .tab-dashboard {
-        overflow: hidden;
+        .tab-ul {
+            width: 21rem;
+            overflow: hidden;
+        }
         li {
-            width: 10rem;
+            width: 33%;
             height: 3rem;
             float: left;
             line-height: 3rem;
             text-align: center;
+            border-bottom:1px solid rgba(158, 158, 158, 0.37);
+            color: #2196F3;
+        }
+        li:hover {
+            background-color: #9E9E9E;
+            color: #fff;
         }
         .nav-active {
-            border-top: 1px solid #9e9e9e;
-            border-left: 1px solid #9e9e9e;
-            border-right: 1px solid #9e9e9e;
+            border-top:1px solid rgba(158, 158, 158, 0.37);
+            border-left:1px solid rgba(158, 158, 158, 0.37);
+            border-right:1px solid rgba(158, 158, 158, 0.37);
+            border-bottom: none;
+            color: #555;
+        }
+    }
+    .article-list-container {
+        width: 100%;
+        height: 20rem;
+        .article-note {
+            width: 100%;
+            height: 8rem;
+            border-bottom:1px solid rgba(158, 158, 158, 0.37);
+        }
+        .article-container-left {
+            width: 37rem;
+            height: 100%;
+            float: left;
+        }
+        .article-container-right {
+            width: 9rem;
+            height: 100%;
+            float: left;
+            .article-thumbnail {
+                width: 9rem;
+                height: 9rem;
+                img {
+                    width: 100%;
+                    height: auto;
+                }
+            }
         }
     }
 }

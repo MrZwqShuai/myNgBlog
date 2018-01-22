@@ -2,6 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { HomeService } from './home.service';
 // import { setTimeout } from 'timers';
 
+interface UserInfo {
+  data: object;
+}
+
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -13,6 +17,8 @@ import { HomeService } from './home.service';
 export class HomeComponent implements OnInit {
 
   avatar: String = "../../../assets/avatar.png";
+  // 博主的基本信息
+  userInfo: Object;
   array = [];
   arrays = [];
   panels = [
@@ -64,8 +70,9 @@ export class HomeComponent implements OnInit {
   getHomeInfos() {
     return this._homeService.getHomeInfos()
       .subscribe(
-        arrs => {
-          console.log(arrs, '----')
+        (user: any) => {
+          this.userInfo = user.data;
+          console.log(user, '----')
         }
       )
   }
