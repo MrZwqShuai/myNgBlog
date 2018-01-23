@@ -17,6 +17,7 @@ import { MyvideoComponent } from './pages/home/myvideo/myvideo.component';
 import { SpeacialColumnComponent } from './pages/speacial-column/speacial-column.component';
 import { ColumnLeftComponent } from './pages/speacial-column/column-left/column-left.component';
 import { ColumnRightComponent } from './pages/speacial-column/column-right/column-right.component';
+import { AnimationWaveComponent } from './pages/animation/animation-wave/animation-wave.component';
 
 @NgModule({
   declarations: [
@@ -30,6 +31,7 @@ import { ColumnRightComponent } from './pages/speacial-column/column-right/colum
     SpeacialColumnComponent,
     ColumnLeftComponent,
     ColumnRightComponent,
+    AnimationWaveComponent,
   ],
   imports: [
     BrowserModule,

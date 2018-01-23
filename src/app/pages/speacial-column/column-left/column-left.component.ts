@@ -44,7 +44,7 @@ export class ColumnLeftComponent implements OnInit {
   selectAnimation(el: ElementRef) {
     console.log(el, '---')
     // this.renderer.setElementStyle(el.nativeElement, 'opacity', '.6');
-    this.renderer.setStyle(el, 'opacity', '.6');
+    this.renderer.setStyle(el, 'opacity', '.3');
   }
 
 }
