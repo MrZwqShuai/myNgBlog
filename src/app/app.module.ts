@@ -12,7 +12,7 @@ import { FormsModule } from '@angular/forms';
 import { TopMenuComponent } from './pages/top-menu/top-menu.component';
 import { PortfolioComponent } from './pages/portfolio/portfolio.component';
 import { AboutComponent } from './pages/about/about.component';
-import { DetailComponent } from './pages/about/detail/detail.component';
+import { DetailComponent } from './pages/detail/detail.component';
 import { MyvideoComponent } from './pages/home/myvideo/myvideo.component';
 import { SpeacialColumnComponent } from './pages/speacial-column/speacial-column.component';
 import { ColumnLeftComponent } from './pages/speacial-column/column-left/column-left.component';
@@ -53,7 +53,7 @@ import { AnimationWaveComponent } from './pages/animation/animation-wave/animati
       path: 'about',
       component: AboutComponent
     }, {
-      path: 'about/:id',
+      path: 'article/:id',
       component: DetailComponent
     }], { useHash: true })
   ],

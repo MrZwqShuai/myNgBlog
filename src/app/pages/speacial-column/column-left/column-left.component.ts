@@ -1,9 +1,12 @@
 import { Component, OnInit, ElementRef, Renderer2} from '@angular/core';
+import { Router } from '@angular/router';
+import { SpeacialColumnServiceService } from '../speacial-column.service';
 
 @Component({
   selector: 'app-column-left',
   templateUrl: './column-left.component.html',
-  styleUrls: ['./column-left.component.scss']
+  styleUrls: ['./column-left.component.scss'],
+  providers: [ SpeacialColumnServiceService ]
 })
 export class ColumnLeftComponent implements OnInit {
 
@@ -21,21 +24,12 @@ export class ColumnLeftComponent implements OnInit {
       meta: '这是标签'
     }
   ]
-  constructor(private elementRef: ElementRef, private renderer: Renderer2) { 
+  constructor(private router: Router, private elementRef: ElementRef, private renderer: Renderer2, private _speacialColumnServiceService: SpeacialColumnServiceService) { 
   }
 
   ngOnInit() {
     this.articleEl = this.elementRef.nativeElement.querySelector('.article-list-container');
-    for (let i = 0; i < 10; i++) {
-      this.notes.push(
-        {
-          author: '江流儿',
-          createDate: '2018/1/22',
-          title: '这是标题',
-          content: '      ❤ 有读者在后台问我，说:“他觉得大学上得他挺无奈的。刚上大学的他，完全没了高中的上进努力，平时上课要么睡觉，要么玩手机，老师讲的什么内容也几乎一无所知，期末考试全靠拿着厚厚...',
-          meta: '这是标签'
-        })
-    }
+    this.getArticleByUser();
   }
   selectNav(i:number) {
     this.idx = i;
@@ -45,6 +39,23 @@ export class ColumnLeftComponent implements OnInit {
     console.log(el, '---')
     // this.renderer.setElementStyle(el.nativeElement, 'opacity', '.6');
     this.renderer.setStyle(el, 'opacity', '.3');
+  }
+
+  // 通过用户名获取文章列表
+  getArticleByUser() {
+    return this._speacialColumnServiceService.getArticleByUser()
+    .subscribe((notesData: any) => {
+      this.notes = notesData.data;
+    })
+  }
+  
+  // 跳转文章详情页
+  goNoteDetails(articleId, articleTitle) {
+    this.router.navigate([`article/${articleId}`], {
+      queryParams: {
+        title: articleTitle
+      }
+    });
   }
 
 }
