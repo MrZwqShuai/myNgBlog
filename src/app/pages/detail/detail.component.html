@@ -1,15 +1,15 @@
 <div class="article-container">
   <div class="article-header">
     <div class="article-header-title">
-      <h2 class="head-title">冬天的能量</h2>
+      <h2 class="head-title">{{article.title}}</h2>
     </div>
     <div class="article-header-author">
       <div class="left">
         <img src="../../../../assets/avatar.png" alt="">
       </div>
       <div class="right">
-        <div class="author">{{admin}}</div>
-        <div class="article-details">2015.06.30 13:57* 最后编辑于 2017.11.27 02:59 字数 4295 阅读 1101评论 0喜欢 6</div>
+        <div class="author">{{article.author}}</div>
+        <div class="article-details">{{article.createDate | date:'yyyy-MM-dd'}} 阅读 {{article.viewNum}}评论 0喜欢 6</div>
       </div>
     </div>
   </div>
@@ -18,13 +18,11 @@
       <img src="" alt="">
     </div>
     <div class="article-content-body">
-      <p class="content-p">简化连接过程 在启动mysql程序时，通常都需要设定某些连接参数，如主机名、用户名或密码。如果在每次启动mysql程序时都输入这么多的内容，那么你很快就会感到厌烦。其实，在连接MySQL服务器时，有好几种办法可以减少打字输入的需要。
-        把连接参数存储在一个选项文件里。 利用shell的历史命令功能输入重复命令。 利用shell别名或脚本定义一个mysql命令行快捷方式。 使用选项文件 MySQL允许把连接参数存储到一个选项文件里。这样，你就不用在每次启动mysql时都输入这些参数了。它们的使用效果与在命令行上输入它们是一样的。这样做的好处在于，其他MySQL客户端程序（如mysqlimport或mysqlshow）也能使用这些参数。换句话说，选项文件不仅能简化mysql的启动过程，也可以让许多其他程序受益。本节对“如何设置客户端程序所用的选项文件”进行了简要介绍。有关更多详细信息请参考F.2.2节。
-        在Unix系统上，可以创建一个名为~/.my.cnf的文件（即在你的主目录下创建一个名为.my.cnf的文件）来作为选项文件。在Windows系统上，可以在MySQL安装目录下或者在C盘根目录下，创建一个名为my.ini的选项文件（如果在C盘根目录下，就是C:\my.ini）。选项文件是一个纯文本文件，因此可以使用任何一种文本编辑器来创建。选项文件的内容近似如下：
+      <p class="content-p">
+          {{article.content}}
       </p>
-      <p class="content-p">简化连接过程 在启动mysql程序时，通常都需要设定某些连接参数，如主机名、用户名或密码。如果在每次启动mysql程序时都输入这么多的内容，那么你很快就会感到厌烦。其实，在连接MySQL服务器时，有好几种办法可以减少打字输入的需要。
-        把连接参数存储在一个选项文件里。 利用shell的历史命令功能输入重复命令。 利用shell别名或脚本定义一个mysql命令行快捷方式。 使用选项文件 MySQL允许把连接参数存储到一个选项文件里。这样，你就不用在每次启动mysql时都输入这些参数了。它们的使用效果与在命令行上输入它们是一样的。这样做的好处在于，其他MySQL客户端程序（如mysqlimport或mysqlshow）也能使用这些参数。换句话说，选项文件不仅能简化mysql的启动过程，也可以让许多其他程序受益。本节对“如何设置客户端程序所用的选项文件”进行了简要介绍。有关更多详细信息请参考F.2.2节。
-        在Unix系统上，可以创建一个名为~/.my.cnf的文件（即在你的主目录下创建一个名为.my.cnf的文件）来作为选项文件。在Windows系统上，可以在MySQL安装目录下或者在C盘根目录下，创建一个名为my.ini的选项文件（如果在C盘根目录下，就是C:\my.ini）。选项文件是一个纯文本文件，因此可以使用任何一种文本编辑器来创建。选项文件的内容近似如下：
+      <p class="content-p">
+          {{article.content}}
       </p>
     </div>
   </div>

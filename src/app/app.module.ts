@@ -3,8 +3,12 @@ import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router'
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
 import { HttpModule } from '@angular/http';
+import { HttpClientModule } from '@angular/common/http';
 import { NgZorroAntdModule } from 'ng-zorro-antd';
 
+import { HomeService } from './pages/service/home.service';
+import { SpeacialColumnServiceService } from './pages/service/speacial-column.service';
+import { DetailService } from './pages/service/detail.service';
 
 import { AppComponent } from './app.component';
 import { HomeComponent } from './pages/home/home.component';
@@ -19,6 +23,10 @@ import { ColumnLeftComponent } from './pages/speacial-column/column-left/column-
 import { ColumnRightComponent } from './pages/speacial-column/column-right/column-right.component';
 import { AnimationWaveComponent } from './pages/animation/animation-wave/animation-wave.component';
 
+import { StringSlicePipe } from './pages/pipe/stringPipe';
+
+import { ROUTE_CONFIG } from './app.routes';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -32,32 +40,18 @@ import { AnimationWaveComponent } from './pages/animation/animation-wave/animati
     ColumnLeftComponent,
     ColumnRightComponent,
     AnimationWaveComponent,
+    StringSlicePipe
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpModule,
+    HttpClientModule,
     BrowserAnimationsModule,
     NgZorroAntdModule.forRoot(),
-    RouterModule.forRoot([{
-      path: '',
-      pathMatch: 'full',
-      redirectTo: 'home'
-    },{
-      path: 'home',
-      component: HomeComponent
-    }, {
-      path: 'article',
-      component: SpeacialColumnComponent
-    }, {
-      path: 'about',
-      component: AboutComponent
-    }, {
-      path: 'article/:id',
-      component: DetailComponent
-    }], { useHash: true })
+    RouterModule.forRoot(ROUTE_CONFIG, { useHash: true })
   ],
-  providers: [],
+  providers: [HomeService, SpeacialColumnServiceService, DetailService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

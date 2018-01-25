@@ -3,14 +3,16 @@ import { Http } from '@angular/http';
 import { Observable } from 'rxjs/RX';
 import 'rxjs/Rx';
 
-const HOMEINFOS_URL = `http://localhost:8087/%E5%BC%A0%E6%96%87%E5%BC%BA`;
 @Injectable()
 export class HomeService {
+
+    private HOMEINFOS_URL: string = `http://localhost:8087/%E5%BC%A0%E6%96%87%E5%BC%BA`;
+
     constructor(private _http: Http) {
     }
 
     getHomeInfos(): Observable<any[]> {
-        return this._http.get(HOMEINFOS_URL)
+        return this._http.get(this.HOMEINFOS_URL)
         .map(this.extractData)
         .catch(this.handleError);
     }

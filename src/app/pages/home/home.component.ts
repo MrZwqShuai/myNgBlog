@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { HomeService } from './home.service';
-// import { setTimeout } from 'timers';
+import { HomeService } from '../../pages/service/home.service';
 
 interface UserInfo {
   data: object;
@@ -10,7 +9,6 @@ interface UserInfo {
   selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss'],
-  providers: [HomeService]
 })
 
 

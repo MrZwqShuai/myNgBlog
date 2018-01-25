@@ -1,12 +1,11 @@
 import { Component, OnInit, ElementRef, Renderer2} from '@angular/core';
 import { Router } from '@angular/router';
-import { SpeacialColumnServiceService } from '../speacial-column.service';
+import { SpeacialColumnServiceService } from '../../../pages/service/speacial-column.service';
 
 @Component({
   selector: 'app-column-left',
   templateUrl: './column-left.component.html',
-  styleUrls: ['./column-left.component.scss'],
-  providers: [ SpeacialColumnServiceService ]
+  styleUrls: ['./column-left.component.scss']
 })
 export class ColumnLeftComponent implements OnInit {
 
@@ -33,12 +32,11 @@ export class ColumnLeftComponent implements OnInit {
   }
   selectNav(i:number) {
     this.idx = i;
-    this.selectAnimation(this.articleEl)
+    this.selectLoading(this.articleEl, '.3');
+    this.getArticleByUser();
   }
-  selectAnimation(el: ElementRef) {
-    console.log(el, '---')
-    // this.renderer.setElementStyle(el.nativeElement, 'opacity', '.6');
-    this.renderer.setStyle(el, 'opacity', '.3');
+  selectLoading(el: ElementRef, opacity: string) {
+    this.renderer.setStyle(el, 'opacity', opacity);
   }
 
   // 通过用户名获取文章列表
@@ -46,13 +44,15 @@ export class ColumnLeftComponent implements OnInit {
     return this._speacialColumnServiceService.getArticleByUser()
     .subscribe((notesData: any) => {
       this.notes = notesData.data;
+      this.selectLoading(this.articleEl, '1');
     })
   }
   
   // 跳转文章详情页
   goNoteDetails(articleId, articleTitle) {
-    this.router.navigate([`article/${articleId}`], {
+    this.router.navigate([`article/p`], {
       queryParams: {
+        articleId: articleId,
         title: articleTitle
       }
     });
