@@ -12,17 +12,23 @@ export class DetailComponent implements OnInit {
 
   admin: String = 'admin';
   article: any = '';
+  private sub: any;
 
   constructor(private _detailService: DetailService, private activatedRoute: ActivatedRoute) { }
 
   ngOnInit() {
-    this.activatedRoute
+    // this.activatedRoute.snapshot.params['articleId'];
+    this.sub = this.activatedRoute
       .queryParams
       .subscribe(queryParams => {
         let articleId: string = queryParams.articleId;
         let title: string = queryParams.title;
         this.getOneArticleById(Number(articleId));
-      })
+      });
+  }
+
+  ngOnDestory() {
+    this.sub.unsubscribe();
   }
 
   getOneArticleById(id: number) {
