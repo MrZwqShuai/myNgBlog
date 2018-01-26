@@ -29,16 +29,16 @@
         }
     }
     .article-list-container {
+        position: relative;
         width: 100%;
+        margin-top: 1.6rem;
         .article-note {
             width: 100%;
-            min-height: 14rem;
-            border-bottom:1px solid rgba(158, 158, 158, 0.37);
         }
         .article-container-left {
-            width: 37rem;
-            height: 14rem;
-            float: left;
+            width: 100%;
+            min-height: 10rem;
+            border-bottom:1px solid rgba(158, 158, 158, 0.37);
             .article-header-author {
                 .author-name {
                     float: left;
@@ -62,10 +62,11 @@
                 color: #333;
             }
             .content {
+                width: 37rem;
                 word-wrap: break-word;
             }
             .meta {
-                margin-top: .4rem;
+                margin: 0.4rem 0 1.5rem;
                 .note-tag {
                     font-size: .8rem;
                     color: #ec6149;
@@ -81,10 +82,11 @@
             }
         }
         .article-container-right {
+            position: absolute;
+            right: 0;
+            top: 50%;
+            transform: translateY(-50%);
             width: 9rem;
-            height: 100%;
-            margin-top: 2rem;
-            float: left;
             .article-thumbnail {
                 width: 9rem;
                 height: 9rem;
@@ -94,6 +96,13 @@
                 }
             }
         }
+    }
+    .error-box {
+        position: fixed;
+        width: 100%;
+        left: 0;
+        top: 0;
+        z-index: 10;
     }
 }
 // common css
