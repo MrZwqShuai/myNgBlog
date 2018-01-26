@@ -2,9 +2,6 @@
     width: 26rem;
     margin-left: 5rem;
     float: left;
-    .hot-column {
-        width: 75%;
-    }
     .hot-column-item  {
         margin-top: .4rem;
         text-indent: .5rem;
@@ -15,7 +12,6 @@
         color: #1495fd;
     }
     .newest-article {
-        width: 75%;
         margin-top: 1.5rem;
         .news-content{
             .news-ul{
@@ -38,7 +34,6 @@
 }
 // common css
 .column-right-h3 {
-    width: 70%;
     height: 1.5rem;
     line-height: 1.5rem;
     font-size: .8rem;
