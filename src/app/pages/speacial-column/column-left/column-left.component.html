@@ -15,16 +15,16 @@
           </div>
           <div class="article-details">
             <span class="author-name">{{note.author}}</span>
-            <span class="create-time">{{note.createDate | date:'yyyy-MM-dd'}}</span>
+            <span class="create-time">{{note.create_date | date:'yyyy-MM-dd'}}</span>
           </div>
         </div>
         <a [routerLink]="['/article']" [queryParams]="{articleId: note.articleId}" class="title">{{note.title}}</a>
         <div class="content cursor">{{note.content | StringSlicePipe: 150}}</div>
         <div class="meta">
           <a href="#" class="note-tag">杂谈</a>
-          <a href="#" class="note-view">{{note.viewNum}}</a>
+          <a href="#" class="note-view">{{note.page_view}}</a>
           <a href="#" class="note-comment">200</a>
-          <a href="#" class="note-like">300</a>
+          <a href="#" class="note-like">{{note.follow_num}}</a>
         </div>
       </div>
       <div class="article-container-right">

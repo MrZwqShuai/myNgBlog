@@ -33,6 +33,7 @@
         width: 100%;
         margin-top: 1.6rem;
         .article-note {
+            position: relative;
             width: 100%;
         }
         .article-container-left {
@@ -57,7 +58,7 @@
                 width: 100%;
                 display: inline-block;
                 margin: .4rem auto;
-                font-size: 1.7rem;
+                font-size: 1.2rem;
                 font-weight: bold;
                 color: #333;
             }
