@@ -24,3 +24,6 @@
               <li class="menu-item" nz-menu-item routerLink="/about">SERVICES</li>
               <li class="menu-item" nz-menu-item nzDisabled routerLink="/article"><i class="anticon anticon-appstore"></i>CONTACT</li>
             </ul>
+      <div class="search-container">
+        <nz-input [nzType]="'search'" [nzPlaceHolder]="'input search text'" [(ngModel)]="_value" style="width: 30rem;"></nz-input>
+    </div>
