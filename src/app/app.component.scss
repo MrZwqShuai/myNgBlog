@@ -31,8 +31,11 @@
       height: auto;
     }
   }
+  .top-menu-box {
+    width: 100%;
+  }
   .top-menu {
-    float: left;
+    display: flex;
+    justify-content: space-between;
   }
 }
-

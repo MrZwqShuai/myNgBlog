@@ -24,6 +24,7 @@ import { ColumnRightComponent } from './pages/speacial-column/column-right/colum
 import { AnimationWaveComponent } from './pages/animation/animation-wave/animation-wave.component';
 
 import { StringSlicePipe } from './pages/pipe/stringPipe';
+import { SearchPipe } from './pages/pipe/search.pipe';
 
 import { ROUTE_CONFIG } from './app.routes';
 
@@ -40,7 +41,8 @@ import { ROUTE_CONFIG } from './app.routes';
     ColumnLeftComponent,
     ColumnRightComponent,
     AnimationWaveComponent,
-    StringSlicePipe
+    StringSlicePipe,
+    SearchPipe
   ],
   imports: [
     BrowserModule,

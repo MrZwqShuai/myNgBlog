@@ -25,5 +25,10 @@
               <li class="menu-item" nz-menu-item nzDisabled routerLink="/article"><i class="anticon anticon-appstore"></i>CONTACT</li>
             </ul>
       <div class="search-container">
-        <nz-input [nzType]="'search'" [nzPlaceHolder]="'input search text'" [(ngModel)]="_value" style="width: 30rem;"></nz-input>
+        <nz-input [nzType]="'search'" [nzPlaceHolder]="'输入你想要的内容'" [(ngModel)]="searchValue" style="width: 30rem;" (nzOnSearch)="onSearch($event)"></nz-input>
+        <div class="search-list" *ngIf="searchValue">
+          <ul>
+            <li *ngFor="let contact of (contacts | selectContact : searchValue)">{{contact.title}}</li>
+          </ul>
+        </div>
     </div>
