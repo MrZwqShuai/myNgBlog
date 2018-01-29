@@ -9,7 +9,13 @@
   }
   .play {
     position: absolute;
-    bottom: 6%;
-    right: 7%;
+    width: 3.2rem;
+    height: 2.6rem;
+    bottom: 2.1rem;
+    right: 1.9rem;
+    img {
+      width: 100%;
+      height: auto;
+    }
   }
 }
