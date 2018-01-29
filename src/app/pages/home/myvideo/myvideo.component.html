@@ -1,3 +1,7 @@
 <div class="video-container">
-    <video class="media" controls="controls" poster="../../../../assets/naxienian.jpg" src="http://v6c.music.126.net/20180117161030/aaed56be918ec84a843106523ee7fcbe/web/cloudmusic/MTI5MDc0OTc=/250dc8d5601a0fa1c081bb7a18d7b5e9/868ae40d861493124b9b47b5cc5bddac.mp4" width="100%" height="100%"></video>
+    <video id="myvideo" src="http://www.w3school.com.cn/i/movie.ogg" width="90%" height="56.2%"></video>
+    <a class="play">
+        <img src="../../../../assets/images/play.png" alt="" *ngIf="playStatus; else pauseStatus" (click)="playVideo()">
+        <ng-template #pauseStatus><img src="../../../../assets/images/pause.png" alt="" (click)="pauseVideo()"></ng-template>
+    </a>
 </div>

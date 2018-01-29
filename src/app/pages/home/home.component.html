@@ -17,7 +17,7 @@
           <ul>
             <li>
               <span>文章</span>
-              <span>{{userInfo.nickname}}</span>
+              <span>{{userInfo}}</span>
             </li>
             <li>
               <span>文章</span>
@@ -84,8 +84,12 @@
     <div class="home-content-right">
       <!-- 日历 -->
       <div class="right-calendar-box">
-        <nz-calendar class="calendar" [nzLocale]="'zh-cn'" [nzFullScreen]="false" ></nz-calendar>
+        <nz-calendar class="calendar" [nzLocale]="'zh-cn'" [nzFullScreen]="false" >
+          <ng-template #dateCell let-day>
+            <nz-badge [nzStatus]="'success'" [nzText]="'Sunday'" *ngIf="(day.date|date:'EEE')==='Sun'"></nz-badge>
+          </ng-template>
+        </nz-calendar>
       </div>
     </div>
-  </div>
+  </div> 
 </div>

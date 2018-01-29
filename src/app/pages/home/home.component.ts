@@ -16,7 +16,7 @@ export class HomeComponent implements OnInit {
 
   avatar: String = "../../../assets/avatar.png";
   // 博主的基本信息
-  userInfo: Object;
+  userInfo: any;
   array = [];
   arrays = [];
   panels = [
