@@ -31,6 +31,58 @@
             }
         }
     }
+    .technology-channel {
+        ul {
+            margin-top: 10rem;
+            transform-style: preserve-3d;
+            -webkit-perspective: 0;
+            transform: rotateX(-45deg) rotateY(-45deg); 
+             transition: all 0.5s; 
+            li {
+                position: absolute;
+                width: 100px;
+                height: 100px;
+                line-height: 100px;
+                text-align: center;
+                a {
+                    font-size: 1.4rem;
+                    color: #fff;
+                }
+            }
+            li:nth-of-type(2) {
+                background-color:  rgba(255, 10, 230, 0.5);
+                transform: rotateX(90deg) translateZ(50px);
+            }
+            li:nth-of-type(3) {
+                background-color: rgba(0, 10, 230, 0.5);
+                transform: rotateX(90deg) translateZ(-50px);
+            }
+            li:nth-of-type(4) {
+background: rgba(25, 100, 230, 0.5);
+transform: rotateY(90deg) translateZ(50px)
+}
+
+li:nth-of-type(5) {
+background: rgba(0, 10, 71, 0.5);
+transform: rotateY(90deg) translateZ(-50px)
+}
+li:nth-of-type(1) {
+
+background: rgba(40, 200, 100, 1);
+
+transform: translateZ(50px)
+
+}
+li:nth-of-type(6) {
+background: rgba(255, 35, 30, 0.5);
+transform: translateZ(-50px)
+}
+        }
+        ul:hover {
+            transform-origin:50% 50%;
+            transform: rotateX(80deg) rotateY(-45deg);
+        }
+    }
 }
 // common css
 .column-right-h3 {
