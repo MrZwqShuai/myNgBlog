@@ -37,6 +37,7 @@
             transform-style: preserve-3d;
             -webkit-perspective: 0;
             transform: rotateX(-45deg) rotateY(-45deg); 
+            // transform-origin: 50% 50%;
              transition: all 0.5s; 
             li {
                 position: absolute;
@@ -80,7 +81,7 @@ transform: translateZ(-50px)
         }
         ul:hover {
             transform-origin:50% 50%;
-            transform: rotateX(80deg) rotateY(-45deg);
+            transform: rotateZ(20deg);
         }
     }
 }

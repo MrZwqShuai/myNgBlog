@@ -7,6 +7,7 @@ import 'rxjs/RX';
 export class SpeacialColumnServiceService {
 
   private ZHUANLAN_URL: string = `http://localhost:8087/article/1`;
+  private META_URL: string = `http://localhost:8087/meta`;
 
   constructor(private _http: Http) { }
 
@@ -16,6 +17,11 @@ export class SpeacialColumnServiceService {
       .catch(this.handleError);
   }
 
+  getAllMeta(): Observable<any[]> {
+    return this._http.get(this.META_URL)
+      .map(this.extractData)
+      .catch(this.handleError)
+  }
 
   private extractData(res) {
     let body = res.json();

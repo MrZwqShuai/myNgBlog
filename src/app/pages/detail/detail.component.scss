@@ -12,6 +12,16 @@
         margin-top: 1.6rem;
         .right {
             margin-left: 1.2rem;
+            .author {
+                margin-right: .5rem;
+                .meta {
+                    margin-left: .5rem;
+                    padding: 0.2rem .5rem;
+                    color: #fff;
+                    background: rgba(236, 97, 73, 0.86);
+                    font-size: .5rem;
+                }
+            }
         }
         .author {
             margin-top: .35rem;

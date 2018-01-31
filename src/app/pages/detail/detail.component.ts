@@ -36,7 +36,6 @@ export class DetailComponent implements OnInit {
       .subscribe(
       (article: any) => {
         this.article = article.data;
-        console.log(this.article)
       }
       )
   }

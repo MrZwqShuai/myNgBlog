@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { SpeacialColumnServiceService } from '../../service/speacial-column.service';
 
 @Component({
   selector: 'app-column-right',
@@ -23,23 +24,27 @@ export class ColumnRightComponent implements OnInit {
     title: '《绝地求生》Xbox One版销量已达400万 官方将免费送3万BP币'
   }];
 
-  private channels: Array<Object> = [{
-    title: 'Java'
-  }, {
-    title: 'Javascript'
-  }, {
-    title: 'NodeJs'
-  }, {
-    title: 'Angular'
-  }, {
-    title: 'Vue'
-  }, {
-    title: 'MYSQL'
-  }];
+  private channels: Array<String> = [
+    'Java',
+    'Javascript',
+    'NodeJs',
+    'Angular',
+    'Vue',
+    'MYSQL'
+  ];
 
-  constructor() { }
+  constructor(private _speacialColumnServiceService: SpeacialColumnServiceService) { }
 
   ngOnInit() {
+    // this.getAllMeta();
+  }
+
+  getAllMeta() {
+    this._speacialColumnServiceService.getAllMeta()
+      .subscribe((metaData: any) => {
+        this.channels = metaData.data.slice(0, 6);
+        console.log(this.channels, '222');
+      })
   }
 
 }
