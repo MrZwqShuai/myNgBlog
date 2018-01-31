@@ -22,8 +22,11 @@
   <!--技术频道-->
   <div class="technology-channel">
     <h5>技术频道</h5>
-    <ul>
-      <li *ngFor="let channel of channels"><a>{{channel}}</a></li>
-    </ul>
+    
+    <div class="channel-box">
+        <div class="channel-sz">
+            <span *ngFor="let channel of channels"><a>{{channel}}</a></span>
+        </div>
+    </div>
   </div>
 </div>

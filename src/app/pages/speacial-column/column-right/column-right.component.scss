@@ -32,56 +32,69 @@
         }
     }
     .technology-channel {
-        ul {
-            margin-top: 10rem;
-            transform-style: preserve-3d;
-            -webkit-perspective: 0;
-            transform: rotateX(-45deg) rotateY(-45deg); 
-            // transform-origin: 50% 50%;
-             transition: all 0.5s; 
-            li {
-                position: absolute;
-                width: 100px;
-                height: 100px;
-                line-height: 100px;
-                text-align: center;
-                a {
-                    font-size: 1.4rem;
-                    color: #fff;
-                }
-            }
-            li:nth-of-type(2) {
-                background-color:  rgba(255, 10, 230, 0.5);
-                transform: rotateX(90deg) translateZ(50px);
-            }
-            li:nth-of-type(3) {
-                background-color: rgba(0, 10, 230, 0.5);
-                transform: rotateX(90deg) translateZ(-50px);
-            }
-            li:nth-of-type(4) {
-background: rgba(25, 100, 230, 0.5);
-transform: rotateY(90deg) translateZ(50px)
-}
-
-li:nth-of-type(5) {
-background: rgba(0, 10, 71, 0.5);
-transform: rotateY(90deg) translateZ(-50px)
-}
-li:nth-of-type(1) {
-
-background: rgba(40, 200, 100, 1);
-
-transform: translateZ(50px)
-
-}
-li:nth-of-type(6) {
-background: rgba(255, 35, 30, 0.5);
-transform: translateZ(-50px)
-}
+        .channel-box{
+            margin-top: 12px;
         }
-        ul:hover {
-            transform-origin:50% 50%;
-            transform: rotateZ(20deg);
+        .channel-sz{
+            -webkit-transform-style: preserve-3d;
+            -moz-transform-style: preserve-3d;
+            -ms-transform-style: preserve-3d;
+            transform-style: preserve-3d;
+            transform-origin:100px 100px 00px;
+            position: relative;
+           transform: rotatex(-202deg) rotatey(46deg) rotatez(0deg) scale3d(0.7, 0.7, 0.7);
+}
+        .channel-sz span{
+            transition: all 1s linear;
+        }
+        span{
+            display: block;
+            position: absolute;
+            width: 200px;
+            height: 200px;
+            box-sizing: border-box;
+            border:1px solid #999;
+            /*opacity: 0.7;*/
+            text-align: center;
+            line-height: 200px;
+            font-size: 30px;
+            font-weight: 700;
+            border-radius: 12%;
+        }
+        .channel-sz span:nth-child(1){
+            background-color: deepskyblue;
+            transform-origin: left;
+            transform: rotatey(-90deg) translatex(-100px);//左
+        }
+        .channel-sz span:nth-child(2){
+            background-color: red;
+            transform-origin: right;
+            transform: rotatey(90deg) translatex(100px) ;//右
+        }
+        .channel-sz span:nth-child(3){
+            background-color: green;
+            transform-origin: top;
+            transform: rotatex(90deg) translatey(-100px) ;//上
+        }
+        .channel-sz span:nth-child(4){
+            background-color: #6633FF;
+            transform-origin: bottom;
+            transform: rotatex(-90deg) translatey(100px);//下
+        }
+        .channel-sz span:nth-child(5){
+            background-color: gold;
+            transform: translatez(-100px);//后
+        }
+        .channel-sz span:nth-child(6){
+            background-color: #122b40;
+            transform: translatez(100px);//前
+        }
+ 
+        .channel-sz:hover span{
+            opacity: 0.3;
+        }
+        .channel-sz:hover{
+            animation-play-state:paused;//设置动画暂停
         }
     }
 }
