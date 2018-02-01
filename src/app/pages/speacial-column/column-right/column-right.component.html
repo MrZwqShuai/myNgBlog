@@ -23,7 +23,7 @@
   <div class="technology-channel">
     <h5>技术频道</h5>
     
-    <div class="channel-box">
+    <div class="channel-box" (mousemove)="mouseMove($event)" (mousedown)="mouseDown($event)" (mouseup)="mouseUp($event)">
         <div class="channel-sz">
             <span *ngFor="let channel of channels"><a>{{channel}}</a></span>
         </div>
