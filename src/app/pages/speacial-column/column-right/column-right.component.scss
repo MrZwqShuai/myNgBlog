@@ -32,72 +32,91 @@
         }
     }
     .technology-channel {
+        .channel-header {
+            display: flex;
+            justify-content: space-between;
+        }
+        .change-meta{
+            width: 5rem;
+            background: url('../../../../assets/images/change-meta.png') no-repeat;
+            background-size: 2.2rem auto;
+            background-position: -5px -3px;
+            text-align: right;
+        }
         .channel-box{
-            margin-top: 12px;
+            width: 20rem;
+            height: 20rem;
+            margin-top: 4rem;
+            margin-left: 3rem;
+        }
+        .channel-box:hover{
+            cursor:move;
         }
         .channel-sz{
             -webkit-transform-style: preserve-3d;
             -moz-transform-style: preserve-3d;
             -ms-transform-style: preserve-3d;
             transform-style: preserve-3d;
-            transform-origin:100px 100px 00px;
+            transform-origin:70px 70px 00px;
             position: relative;
-           transform: rotatex(-202deg) rotatey(46deg) rotatez(0deg) scale3d(0.7, 0.7, 0.7);
+           transform: rotatex(-202deg) rotatey(46deg) rotatez(0deg);
+           transition: all .2s linear;
 }
         .channel-sz span{
             transition: all 1s linear;
         }
-        span{
+        .tangent-plane{
             display: block;
             position: absolute;
-            width: 200px;
-            height: 200px;
+            width: 140px;
+            height: 140px;
             box-sizing: border-box;
             border:1px solid #999;
             /*opacity: 0.7;*/
             text-align: center;
-            line-height: 200px;
-            font-size: 30px;
+            line-height: 140px;
+            font-size: 24px;
             font-weight: 700;
             border-radius: 12%;
         }
         .channel-sz span:nth-child(1){
-            background-color: deepskyblue;
+            background-color: #122b40;
             transform-origin: left;
-            transform: rotatey(-90deg) translatex(-100px);//左
+            transform: rotatey(-90deg) translatex(-70px);//左视图
         }
         .channel-sz span:nth-child(2){
-            background-color: red;
+            background-color: #122b40;
             transform-origin: right;
-            transform: rotatey(90deg) translatex(100px) ;//右
+            transform: rotatey(90deg) translatex(70px) ;//右视图
         }
         .channel-sz span:nth-child(3){
-            background-color: green;
+            background-color: #122b40;
             transform-origin: top;
-            transform: rotatex(90deg) translatey(-100px) ;//上
+            transform: rotatex(90deg) translatey(-70px) ;//上视图
         }
         .channel-sz span:nth-child(4){
-            background-color: #6633FF;
+            background-color: #122b40;
             transform-origin: bottom;
-            transform: rotatex(-90deg) translatey(100px);//下
+            transform: rotatex(-90deg) translatey(70px);//下视图
         }
         .channel-sz span:nth-child(5){
-            background-color: gold;
-            transform: translatez(-100px);//后
+            background-color: #122b40;
+            transform: translatez(-70px);//后视图
         }
         .channel-sz span:nth-child(6){
             background-color: #122b40;
-            transform: translatez(100px);//前
+            transform: translatez(70px);//前视图
         }
  
         .channel-sz:hover span{
-            opacity: 0.3;
+            // opacity: 0.3;
         }
         .channel-sz:hover{
             animation-play-state:paused;//设置动画暂停
         }
     }
 }
+
 // common css
 .column-right-h3 {
     height: 1.5rem;

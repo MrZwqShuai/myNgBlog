@@ -20,12 +20,14 @@
     </div>
   </div>
   <!--技术频道-->
-  <div class="technology-channel">
-    <h5>技术频道</h5>
-    
-    <div class="channel-box" (mousemove)="mouseMove($event)" (mousedown)="mouseDown($event)" (mouseup)="mouseUp($event)">
+  <div class="technology-channel" (mousemove)="mouseMove($event)" (mousedown)="mouseDown($event)" (mouseup)="mouseUp($event)">
+    <div class="channel-header">
+        <span>技术频道</span>
+        <span class="change-meta" (click)="changeMeta()">换一批</span>
+    </div>
+    <div class="channel-box">
         <div class="channel-sz">
-            <span *ngFor="let channel of channels"><a>{{channel}}</a></span>
+            <span *ngFor="let channel of channels" class="tangent-plane"><a>{{channel}}</a></span>
         </div>
     </div>
   </div>
