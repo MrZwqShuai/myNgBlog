@@ -32,6 +32,7 @@
         }
     }
     .technology-channel {
+        user-select: none;
         .channel-header {
             display: flex;
             justify-content: space-between;
