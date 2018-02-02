@@ -4,4 +4,14 @@
         <img src="../../../../assets/images/play.png" alt="" *ngIf="playStatus; else pauseStatus" (click)="playVideo()">
         <ng-template #pauseStatus><img src="../../../../assets/images/pause.png" alt="" (click)="pauseVideo()"></ng-template>
     </a>
+    <a class="full-screen" (click)="showFullVideo()">
+        <img src="assets/images/full-screen.png" alt="点击全屏">
+    </a>
+</div>
+<!--浮层video-->
+<div class="full-video" *ngIf="showFullScreen">
+    <div class="video-box">
+      <video src="http://www.w3school.com.cn/i/movie.ogg" controls="controls"></video>
+    </div>
+    <span class="close-full-video" (click)="closeVideo()"><img src="assets/images/close-full-video.png"></span>
 </div>

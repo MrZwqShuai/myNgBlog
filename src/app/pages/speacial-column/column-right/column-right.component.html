@@ -22,13 +22,28 @@
   <!--技术频道-->
   <div class="technology-channel" (mousemove)="mouseMove($event)" (mousedown)="mouseDown($event)" (mouseup)="mouseUp($event)">
     <div class="channel-header">
-        <span>技术频道</span>
+        <span>热门标签</span>
         <span class="change-meta" (click)="changeMeta()">换一批</span>
     </div>
     <div class="channel-box">
         <div class="channel-sz">
             <span *ngFor="let channel of channels" class="tangent-plane"><a>{{channel}}</a></span>
         </div>
+    </div>
+    <div class="shadow">
+      
+    </div>
+  </div>
+  <!--合作-->
+  <div class="cooperation">
+    <div class="cooperation-header">
+      <span>与我联系</span>
+      <span>添加我的微信</span>
+    </div>
+    <div class="erweima-container">
+    <div class="erweima">
+      <img src="assets/images/erweima.jpg" alt="微信号zwqszt">
+    </div>
     </div>
   </div>
 </div>

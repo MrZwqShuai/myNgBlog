@@ -9,6 +9,8 @@ export class MyvideoComponent implements OnInit {
 
   private playStatus: Boolean = true;
   private pauseStatus: Boolean = false;
+  // 全屏
+  private showFullScreen: Boolean = false;
 
   constructor(private elementRef: ElementRef, private renderer: Renderer) { }
 
@@ -31,6 +33,14 @@ export class MyvideoComponent implements OnInit {
     this.pauseStatus = false;
     this.playStatus = true;
     this.elementRef.nativeElement.querySelector('#myvideo').pause();
+  }
+
+  showFullVideo() {
+    this.showFullScreen = true;
+  }
+
+  closeVideo() {
+    this.showFullScreen = false;
   }
 
 }

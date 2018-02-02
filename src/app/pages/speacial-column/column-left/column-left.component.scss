@@ -105,6 +105,25 @@
         top: 0;
         z-index: 10;
     }
+    // 加载更多
+    .load-more-container {
+        margin-top: 2rem;
+        .load-more{
+            text-align: center;
+            span{
+                display: inline-block;
+                height: 3rem;
+                padding: 0 .8rem;
+                line-height: 3rem;
+                border-radius: 1.5rem;
+                border: 1px solid #ddd;
+                font-size: .4rem;
+            }
+            span:hover{
+                border: 1px solid #999;
+            }
+        }
+    }
 }
 // common css
 .cursor {

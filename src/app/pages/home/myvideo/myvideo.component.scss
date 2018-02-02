@@ -7,6 +7,12 @@
   video {
     margin-top: 3.719rem;
   }
+  #myvideo {    
+    width: 19.6rem;
+    height: 11rem;
+    margin-left: 2.8rem;
+    object-fit:fill;
+  }
   .play {
     position: absolute;
     width: 3.2rem;
@@ -14,6 +20,47 @@
     bottom: 2.1rem;
     right: 1.9rem;
     img {
+      width: 100%;
+      height: auto;
+    }
+  }
+  .full-screen{
+    position: absolute;
+    width: 2rem;
+    height: 1rem;
+    bottom: 5.5rem;
+    right: 5.3rem;
+    img{
+      width: 100%;
+      height: auto;
+    }
+  }
+}
+.full-video{
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%); 
+  width: 65rem;
+  height: 36rem;
+  background-color: #fff;
+  box-shadow: 3px 4px 6px #9E9E9E;
+  .video-box{    
+    width: 90%;
+    height: 90%;
+    margin: 2.5% auto;
+    video{
+      width: 100%;
+      height: 100%;
+      object-fit:fill;
+    }
+  }
+  .close-full-video{
+    display: block;
+    width: 2.5rem;
+    height: 2.5rem;
+    margin: 3rem auto 0;
+    img{
       width: 100%;
       height: auto;
     }
