@@ -55,6 +55,7 @@ export class ColumnRightComponent implements OnInit {
   // 获取立方体dom
   private cubeMeta: HTMLElement;
   private cubePlane: Array<HTMLElement>;
+  private shadow: HTMLElement;
 
   constructor(private _speacialColumnServiceService: SpeacialColumnServiceService, private _elementRef: ElementRef, 
     private _renderer: Renderer, private _renderer2: Renderer2) { }
@@ -68,6 +69,7 @@ export class ColumnRightComponent implements OnInit {
   }
   ngAfterViewInit() {
     this.cubePlane = this._elementRef.nativeElement.querySelectorAll('.tangent-plane');
+    this.shadow = this._elementRef.nativeElement.querySelector('.shadow');
   }
 
   getAllMeta() {
@@ -90,6 +92,7 @@ export class ColumnRightComponent implements OnInit {
       let yy = e.clientY/2;
       this.disX += (xx - this.startX)*1.5;
       this.disY += (yy - this.startY)*1.5;
+      this.shadowScale(this.shadow, this.disX);
       this._renderer.setElementStyle(this.cubeMeta, 'transform', `rotateX(${this.disX}deg) rotateY(${this.disY}deg) rotateZ(0deg)`);  
       this.startX = e.clientX/2;
       this.startY = e.clientY/2;
@@ -111,6 +114,7 @@ export class ColumnRightComponent implements OnInit {
     this._renderer.setElementStyle(this.cubeMeta, 'transition', 'all 1s ease');
     this._renderer.setElementStyle(this.cubeMeta, 'transform', `rotateY(${this.getRadomAngle(90)}deg) rotateY(${this.getRadomAngle(180)}deg) rotateZ(${this.getRadomAngle(90)}deg)`);
     this.getRadomMeta();
+    this.shadowScale(this.shadow, this.disX);
     // this.addMetaChildrenClass();
     this.startX = this.getRadomAngle(90);
     this.startY = this.getRadomAngle(180);
@@ -141,5 +145,11 @@ export class ColumnRightComponent implements OnInit {
         console.log('松开鼠标');
       }
     }
+  }
+
+  // cbue阴影变化
+  shadowScale(target: HTMLElement, changeVaue: number) {
+    this._renderer2.setStyle(target, 'transform', `rotatex(275deg) rotateY(1deg) translateY(47px) translateZ(172px) scale(${.6+Math.random()-0.5})`);
+    this._renderer2.setStyle(target, 'transition', 'all 1.5s ease');
   }
 }

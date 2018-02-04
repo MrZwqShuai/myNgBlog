@@ -52,10 +52,11 @@
             margin-left: 6.5rem;
         }
         .shadow{
-            width: 7rem;
-            height: 2rem;
-            border-radius: 4rem;
-            background-color: #999;
+        width: 11rem;
+    height: 8rem;
+    border-radius: 13rem;
+    background-color: #444;
+    transform: rotatex(275deg) rotateY(1deg) translateY(47px) translateZ(172px);
         }
         .channel-box:hover{
             cursor:move;
@@ -86,19 +87,22 @@
             font-size: 24px;
             font-weight: 700;
             border-radius: 12%;
+            a{
+                color: #fff;
+            }
         }
         .channel-sz span:nth-child(1){
-            background-color: #122b40;
+            background-color: orangered;
             transform-origin: left;
             transform: rotatey(-90deg) translatex(-70px);//左视图
         }
         .channel-sz span:nth-child(2){
-            background-color: #122b40;
+            background-color: #FF9800;
             transform-origin: right;
             transform: rotatey(90deg) translatex(70px) ;//右视图
         }
         .channel-sz span:nth-child(3){
-            background-color: #122b40;
+            background-color: #673AB7;
             transform-origin: top;
             transform: rotatex(90deg) translatey(-70px) ;//上视图
         }
@@ -108,11 +112,11 @@
             transform: rotatex(-90deg) translatey(70px);//下视图
         }
         .channel-sz span:nth-child(5){
-            background-color: #122b40;
-            transform: translatez(-70px);//后视图
+            background-color: #00BCD4;
+            transform: rotatey(180deg) translatez(70px);//后视图
         }
         .channel-sz span:nth-child(6){
-            background-color: #122b40;
+            background-color: limegreen;
             transform: translatez(70px);//前视图
         }
  
@@ -153,8 +157,8 @@
     font-size: .8rem;
     text-indent: .5rem;
     border-radius: 1rem;
-    background: #1495fd;
-    color: rgba(0, 0, 0, 0.65);
+    background: rgba(158, 158, 158, 0.14);
+    color: #673ab7;
 }
 
 .column-right-color {

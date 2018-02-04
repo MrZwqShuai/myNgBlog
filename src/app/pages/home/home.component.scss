@@ -114,15 +114,20 @@
         float: right;
         .desc-more {
           display: inline-block;
-          width: 7rem;
+          width: 8rem;
           height: 2rem;
           margin-top: 2rem;
           line-height: 2rem;
           text-align: center;
-          border-radius: .4rem;
-          background: #0088ff;
-          color: #fff;
+          background: #3F51B5;
+          a{
+            color: #fff;
+          }
         }
+          .desc-more:hover{
+            border: 1px solid #999;
+            background-color: #0088ff;
+          }
       }
     }
     .center-picture-set {
