@@ -8,6 +8,7 @@ export class SpeacialColumnServiceService {
 
   private ZHUANLAN_URL: string = `http://localhost:8087/article/author/1`;
   private META_URL: string = `http://localhost:8087/meta`;
+  private TAG_URL: string = `http://localhost:8087/t/7`
 
   constructor(private _http: Http) { }
 
@@ -21,6 +22,13 @@ export class SpeacialColumnServiceService {
     return this._http.get(this.META_URL)
       .map(this.extractData)
       .catch(this.handleError)
+  }
+
+  // 通过文章标签获取文章列表
+  getArticleByMeta(): Observable<any[]> {
+    return this._http.get(this.TAG_URL)
+    .map(this.extractData)
+    .catch(this.handleError);
   }
 
   private extractData(res) {

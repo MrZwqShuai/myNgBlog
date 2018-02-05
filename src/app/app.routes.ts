@@ -4,6 +4,7 @@ import { HomeComponent } from './pages/home/home.component';
 import { SpeacialColumnComponent } from './pages/speacial-column/speacial-column.component';
 import { AboutComponent } from './pages/about/about.component';
 import { DetailComponent } from './pages/detail/detail.component';
+import { TagComponent } from './pages/tag/tag.component';
 
 export const ROUTE_CONFIG = [{
   path: '',
@@ -21,4 +22,7 @@ export const ROUTE_CONFIG = [{
 }, {
   path: 'article/p',
   component: DetailComponent
+}, {
+  path: 't',
+  component: TagComponent
 }]

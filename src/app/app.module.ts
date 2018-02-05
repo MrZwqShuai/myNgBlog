@@ -28,7 +28,6 @@ import { SearchPipe } from './pages/pipe/search.pipe';
 
 import { ROUTE_CONFIG } from './app.routes';
 import { TagComponent } from './pages/tag/tag.component';
-import { TagleftComponent } from './pages/tag/tag-left/tagleft/tagleft.component';
 import { TagLeftComponent } from './pages/tag/tag-left/tag-left.component';
 import { TagRightComponent } from './pages/tag/tag-right/tag-right.component';
 
@@ -48,7 +47,6 @@ import { TagRightComponent } from './pages/tag/tag-right/tag-right.component';
     StringSlicePipe,
     SearchPipe,
     TagComponent,
-    TagleftComponent,
     TagLeftComponent,
     TagRightComponent
   ],

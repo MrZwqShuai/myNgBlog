@@ -1,6 +1,7 @@
 import { Component, OnInit, ElementRef, Renderer2 } from '@angular/core';
 import { Router } from '@angular/router';
 import { SpeacialColumnServiceService } from '../../../pages/service/speacial-column.service';
+import { COLUMNNAVLIST } from '../../static-data/static-nav';
 
 @Component({
   selector: 'app-column-left',
@@ -9,22 +10,22 @@ import { SpeacialColumnServiceService } from '../../../pages/service/speacial-co
 })
 export class ColumnLeftComponent implements OnInit {
 
-  public navList = [{ title: '推荐文章', key: 0 }, { title: '热门文章', key: 1 }, { title: '最新文章', key: 2 }];
+  public navList = COLUMNNAVLIST;
   // 控制li切换的样式
   public idx: number = 0;
   public opacityArctContainer: number = 1;
-  private articleEl: ElementRef;
-  private errorSign: string | boolean;
+  public articleEl: ElementRef;
+  public errorSign: string | boolean;
   public notes: Array<Object> = [
-    {
-      author: '江流儿',
-      createDate: '2018/1/22',
-      title: '这是标题',
-      content: '      ❤ 有读者在后台问我，说:“他觉得大学上得他挺无奈的。刚上大学的他，完全没了高中的上进努力，平时上课要么睡觉，要么玩手机，老师讲的什么内容也几乎一无所知，期末考试全靠拿着厚厚...',
-      meta: '这是标签'
-    }
+    // {
+    //   author: '江流儿',
+    //   createDate: '2018/1/22',
+    //   title: '这是标题',
+    //   content: '      ❤ 有读者在后台问我，说:“他觉得大学上得他挺无奈的。刚上大学的他，完全没了高中的上进努力，平时上课要么睡觉，要么玩手机，老师讲的什么内容也几乎一无所知，期末考试全靠拿着厚厚...',
+    //   meta: '这是标签'
+    // }
   ]
-  constructor(private router: Router, private elementRef: ElementRef, private renderer: Renderer2, private _speacialColumnServiceService: SpeacialColumnServiceService) {
+  constructor(public router: Router, public elementRef: ElementRef, public renderer: Renderer2, public _speacialColumnServiceService: SpeacialColumnServiceService) {
   }
 
   ngOnInit() {

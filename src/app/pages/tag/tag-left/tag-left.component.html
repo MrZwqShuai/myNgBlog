@@ -1,3 +1,51 @@
-<p>
-  tag-left works!
-</p>
+<div class="tag-left-container">
+  <div class="tag-main-top">
+    <a><img src="" alt=""></a>
+  </div>
+  <div class="tab-dashboard">
+    <ul class="tab-ul">
+      <li *ngFor="let nav of navList,let i = index" [ngClass]="{'nav-active': i==idx}" (click)="selectNav(i)">{{nav.title}}</li>
+    </ul>
+    <div class="line-tab">
+    </div>
+  </div>
+  <div class="article-list-container">
+      <div class="article-note" *ngFor="let note of notes" (click)="goNoteDetails(note.article_id, note.title)">
+    <div class="article-container-left">
+      <div class="article-header-author">
+        <div class="author-img">
+          <img src="" alt="">
+        </div>
+        <div class="article-details">
+        <span class="author-name">{{note.author}}</span>
+        <span class="create-time">{{note.createDate | date:'yyyy-MM-dd'}}</span>
+        </div>
+      </div>
+      <a [routerLink]="['/article']" [queryParams]="{articleId: note.articleId}" routerLinkActive="scaleActive" class="title">{{note.title}}</a>
+      <div class="content cursor">{{note.content | StringSlicePipe:100}}</div>
+      <div class="meta">
+        <a href="#" class="note-tag">{{note.name}}</a>
+        <a href="#" class="note-view">{{note.viewNum}}</a>
+        <a href="#" class="note-comment">200</a>
+        <a href="#" class="note-like">300</a>
+      </div>
+    </div>
+    <div class="article-container-right">
+      <div class="article-thumbnail">
+          <img src="https://upload-images.jianshu.io/upload_images/2759192-e06b647fc555892f.jpg?imageMogr2/auto-orient/strip|imageView2/1/w/300/h/240" alt="">
+    </div>  
+  </div>
+    </div>
+  </div>
+  <!--加载更多-->
+  <div class="load-more-container">
+    <div class="load-more">
+      <span>点击加载更多内容</span>
+    </div>
+  </div>
+  <!-- 提示框 -->
+  <div class="error-box" *ngIf="errorSign">
+    <nz-alert [nzType]="'error'" [nzMessage]="errorSign" nzShowIcon [nzBanner]=true [nzCloseText]="'关闭'">
+    </nz-alert>
+  </div>
+</div>  

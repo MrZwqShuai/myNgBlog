@@ -1,0 +1,139 @@
+.tag-left-container {
+  width: 46rem;
+  height: auto;
+  float: left;
+  .tab-dashboard {
+    .tab-ul {
+      width: 21rem;
+      overflow: hidden;
+    }
+    li {
+      width: 33%;
+      height: 3rem;
+      float: left;
+      line-height: 3rem;
+      text-align: center;
+      border-bottom: 1px solid rgba(158, 158, 158, 0.37);
+      color: #009688;
+    }
+    li:hover {
+      background-color: #2196F3;
+      color: #fff;
+    }
+    .nav-active {
+      border-top: 1px solid rgba(158, 158, 158, 0.37);
+      border-left: 1px solid rgba(158, 158, 158, 0.37);
+      border-right: 1px solid rgba(158, 158, 158, 0.37);
+      border-bottom: none;
+      color: #555;
+    }
+  }
+  .article-list-container {
+    position: relative;
+    width: 100%;
+    margin-top: 1.6rem;
+    .article-note {
+      position: relative;
+      width: 100%;
+    }
+    .article-container-left {
+      width: 100%;
+      min-height: 10rem;
+      border-bottom: 1px solid rgba(158, 158, 158, 0.37);
+      .article-header-author {
+        .author-name {
+          float: left;
+          font-size: 1rem;
+          color: #333;
+        }
+        .create-time {
+          color: #969696
+        }
+      }
+      .article-details {
+        margin-top: .4rem;
+      }
+      .title {
+        width: 100%;
+        display: inline-block;
+        margin: .4rem auto;
+        font-size: 1.2rem;
+        font-weight: bold;
+        color: #333;
+      }
+      .content {
+        width: 37rem;
+        word-wrap: break-word;
+      }
+      .meta {
+        margin: 0.4rem 0 1.5rem;
+        .note-tag {
+          font-size: .8rem;
+          color: #ec6149;
+        }
+        .note-view,
+        .note-comment,
+        .note-like {
+          margin-left: 1rem;
+          font-size: .8rem;
+          color: #b4b4b4;
+        }
+        .note-view,
+        .note-comment,
+        .note-like:hover {
+          color: #787878;
+        }
+      }
+    }
+    .article-container-right {
+      position: absolute;
+      right: 0;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 9rem;
+      .article-thumbnail {
+        width: 9rem;
+        height: 9rem;
+        img {
+          width: 100%;
+          height: auto;
+        }
+      }
+    }
+  }
+  .error-box {
+    position: fixed;
+    width: 100%;
+    left: 0;
+    top: 0;
+    z-index: 10;
+  } // 加载更多
+  .load-more-container {
+    margin-top: 2rem;
+    .load-more {
+      text-align: center;
+      span {
+        display: inline-block;
+        height: 3rem;
+        padding: 0 .8rem;
+        line-height: 3rem;
+        border-radius: 1.5rem;
+        border: 1px solid #ddd;
+        font-size: .4rem;
+      }
+      span:hover {
+        border: 1px solid #999;
+      }
+    }
+  }
+}
+
+// common css
+.cursor {
+  cursor: pointer;
+}
+
+// routeractive css
+.scaleActive {
+  font-size: red;
+}

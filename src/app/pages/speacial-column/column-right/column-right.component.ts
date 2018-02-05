@@ -1,4 +1,5 @@
 import { Component, OnInit, AfterViewInit, ElementRef, Renderer, Renderer2 } from '@angular/core';
+import { Router } from '@angular/router';
 import { SpeacialColumnServiceService } from '../../service/speacial-column.service';
 
 @Component({
@@ -58,12 +59,11 @@ export class ColumnRightComponent implements OnInit {
   private shadow: HTMLElement;
 
   constructor(private _speacialColumnServiceService: SpeacialColumnServiceService, private _elementRef: ElementRef, 
-    private _renderer: Renderer, private _renderer2: Renderer2) { }
+    private _renderer: Renderer, private _renderer2: Renderer2, private _router: Router) { }
 
   ngOnInit() {
     this.metaData =this.channels;
     this.cubeMeta = this._elementRef.nativeElement.querySelector('.channel-sz');
-    console.log(2, this.cubePlane);
     this.getAllMeta();
     this.listenerWindowKeyUp();
   }
@@ -75,6 +75,7 @@ export class ColumnRightComponent implements OnInit {
   getAllMeta() {
     this._speacialColumnServiceService.getAllMeta()
       .subscribe((metaData: any) => {
+        this.metaData = metaData.data
         this.channels = metaData.data.slice(0, 6);
       })
   }
@@ -104,7 +105,6 @@ export class ColumnRightComponent implements OnInit {
     // this.mouseMove = null;
     if(this.forMouseUp) {
       this.forMouseMove = false;
-      console.log('松开鼠标');
     }
   }
   
@@ -142,7 +142,6 @@ export class ColumnRightComponent implements OnInit {
     window.onmouseup = (e: MouseEvent):void => {
       if(this.forMouseUp) {
         this.forMouseMove = false;
-        console.log('松开鼠标');
       }
     }
   }
@@ -154,6 +153,6 @@ export class ColumnRightComponent implements OnInit {
   }
 
   getArticleByTag(tagId) {
-    alert(tagId);
+    this._router.navigateByUrl('t');
   }
 }
