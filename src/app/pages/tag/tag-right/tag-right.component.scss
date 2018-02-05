@@ -1,0 +1,21 @@
+.tag-right-container{
+    width: 26rem;
+    margin-left: 5rem;
+    float: left;
+    .title {
+        display: flex;
+        height: 2rem;
+        justify-content: center;
+        line-height: .2rem;
+        align-content: center;
+        span{
+            flex: 1;
+            text-align: center;
+            color: #969696;
+        }
+        .line{
+            height: 1px;
+            background-color: #999;
+        }
+    }
+}

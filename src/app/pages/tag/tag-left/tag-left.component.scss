@@ -2,7 +2,33 @@
   width: 46rem;
   height: auto;
   float: left;
+  .tag-main-top{
+    width: 100%;
+    height: 9.5rem;
+    .avatar-collection{
+      width: 7rem;
+      height: 7rem;
+      float: left;
+      a img{
+        width: 100%;
+        height: auto;
+        border-radius: 1rem;
+      }
+    }
+    .meta-info{
+      margin-left: 2rem;
+      float: left;
+      .title{
+        font-size: 3rem;
+      }
+      .total{
+        font-size: 1.4rem;
+        color: #969696;
+      }
+    }
+  }
   .tab-dashboard {
+    clear: left;
     .tab-ul {
       width: 21rem;
       overflow: hidden;
