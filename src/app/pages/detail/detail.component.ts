@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { DomSanitizer } from '@angular/platform-browser';
 
 import { DetailService } from '../../pages/service/detail.service';
+import { DomAdapter } from '@angular/platform-browser/src/dom/dom_adapter';
 
 @Component({
   selector: 'app-detail',
@@ -13,8 +15,9 @@ export class DetailComponent implements OnInit {
   admin: String = 'admin';
   article: any = '';
   private sub: any;
+  private content: String = "<p>呜呜呜呜呜呜<p>";
 
-  constructor(private _detailService: DetailService, private activatedRoute: ActivatedRoute) { }
+  constructor(private _detailService: DetailService, private activatedRoute: ActivatedRoute, private _DomSanitizer: DomSanitizer) { }
 
   ngOnInit() {
     // this.activatedRoute.snapshot.params['articleId'];
@@ -36,6 +39,8 @@ export class DetailComponent implements OnInit {
       .subscribe(
       (article: any) => {
         this.article = article.data;
+        // 去除[innerHTML] warning
+        this.article.content = this._DomSanitizer.bypassSecurityTrustHtml(article.data.content);
       }
       )
   }

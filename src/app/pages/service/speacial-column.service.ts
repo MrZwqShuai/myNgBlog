@@ -6,7 +6,7 @@ import 'rxjs/RX';
 @Injectable()
 export class SpeacialColumnServiceService {
 
-  private ZHUANLAN_URL: string = `http://localhost:8087/article/1`;
+  private ZHUANLAN_URL: string = `http://localhost:8087/article/author/1`;
   private META_URL: string = `http://localhost:8087/meta`;
 
   constructor(private _http: Http) { }

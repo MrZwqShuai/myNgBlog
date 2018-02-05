@@ -21,7 +21,7 @@
       <a [routerLink]="['/article']" [queryParams]="{articleId: note.articleId}" routerLinkActive="scaleActive" class="title">{{note.title}}</a>
       <div class="content cursor">{{note.content | StringSlicePipe:100}}</div>
       <div class="meta">
-        <a href="#" class="note-tag">杂谈</a>
+        <a href="#" class="note-tag">{{note.name}}</a>
         <a href="#" class="note-view">{{note.viewNum}}</a>
         <a href="#" class="note-comment">200</a>
         <a href="#" class="note-like">300</a>

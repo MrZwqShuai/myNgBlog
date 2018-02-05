@@ -32,10 +32,14 @@
     }
     .article-content {
         margin-top: 2rem;
-        .content-p{
+        .content{
             margin-bottom: 2rem;
             font-size: 1rem;
             letter-spacing: 0.1rem;
+            img{
+                width: 100% !important;
+                height: auto;
+            }
         }
     }
 }

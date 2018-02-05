@@ -152,4 +152,8 @@ export class ColumnRightComponent implements OnInit {
     this._renderer2.setStyle(target, 'transform', `rotatex(275deg) rotateY(1deg) translateY(47px) translateZ(172px) scale(${.6+Math.random()-0.5})`);
     this._renderer2.setStyle(target, 'transition', 'all 1.5s ease');
   }
+
+  getArticleByTag(tagId) {
+    alert(tagId);
+  }
 }

@@ -18,12 +18,8 @@
       <img src="" alt="">
     </div>
     <div class="article-content-body">
-      <p class="content-p">
-          {{article.content}}
-      </p>
-      <p class="content-p">
-          {{article.content}}
-      </p>
+      <div class="content" [innerHTML]="article.content">
+      </div>
     </div>
   </div>
 </div>
