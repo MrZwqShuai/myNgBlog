@@ -30,6 +30,7 @@ import { ROUTE_CONFIG } from './app.routes';
 import { TagComponent } from './pages/tag/tag.component';
 import { TagLeftComponent } from './pages/tag/tag-left/tag-left.component';
 import { TagRightComponent } from './pages/tag/tag-right/tag-right.component';
+import { EditorComponent } from './pages/editor/editor.component';
 
 @NgModule({
   declarations: [
@@ -48,7 +49,8 @@ import { TagRightComponent } from './pages/tag/tag-right/tag-right.component';
     SearchPipe,
     TagComponent,
     TagLeftComponent,
-    TagRightComponent
+    TagRightComponent,
+    EditorComponent
   ],
   imports: [
     BrowserModule,

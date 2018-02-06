@@ -4,8 +4,8 @@
     <a><img src="https://upload.jianshu.io/collections/images/13/%E5%95%8A.png?imageMogr2/auto-orient/strip|imageView2/1/w/240/h/240" alt=""></a>
     </div>
     <div class="meta-info">
-      <h4 class="title">Javascript</h4>
-      <a>共20篇</a>
+      <h4 class="title">{{metaName}}</h4>
+      <a>共{{totalAt}}篇</a>
     </div>
   </div>
   <div class="tab-dashboard">
@@ -27,7 +27,7 @@
         <span class="create-time">{{note.createDate | date:'yyyy-MM-dd'}}</span>
         </div>
       </div>
-      <a [routerLink]="['/article']" [queryParams]="{articleId: note.articleId}" routerLinkActive="scaleActive" class="title">{{note.title}}</a>
+      <a routerLinkActive="scaleActive" class="title">{{note.title}}</a>
       <div class="content cursor">{{note.content | StringSlicePipe:100}}</div>
       <div class="meta">
         <a href="#" class="note-tag">{{note.name}}</a>

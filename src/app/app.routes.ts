@@ -5,6 +5,7 @@ import { SpeacialColumnComponent } from './pages/speacial-column/speacial-column
 import { AboutComponent } from './pages/about/about.component';
 import { DetailComponent } from './pages/detail/detail.component';
 import { TagComponent } from './pages/tag/tag.component';
+import { EditorComponent } from './pages/editor/editor.component';
 
 export const ROUTE_CONFIG = [{
   path: '',
@@ -25,4 +26,7 @@ export const ROUTE_CONFIG = [{
 }, {
   path: 't',
   component: TagComponent
+}, {
+  path: 'editor',
+  component: EditorComponent
 }]

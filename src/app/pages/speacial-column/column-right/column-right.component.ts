@@ -152,7 +152,12 @@ export class ColumnRightComponent implements OnInit {
     this._renderer2.setStyle(target, 'transition', 'all 1.5s ease');
   }
 
-  getArticleByTag(tagId) {
-    this._router.navigateByUrl('t');
+  getArticleByTag(tag) {
+    this._router.navigate(['t'], {
+      queryParams: {
+        name: tag.name,
+        id: tag.id
+      }
+    });
   }
 }
