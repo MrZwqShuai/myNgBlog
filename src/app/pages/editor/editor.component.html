@@ -5,8 +5,18 @@
   </header>
   <div class="richTextEditor-main">
     <!-- 富文本编辑菜单 -->
-    <div class="richTextEditor-main-menu"></div>
+    <div class="richTextEditor-main-menu">
+      <ul>
+        <li *ngFor="let menu of menuCollection" (click)="changeInput(menu.feature)">{{menu.name}}</li>
+      </ul>
+    </div>
     <!-- 富文本编辑body -->
-    <div class="richTextEditor-main-body"></div>
+    <div class="richTextEditor-main-body">
+      <div id="editor">
+        <div class="edit-area" contentEditable="true">
+          www
+        </div>
+      </div>
+    </div>
   </div>
 </div>
