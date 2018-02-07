@@ -42,13 +42,78 @@
           height: 100%;
           border: 1px solid rgba(153, 153, 153, 0.19);
         }
-        .edit-area[contenteditable]:before {
+        .edit-area:before {
           content: attr(placeholder);
           font-size: 1.2rem;
           color: #bbb;
         }
         .edit-area:focus:before {
           content: none
+        }
+      }
+    }
+  }
+  .richTextEditor-popup-container{
+     position: fixed;
+     width: 100%;
+     height: 100%;
+     top: 0;
+     left: 0;
+     background-color: hsla(0,0%,100%,.8);
+     z-index: 699;
+  }
+  .richTextEditor-popup{
+    .popup{
+      position: fixed;
+      width: 35rem;
+      height: 13rem;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background-color: #fff;
+      box-shadow: 0 2px 8px rgba(0,0,0,.3);
+      z-index: 700;
+      .popup-title{
+        margin-top: 1rem;
+        font-size: 1.5rem;
+        font-weight: 600;
+        text-align: center;
+        color: #333;
+        cursor: default;
+      }
+      .close{
+        position: absolute;
+        top: 2px;
+        right: 10px;
+      }
+      .popup-body{
+        width: 24rem;
+        height: 3rem;
+        margin: 2rem auto 0;
+        border: 1px solid rgba(33, 150, 243, 0.35);
+     .website-url{
+        width: 100%;
+        height: 100%;
+        text-indent: 1rem;
+        outline: none;
+        border: none;
+    }
+      }
+      .popup-footer{
+        margin-top: 2rem;
+        padding-right: 1.5rem;
+        text-align: end;
+        span{
+          display: inline-block;
+        }
+        .cancel{
+          margin-right: 1.2rem;
+        }
+        .sure{
+          padding: .2rem .3rem;
+          border: 1px solid #1288ff;
+          border-radius: .2rem;
+          color: #1288ff;
         }
       }
     }

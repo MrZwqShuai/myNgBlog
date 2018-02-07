@@ -7,7 +7,7 @@
     <div class="richTextEditor-main-menu">
       <ul>
         <li *ngFor="let menu of menuCollection; let i=index">
-            <input type="color" class="text-color" [(ngModel)]="color" *ngIf="menu.feature==showColorPicker" (click)="changeInput(menu.feature, color)">
+            <input type="color" class="text-color" [(ngModel)]="color" *ngIf="menu.feature==showColorPicker" >
           <button (click)="changeInput(menu.feature)" class="menu-btn">{{menu.name}}</button>
         </li>
       </ul>
@@ -15,9 +15,28 @@
     <!-- 富文本编辑body -->
     <div class="richTextEditor-main-body">
       <div id="editor">
-        <div class="edit-area" contentEditable="true" placeholder="请输入正文...">
+        <div class="edit-area" contentEditable="true" >
+        <p><br /></p>
         </div>
       </div>
     </div>
+  </div>
+  <!--超链接弹窗-->
+  <div class="richTextEditor-popup-container" *ngIf="isInsertHyperlink">
+  <div class="richTextEditor-popup">
+    <div class="popup">
+      <div class="popup-header">
+        <div class="popup-title">插入链接</div>
+        <a class="close" (click)="closeUrlPopup()">关闭</a>
+      </div>
+      <div class="popup-body">
+        <input type="text" placeholder="输入网址..." class="website-url" [(ngModel)]="hyperlink">
+      </div>
+      <div class="popup-footer">
+        <span class="cancel" (click)="closeUrlPopup()">取消</span>
+        <button class="sure" (click)="insertHyperlink('createLink', false, hyperlink)">确定</button>
+      </div>
+    </div>
+  </div>
   </div>
 </div>
