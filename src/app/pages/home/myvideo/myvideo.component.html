@@ -1,8 +1,8 @@
 <div class="video-container">
     <video id="myvideo" src="http://www.w3school.com.cn/i/movie.ogg" width="90%" height="56.2%"></video>
     <a class="play">
-        <img src="../../../../assets/images/play.png" alt="" *ngIf="playStatus; else pauseStatus" (click)="playVideo()">
-        <ng-template #pauseStatus><img src="../../../../assets/images/pause.png" alt="" (click)="pauseVideo()"></ng-template>
+        <img src="assets/images/play.png" alt="" *ngIf="playStatus; else pauseStatus" (click)="playVideo()">
+        <ng-template #pauseStatus><img src="assets/images/pause.png" alt="" (click)="pauseVideo()"></ng-template>
     </a>
     <a class="full-screen" (click)="showFullVideo()">
         <img src="assets/images/full-screen.png" alt="点击全屏">

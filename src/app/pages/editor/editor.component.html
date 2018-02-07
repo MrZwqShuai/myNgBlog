@@ -1,4 +1,3 @@
-
 <div id="richTextEditor">
   <header class="richTextEditor-header">
     <h2 class="title">随笔</h2>
@@ -7,14 +6,16 @@
     <!-- 富文本编辑菜单 -->
     <div class="richTextEditor-main-menu">
       <ul>
-        <li *ngFor="let menu of menuCollection" (click)="changeInput(menu.feature)">{{menu.name}}</li>
+        <li *ngFor="let menu of menuCollection; let i=index">
+            <input type="color" class="text-color" [(ngModel)]="color" *ngIf="menu.feature==showColorPicker" (click)="changeInput(menu.feature, color)">
+          <button (click)="changeInput(menu.feature)" class="menu-btn">{{menu.name}}</button>
+        </li>
       </ul>
     </div>
     <!-- 富文本编辑body -->
     <div class="richTextEditor-main-body">
       <div id="editor">
-        <div class="edit-area" contentEditable="true">
-          www
+        <div class="edit-area" contentEditable="true" placeholder="请输入正文...">
         </div>
       </div>
     </div>
