@@ -11,6 +11,12 @@
             <input type="color" class="text-color" [(ngModel)]="color" *ngIf="menu.feature==showColorPicker">
           <button (click)="changeInput(menu.feature)" class="menu-btn">{{menu.name}}</button>
         </li>
+        <li>
+          <label for="file" class="file-btn">
+            <a class="file"></a>
+          </label>
+          <input type="file" id="file" class="file-input" (change)="selectImg()">
+        </li>
       </ul>
     </div>
     <!-- 富文本编辑body -->

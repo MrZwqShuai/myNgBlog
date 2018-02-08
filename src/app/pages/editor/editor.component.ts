@@ -43,13 +43,11 @@ export class EditorComponent implements OnInit {
   }, {
     name: '分割线',
     feature: 'insertHorizontalRule'
-  }, {
-    name: '图片',
-    feature: 'insertImage'
   }];
   private placeholder: string = '请输入内容';
   private editor: HTMLElement;
   private showColorPicker: string = 'foreColor';
+  private filePicker: string = 'insertImage'
   private color: string;
   private fontSize: number = 5;
   private backgroundColor: string = '#999';
@@ -60,11 +58,15 @@ export class EditorComponent implements OnInit {
   private endContainer: any = '';
   private selection: any;
   private range: any;
-  private cursorOffset: Object = {
+  private cursorOffset: {
+    startOffset: number,
+    endOffset: number
+  } = {
     startOffset: 0,
     endOffset: 0
   };
   private title: string | number = '';
+  private isHideFileInput: boolean = false;
 
   constructor(private _renderer: Renderer, private _elementRef: ElementRef, private _speacialColumnServiceService: SpeacialColumnServiceService) {
   }
@@ -110,9 +112,6 @@ export class EditorComponent implements OnInit {
       case 'insertHorizontalRule':
         this.editArea(aCommandName, false, null);
         break;
-      case 'insertImage':
-        this.editArea(aCommandName, false, 'https://angular.cn/assets/images/logos/angular/logo-nav@2x.png');
-        break;
       default:
     }
     console.log(this.color, '---');
@@ -157,6 +156,10 @@ export class EditorComponent implements OnInit {
     this.range = this.selection.getRangeAt(0);
     this.range.setStart(this.startContainer, this.cursorOffset.startOffset);
     this.range.setEnd(this.endContainer, this.cursorOffset.endOffset);
+  }
+
+  selectImg() {
+    console.log('选择图片', event.currentTarget.files[0]);
   }
 
   // 保存文章
