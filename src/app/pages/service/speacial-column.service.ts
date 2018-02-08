@@ -8,6 +8,7 @@ export class SpeacialColumnServiceService {
 
   private ZHUANLAN_URL: string = `http://localhost:8087/article/author/1`;
   private META_URL: string = `http://localhost:8087/meta`;
+  private POSTARTICLE_URL: string = `http://localhost:8087/article/add`;
   // private TAG_URL: string = `http://localhost:8087/t/7`
 
   constructor(private _http: Http) { }
@@ -30,6 +31,18 @@ export class SpeacialColumnServiceService {
     return this._http.get(TAG_URL)
     .map(this.extractData)
     .catch(this.handleError);
+  }
+
+  // 用户增加一篇文章
+  saveOneArticleByUser(title, content): Observable<any[]> {
+    let body = {
+      title: title,
+      content: content
+    }
+    console.log(body, String(body.content));
+    return this._http.post(this.POSTARTICLE_URL,body)
+      .map(this.extractData)
+      .catch(this.handleError);
   }
 
   private extractData(res) {

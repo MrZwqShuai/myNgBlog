@@ -1,12 +1,17 @@
-import { Component, OnInit, AfterViewInit,ViewChild, Renderer, ElementRef } from '@angular/core';
+import { Component, OnInit, AfterViewInit, ViewChild, Renderer, ElementRef } from '@angular/core';
+import { SpeacialColumnServiceService } from '../service/speacial-column.service';
 
 @Component({
   selector: 'app-editor',
   templateUrl: './editor.component.html',
   styleUrls: ['./editor.component.scss']
 })
+
+
 export class EditorComponent implements OnInit {
-  @ViewChild('textColor') textColor: ElementRef;
+
+  @ViewChild('myInput') myInput: ElementRef;
+  @ViewChild('Editor') myEditor: ElementRef;
 
   private menuCollection: Array<Object> = [{
     name: '加粗',
@@ -15,8 +20,14 @@ export class EditorComponent implements OnInit {
     name: '斜体',
     feature: 'italic'
   }, {
+    name: '双引号',
+    feature: 'formatBlock'
+  }, {
     name: '下划线',
     feature: 'underline'
+  }, {
+    name: '居中',
+    feature: 'justifyCenter'
   }, {
     name: 'h1',
     feature: 'fontSize'
@@ -47,8 +58,15 @@ export class EditorComponent implements OnInit {
   private hyperlink: any = '';
   private startContainer: any = '';
   private endContainer: any = '';
+  private selection: any;
+  private range: any;
+  private cursorOffset: Object = {
+    startOffset: 0,
+    endOffset: 0
+  };
+  private title: string | number = '';
 
-  constructor(private _renderer: Renderer, private _elementRef: ElementRef) { 
+  constructor(private _renderer: Renderer, private _elementRef: ElementRef, private _speacialColumnServiceService: SpeacialColumnServiceService) {
   }
 
   ngOnInit() {
@@ -57,46 +75,44 @@ export class EditorComponent implements OnInit {
   ngAfterViewInit() {
   }
 
-  
+
   changeInput(aCommandName: string) {
     switch (aCommandName) {
       case 'insertHTML':
-      break;
+        break;
       case 'bold':
-      this.editArea(aCommandName, false, null);
-      break;
+        this.editArea(aCommandName, false, null);
+        break;
       case 'italic':
-      this.editArea(aCommandName, false, null);
-      break;
+        this.editArea(aCommandName, false, null);
+        break;
+      case 'formatBlock':
+        this.editArea(aCommandName, false, 'p');
+        break;
       case 'underline':
-      this.editArea(aCommandName, false, null);
-      break;
+        this.editArea(aCommandName, false, null);
+        break;
+      case 'justifyCenter':
+        this.editArea(aCommandName, false, null);
+        break;
       case 'hiliteColor':
-      this.editArea(aCommandName, false, this.backgroundColor);
-      break;
+        this.editArea(aCommandName, false, this.backgroundColor);
+        break;
       case 'fontSize':
-      this.editArea(aCommandName, false, this.fontSize);
-      break;
+        this.editArea(aCommandName, false, this.fontSize);
+        break;
       case 'foreColor':
-      this.editArea(aCommandName, false, this.color);
-      break;
+        this.editArea(aCommandName, false, this.color);
+        break;
       case 'createLink':
-      this.isInsertHyperlink = true;
-    let selection = window.getSelection();
-    let range = selection.getRangeAt(0);
-    range.setStart(range.startContainer, 1);
-    range.setEnd(range.endContainer, 3);
-    this.startContainer = range.startContainer;
-    this.endContainer = range.endContainer;
-    console.log(range);
-      // this.insertHyperlink(aCommandName, false, this.hyperlink);
-      break;    
+        this.createLink();
+        break;
       case 'insertHorizontalRule':
-      this.editArea(aCommandName, false, null);
-      break; 
+        this.editArea(aCommandName, false, null);
+        break;
       case 'insertImage':
-      this.editArea(aCommandName, false, 'https://angular.cn/assets/images/logos/angular/logo-nav@2x.png');
-      break;
+        this.editArea(aCommandName, false, 'https://angular.cn/assets/images/logos/angular/logo-nav@2x.png');
+        break;
       default:
     }
     console.log(this.color, '---');
@@ -107,26 +123,50 @@ export class EditorComponent implements OnInit {
     let result = document.execCommand(aCommandName, aShowDefaultUI, aValueArgument);
     // console.log('是否成功', range);
   }
- 
+
   insertHyperlink(aCommandName: string, aShowDefaultUI: boolean, aValueArgument: any) {
     this.inputLink();
     let result = document.execCommand(aCommandName, aShowDefaultUI, aValueArgument);
     console.log(aCommandName, aShowDefaultUI, aValueArgument, result);
-    if(result) {
+    if (result) {
       this.isInsertHyperlink = false;
     }
   }
-  
+
+  createLink() {
+    this.selection = window.getSelection();
+    this.range = this.selection.getRangeAt(0);
+    this.startContainer = this.range.startContainer;
+    this.endContainer = this.range.endContainer;
+    this.cursorOffset = {
+      startOffset: this.range.startOffset,
+      endOffset: this.range.endOffset,
+    }
+    if (this.cursorOffset.endOffset - this.cursorOffset.startOffset > 0) {
+      this.isInsertHyperlink = true;
+    }
+  }
+
   closeUrlPopup() {
     this.isInsertHyperlink = false;
   }
 
   inputLink() {
-    let selection = window.getSelection();
-    let range = selection.getRangeAt(0);
-    console.log(range);
-    range.setStart(this.startContainer, 1);
-    range.setEnd(this.endContainer, 3); 
+    this.myEditor.nativeElement.focus();
+    console.log(this.selection, 'this.selection');
+    this.range = this.selection.getRangeAt(0);
+    this.range.setStart(this.startContainer, this.cursorOffset.startOffset);
+    this.range.setEnd(this.endContainer, this.cursorOffset.endOffset);
+  }
+
+  // 保存文章
+  saveArticle() {
+    console.log(this.myEditor.nativeElement.innerHTML, this.title);
+    let content = this.myEditor.nativeElement.innerHTML;
+    this._speacialColumnServiceService.saveOneArticleByUser(this.title, content)
+      .subscribe((data) => {
+        console.log(data);
+      })
   }
 
 }

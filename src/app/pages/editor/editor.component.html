@@ -1,13 +1,14 @@
 <div id="richTextEditor">
   <header class="richTextEditor-header">
     <h2 class="title">随笔</h2>
+    <button (click)="saveArticle()">保存</button>
   </header>
   <div class="richTextEditor-main">
     <!-- 富文本编辑菜单 -->
     <div class="richTextEditor-main-menu">
       <ul>
         <li *ngFor="let menu of menuCollection; let i=index">
-            <input type="color" class="text-color" [(ngModel)]="color" *ngIf="menu.feature==showColorPicker" >
+            <input type="color" class="text-color" [(ngModel)]="color" *ngIf="menu.feature==showColorPicker">
           <button (click)="changeInput(menu.feature)" class="menu-btn">{{menu.name}}</button>
         </li>
       </ul>
@@ -15,7 +16,10 @@
     <!-- 富文本编辑body -->
     <div class="richTextEditor-main-body">
       <div id="editor">
-        <div class="edit-area" contentEditable="true" >
+        <div class="edit-title">
+          <input type="text" class="title-inp" placeholder="输入标题..." [(ngModel)]="title">
+        </div>
+        <div class="edit-area" contentEditable="true" #Editor>
         <p><br /></p>
         </div>
       </div>
@@ -30,7 +34,7 @@
         <a class="close" (click)="closeUrlPopup()">关闭</a>
       </div>
       <div class="popup-body">
-        <input type="text" placeholder="输入网址..." class="website-url" [(ngModel)]="hyperlink">
+        <input type="text" placeholder="输入网址..." class="website-url" [(ngModel)]="hyperlink" #myInput>
       </div>
       <div class="popup-footer">
         <span class="cancel" (click)="closeUrlPopup()">取消</span>

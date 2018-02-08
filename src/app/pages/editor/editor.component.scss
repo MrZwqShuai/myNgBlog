@@ -37,10 +37,22 @@
       #editor {
         width: 100%;
         height: 100%;
+        .edit-title{
+          width: 100%;
+          height: 4rem;
+          .title-inp{
+            width: 100%;
+            height: 100%;
+            text-indent: 2rem;
+            border: 1px solid rgba(153, 153, 153, 0.19);
+            outline: none;
+          }
+        }
         .edit-area {
           width: 100%;
           height: 100%;
           border: 1px solid rgba(153, 153, 153, 0.19);
+          outline: none;
         }
         .edit-area:before {
           content: attr(placeholder);
@@ -114,6 +126,7 @@
           border: 1px solid #1288ff;
           border-radius: .2rem;
           color: #1288ff;
+          background: none;
         }
       }
     }
