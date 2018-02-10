@@ -9,6 +9,7 @@ export class SpeacialColumnServiceService {
   private ZHUANLAN_URL: string = `http://localhost:8087/article/author/1`;
   private META_URL: string = `http://localhost:8087/meta`;
   private POSTARTICLE_URL: string = `http://localhost:8087/article/add`;
+  private POSTIMG_URL: string = `http://localhost:8087/article/img/add`;
   // private TAG_URL: string = `http://localhost:8087/t/7`
 
   constructor(private _http: Http) { }
@@ -44,6 +45,17 @@ export class SpeacialColumnServiceService {
       .map(this.extractData)
       .catch(this.handleError);
   }
+
+  /**
+   * 上传图片
+   * @param formdata
+   */
+
+   uploadImg(formData: FormData) {
+     return this._http.post(this.POSTIMG_URL, formData)
+       .map(this.extractData)
+       .catch(this.handleError);
+   }
 
   private extractData(res) {
     let body = res.json();

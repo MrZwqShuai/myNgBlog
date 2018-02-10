@@ -12,6 +12,7 @@ export class EditorComponent implements OnInit {
 
   @ViewChild('myInput') myInput: ElementRef;
   @ViewChild('Editor') myEditor: ElementRef;
+  @ViewChild('uploadImgForm') myUploadImgForm: ElementRef;
 
   private menuCollection: Array<Object> = [{
     name: '加粗',
@@ -43,6 +44,9 @@ export class EditorComponent implements OnInit {
   }, {
     name: '分割线',
     feature: 'insertHorizontalRule'
+  }, {
+    name: '图片',
+    feature: 'insertimage'
   }];
   private placeholder: string = '请输入内容';
   private editor: HTMLElement;
@@ -62,9 +66,9 @@ export class EditorComponent implements OnInit {
     startOffset: number,
     endOffset: number
   } = {
-    startOffset: 0,
-    endOffset: 0
-  };
+      startOffset: 0,
+      endOffset: 0
+    };
   private title: string | number = '';
   private isHideFileInput: boolean = false;
 
@@ -112,6 +116,9 @@ export class EditorComponent implements OnInit {
       case 'insertHorizontalRule':
         this.editArea(aCommandName, false, null);
         break;
+      case 'insertimage':
+        this.editArea(aCommandName, false, 'https://ss0.bdstatic.com/-0U0b8Sm1A5BphGlnYG/kmarketingadslogo/1ba4e76cbb064acee0638f5170e34701_259_194.jpg');
+        break;
       default:
     }
     console.log(this.color, '---');
@@ -120,7 +127,7 @@ export class EditorComponent implements OnInit {
   editArea(aCommandName: string, aShowDefaultUI: boolean, aValueArgument: any) {
     console.log(aCommandName, aShowDefaultUI, aValueArgument);
     let result = document.execCommand(aCommandName, aShowDefaultUI, aValueArgument);
-    // console.log('是否成功', range);
+    console.log('是否成功', result);
   }
 
   insertHyperlink(aCommandName: string, aShowDefaultUI: boolean, aValueArgument: any) {
@@ -158,17 +165,33 @@ export class EditorComponent implements OnInit {
     this.range.setEnd(this.endContainer, this.cursorOffset.endOffset);
   }
 
-  selectImg() {
-    console.log('选择图片', event.currentTarget.files[0]);
+  //上传图片
+  uploadArticleImg() {
+    let eventTarget: EventTarget = <EventTarget>event.currentTarget
+    let img = eventTarget.files[0];
+    let imgFormFile = new FormData(this.myUploadImgForm.nativeElement);
+    imgFormFile.append('file', img);
+    console.log('选择图片', imgFormFile);
+    this._speacialColumnServiceService.uploadImg(imgFormFile)
+      .subscribe(({ data }) => {
+        console.log(data);
+        this.myEditor.nativeElement.focus();
+        let url: string = data.url;
+        let result = this.editArea('insertimage', false, url);
+      }, (error) => {
+        console.log('错误信息', error);
+      })
   }
 
-  // 保存文章
+  // 保存文章 HTML 
   saveArticle() {
     console.log(this.myEditor.nativeElement.innerHTML, this.title);
     let content = this.myEditor.nativeElement.innerHTML;
     this._speacialColumnServiceService.saveOneArticleByUser(this.title, content)
       .subscribe((data) => {
         console.log(data);
+      }, (error) => {
+        console.log(error);
       })
   }
 

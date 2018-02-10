@@ -15,7 +15,9 @@
           <label for="file" class="file-btn">
             <a class="file"></a>
           </label>
-          <input type="file" id="file" class="file-input" (change)="selectImg()">
+          <form action="" enctype="multipart/form-data" #uploadImgForm>
+          <input type="file" accept="image/jpeg, image/png, image/gif, image/jpg" id="file" class="file-input" (change)="uploadArticleImg()">
+        </form>
         </li>
       </ul>
     </div>
@@ -23,7 +25,7 @@
     <div class="richTextEditor-main-body">
       <div id="editor">
         <div class="edit-title">
-          <input type="text" class="title-inp" placeholder="输入标题..." [(ngModel)]="title">
+           <input type="text" class="title-inp" placeholder="输入标题..." [(ngModel)]="title">
         </div>
         <div class="edit-area" contentEditable="true" #Editor>
         <p><br /></p>
