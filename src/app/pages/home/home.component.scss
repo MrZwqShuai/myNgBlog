@@ -1,12 +1,12 @@
 .home-container {
   width: 100%;
-  height: 100rem;
+  margin-top: 2.5rem;
+  margin-bottom: 80px;
 }
 
 .home-banner {
   width: 100%;
   height: auto;
-  border: 1px solid rebeccapurple;
   img {
     width: 100%;
     height: 100%;
@@ -27,7 +27,6 @@
 .home-content {
   display: flex;
   width: 100%;
-  height: 80rem;
   justify-content: center;
   align-content: center;
   .home-content-left {
@@ -55,6 +54,7 @@
           width: 100%;
           height: 100%;
           overflow: hidden;
+          padding-left: 0;
           li {
             width: 33.2%;
             height: 80%;
@@ -77,7 +77,7 @@
     }
     .left-file-technology {
       width: 100%;
-      height: 100%;
+      margin-bottom: 30px;
       .technology-header {
         width: 94%;
         margin: 0 auto;
@@ -86,7 +86,7 @@
         margin: 0 auto;
         h3 {
           text-align: center;
-          background: url('../../../assets/books.png') no-repeat;
+          // background: url('/assets/images/book.png') no-repeat;
           background-size: 1.5rem auto;
           background-position: 1.2rem 2px;
           color: #fff;
@@ -131,7 +131,7 @@
       }
     }
     .center-picture-set {
-      width: 70rem;
+      width: 100%;
       height: 22.5rem;
       margin: 2.5rem auto;
       .pic-box {
@@ -164,4 +164,34 @@
 
 .ant-collapse-content {
   color: #fff !important;
+}
+
+// 样式覆盖
+.slick-slide{
+  height: 400px !important;
+}
+
+// 手机布局
+@media only screen and (max-width: 767px) {
+  .home-content{
+    .home-content-left {
+      display: none;
+    }
+    .home-content-right {
+      display: none;
+    }
+    .home-content-center{
+      .center-vieo-container{
+        width: 100%;
+        height: auto;
+        .video-main{
+          width: 100%;
+        }
+        .video-desc{
+          width: 100%;
+        }
+      }
+    }
+
+  }
 }

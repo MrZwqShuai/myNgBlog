@@ -6,10 +6,11 @@ import 'rxjs/RX';
 @Injectable()
 export class SpeacialColumnServiceService {
 
-  private ZHUANLAN_URL: string = `http://localhost:8087/article/author/1`;
-  private META_URL: string = `http://localhost:8087/meta`;
-  private POSTARTICLE_URL: string = `http://localhost:8087/article/add`;
-  private POSTIMG_URL: string = `http://localhost:8087/article/img/add`;
+  private BASEURL: string = 'http://47.98.137.213:8080/springmvc-study';
+  private ZHUANLAN_URL: string = `${this.BASEURL}/article/author/1`;
+  private META_URL: string = `${this.BASEURL}/meta`;
+  private POSTARTICLE_URL: string = `${this.BASEURL}/article/add`;
+  private POSTIMG_URL: string = `${this.BASEURL}/article/img/add`;
   // private TAG_URL: string = `http://localhost:8087/t/7`
 
   constructor(private _http: Http) { }
@@ -28,7 +29,7 @@ export class SpeacialColumnServiceService {
 
   // 通过文章标签获取文章列表
   getArticleByMeta(tagId: number): Observable<any[]> {
-    const TAG_URL: string = `http://localhost:8087/t/${tagId}`
+    const TAG_URL: string = `${this.BASEURL}/t/${tagId}`
     return this._http.get(TAG_URL)
     .map(this.extractData)
     .catch(this.handleError);

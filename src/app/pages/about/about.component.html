@@ -1,15 +1,12 @@
-<div class="about-container" nz-row [nzGutter]="8">
-    <nz-card  nz-col [nzSpan]="6" style="width:240px" *ngFor="let card of cards ; let i = index"  [routerLink] = "['/article/',i]">
-      <ng-template #body>
+<div class="about-container">
+    <div class="about-container-card" *ngFor="let card of cards ; let i = index"  [routerLink] = "['/article/',i]">
+      <div #body>
         <div class="custom-image">
           <img alt="example" width="100%" src="https://os.alipayobjects.com/rmsportal/QBnOOoLaAfKPirc.png"/>
         </div>
         <div class="custom-card">
-        <nz-spin [nzTip]="'正在读取数据...'">
-      <nz-alert [nzType]="'info'" [nzMessage]="'消息提示的文案'" [nzDescription]="'消息提示的辅助性文字介绍消息提示的辅助性文字介绍消息提示的辅助性文字介绍'">
-      </nz-alert>
-    </nz-spin>
+       
         </div>
-      </ng-template>
-    </nz-card>
+      </div>
+    </div>
 </div>

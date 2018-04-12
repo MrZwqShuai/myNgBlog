@@ -14,10 +14,10 @@ interface UserInfo {
 
 export class HomeComponent implements OnInit {
 
-  avatar: String = "../../../assets/avatar.png";
+  avatar: String = "assets/images/avatar.png";
   // 博主的基本信息
   userInfo: any;
-  array = [];
+  screenImg: string = '';
   arrays = [];
   panels = [
     {
@@ -60,9 +60,9 @@ export class HomeComponent implements OnInit {
 
   ngOnInit() {
     this.getHomeInfos()
-    this.avatar = "../../../assets/avatar.png";
-    this.array = ['../../../assets/banner.jpg', '../../../assets/banner.jpg', '../../../assets/banner.jpg', '../../../assets/banner.jpg', '../../../assets/banner.jpg'];
-    this.arrays = ['../../../assets/banner.jpg', '../../../assets/banner.jpg', '../../../assets/banner.jpg', '../../../assets/banner.jpg', '../../../assets/banner.jpg', '../../../assets/banner.jpg', '../../../assets/banner.jpg', '../../../assets/banner.jpg', '../../../assets/banner.jpg', '../../../assets/banner.jpg', '../../../assets/banner.jpg', '../../../assets/banner.jpg', '../../../assets/banner.jpg', '../../../assets/banner.jpg', '../../../assets/banner.jpg'];
+    this.avatar = "assets/images/avatar.png";'assets/images/banner.jpg'
+    this.screenImg = 'assets/images/banner.jpg'
+    this.arrays = ['assets/images/banner.jpg', 'assets/images/banner.jpg', 'assets/images/banner.jpg', 'assets/images/banner.jpg', 'assets/images/banner.jpg', 'assets/images/banner.jpg', 'assets/images/banner.jpg', 'assets/images/banner.jpg', 'assets/images/banner.jpg', 'assets/images/banner.jpg', 'assets/images/banner.jpg', 'assets/images/banner.jpg', 'assets/images/banner.jpg', 'assets/images/banner.jpg', 'assets/images/banner.jpg'];
   }
 
   getHomeInfos() {

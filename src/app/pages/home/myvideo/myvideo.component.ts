@@ -7,10 +7,10 @@ import { Component, OnInit, ElementRef, Renderer } from '@angular/core';
 })
 export class MyvideoComponent implements OnInit {
 
-  private playStatus: Boolean = true;
-  private pauseStatus: Boolean = false;
+  public playStatus: Boolean = true;
+  public pauseStatus: Boolean = false;
   // 全屏
-  private showFullScreen: Boolean = false;
+  public showFullScreen: Boolean = false;
 
   constructor(private elementRef: ElementRef, private renderer: Renderer) { }
 

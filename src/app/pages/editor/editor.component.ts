@@ -14,7 +14,7 @@ export class EditorComponent implements OnInit {
   @ViewChild('Editor') myEditor: ElementRef;
   @ViewChild('uploadImgForm') myUploadImgForm: ElementRef;
 
-  private menuCollection: Array<Object> = [{
+  public menuCollection: Array<Object> = [{
     name: '加粗',
     feature: 'bold'
   }, {
@@ -56,7 +56,7 @@ export class EditorComponent implements OnInit {
   private fontSize: number = 5;
   private backgroundColor: string = '#999';
   private richColor: HTMLElement;
-  private isInsertHyperlink: boolean = false;
+  public isInsertHyperlink: boolean = false;
   private hyperlink: any = '';
   private startContainer: any = '';
   private endContainer: any = '';
@@ -69,7 +69,7 @@ export class EditorComponent implements OnInit {
       startOffset: 0,
       endOffset: 0
     };
-  private title: string | number = '';
+  public title: string | number = '';
   private isHideFileInput: boolean = false;
 
   constructor(private _renderer: Renderer, private _elementRef: ElementRef, private _speacialColumnServiceService: SpeacialColumnServiceService) {
@@ -167,7 +167,7 @@ export class EditorComponent implements OnInit {
 
   //上传图片
   uploadArticleImg() {
-    let eventTarget: EventTarget = <EventTarget>event.currentTarget
+    let eventTarget: any = <EventTarget>event.currentTarget
     let img = eventTarget.files[0];
     let imgFormFile = new FormData(this.myUploadImgForm.nativeElement);
     imgFormFile.append('file', img);

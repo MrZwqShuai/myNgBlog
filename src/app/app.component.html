@@ -4,7 +4,12 @@
     <div class="header-content">
       <div class="logo-container">
         <div class="logo">
-          <a href="#"><img src="../assets/logo.png" alt=""></a>
+          <a href="#"><img src="assets/images/logo.png" alt=""></a>
+        </div>
+        <div class="phone-menu-btn" (click)="tapMenu()">
+          <span class="top-line line" [ngClass]="{'open-action-top': openAction}"></span>
+          <span class="middle-line line" [style.display]="openAction ? 'none' : 'block'"></span>
+          <span class="bottom-line line" [ngClass]="{'open-action-bottom': openAction}"></span>
         </div>
       </div>
       <div class="top-menu-box">

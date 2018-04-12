@@ -10,7 +10,8 @@ const params = new HttpParams()
 @Injectable()
 export class DetailService {
 
-  private NGBLOG_URL: string = `http://localhost:8087/article`;
+  // private NGBLOG_URL: string = `http://localhost:8087/article`;
+  private NGBLOG_URL: string = `http://47.98.137.213:8080/springmvc-study/article`;
 
   constructor(private _http: Http) { }
 

@@ -4,8 +4,6 @@
   background-color: rgb(20, 149, 253);
   .menu-item {
     width: 8.2rem;
-    height: 3.5rem;
-    line-height: 3.5rem;
     text-align: center;
     font-size: .6rem;
     color: #fff;
@@ -74,5 +72,17 @@
     border-radius: 12px;
     color: #fff;
     cursor: pointer;
+  }
+}
+
+// 手机布局
+@media only screen and (max-width: 767px) {
+  .navigation{
+    .menu-item {
+      width: 2.5rem;
+    }
+  }
+  .search-container{
+    display: none;
   }
 }

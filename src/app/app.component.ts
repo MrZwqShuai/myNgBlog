@@ -8,4 +8,10 @@ import { Component } from '@angular/core';
 
 export class AppComponent {
   title = 'app';
+  openAction: Boolean = false;
+
+  // 打开菜单
+  tapMenu() {
+    this.openAction = this.openAction ? false : true;
+  }
 }

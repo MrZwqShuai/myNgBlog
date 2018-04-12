@@ -14,8 +14,8 @@ export class TagLeftComponent extends ColumnLeftComponent implements OnInit {
 
   public navList = TagNAVLIST;
   private sub: any;
-  private metaName: string = '';
-  private totalAt: number = 0;
+  public metaName: string = '';
+  public totalAt: number = 0;
 
   constructor(public router: Router, public elementRef: ElementRef, public renderer: Renderer2, public _speacialColumnServiceService: SpeacialColumnServiceService, private activatedRoute: ActivatedRoute) {
     super(router, elementRef, renderer, _speacialColumnServiceService);

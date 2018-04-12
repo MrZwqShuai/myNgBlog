@@ -67,3 +67,44 @@
     }
   }
 }
+
+// for phone
+@media only screen and (max-width: 767px) {
+  .video-container{
+    width: 100%;
+    height: 11rem;
+    background-size: 100% auto;
+    // display: none;
+    #myvideo {    
+      width: 70.5%;
+    height: 6.1rem;
+    margin: 2rem 1.64rem;
+    }
+    .full-screen{
+      position: absolute;
+      width: 1.4rem;
+      height: auto;
+      bottom: 1.2rem;
+      right: 3.3rem;
+    }
+    .play{
+      position: absolute;
+      width: 1.8rem;
+      height: auto;
+      bottom: 0.9rem;
+      right: 1.06rem;
+    }
+  }
+  .full-video{
+    width: 100%;
+    height:36%;
+    .close-full-video{
+      width: 1.5rem;
+      height: 1.5rem;
+      margin: 1rem auto;
+    }
+    .video-box{
+      margin: .9rem auto;
+    }
+  }
+}

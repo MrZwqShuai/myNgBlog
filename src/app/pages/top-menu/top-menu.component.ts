@@ -7,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TopMenuComponent implements OnInit {
 
-  private searchValue: string | number = '';
+  public searchValue: string | number = '';
 
   private contacts: Array<Object> = [{
     title: "张文强",
@@ -28,7 +28,6 @@ export class TopMenuComponent implements OnInit {
   }
 
   onSearch(event: string) {
-    alert(0);
     console.log(event);
   } 
 }

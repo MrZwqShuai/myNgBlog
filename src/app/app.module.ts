@@ -1,10 +1,10 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import {HashLocationStrategy, LocationStrategy} from '@angular/common';
 import { RouterModule } from '@angular/router'
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
 import { HttpModule } from '@angular/http';
 import { HttpClientModule } from '@angular/common/http';
-import { NgZorroAntdModule } from 'ng-zorro-antd';
 
 import { HomeService } from './pages/service/home.service';
 import { SpeacialColumnServiceService } from './pages/service/speacial-column.service';
@@ -58,10 +58,10 @@ import { EditorComponent } from './pages/editor/editor.component';
     HttpModule,
     HttpClientModule,
     BrowserAnimationsModule,
-    NgZorroAntdModule.forRoot(),
     RouterModule.forRoot(ROUTE_CONFIG, { useHash: true })
   ],
-  providers: [HomeService, SpeacialColumnServiceService, DetailService],
+  providers: [HomeService, SpeacialColumnServiceService, DetailService,
+    {provide: LocationStrategy, useClass: HashLocationStrategy}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

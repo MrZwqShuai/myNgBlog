@@ -1,37 +1,40 @@
-
-          <!-- <ul class="navigation">
+<!-- <ul class="navigation">
             <li><a href="" class="nav-link" routerLink="/home">HOME</a></li>
             <li><a href="" class="nav-link" routerLink="/about">ABOUT</a></li>
             <li><a href="" class="nav-link" routerLink="/portfolio">PORTFOLIO</a></li>
             <li><a href="" class="nav-link" routerLink="/about">SERVICES</a></li>
             <li><a href="" class="nav-link" routerLink="/portfolio">CONTACT</a></li>
           </ul> -->
-          <ul nz-menu [nzMode]="'horizontal'" class="navigation">
-              <li class="menu-item" nz-menu-item routerLink="/home"><i class="anticon anticon-mail"></i>首页</li>
-              <li class="menu-item" nz-menu-item nzDisabled  routerLink="/about"><i class="anticon anticon-appstore"></i>作品 </li>
-              <li class="menu-item" nz-submenu routerLink="/article">
-                <span title class="portfolio"><i class="anticon anticon-setting"></i>个人</span>
-                <ul>
-                  <li nz-menu-group>
-                    <span title>笔记</span>
-                    <ul>
-                      <li nz-menu-item>Java</li>
-                      <li nz-menu-item>Javascript</li>
-                    </ul>
-                  </li>
-                </ul>
-              </li>
-              <li class="menu-item" nz-menu-item routerLink="/about">服务</li>
-              <li class="menu-item" nz-menu-item nzDisabled routerLink="/article"><i class="anticon anticon-appstore"></i>专栏</li>
-            </ul>
-      <div class="search-container">
-        <div class="write-btn" routerLink="/editor">
-          写文章
-        </div>
-        <nz-input [nzType]="'search'" [nzPlaceHolder]="'输入你想要的内容'" [(ngModel)]="searchValue" style="width: 30rem;" (nzOnSearch)="onSearch($event)"></nz-input>
-        <div class="search-list" *ngIf="searchValue">
-          <ul>
-            <li *ngFor="let contact of (contacts | selectContact : searchValue)">{{contact.title}}</li>
-          </ul>
-        </div>
-    </div>
+<ul class="navigation">
+  <li class="menu-item" nz-menu-item routerLink="/home">
+    <i class="anticon anticon-mail"></i>首页</li>
+  <li class="menu-item" nz-menu-item nzDisabled routerLink="/about">
+    <i class="anticon anticon-appstore"></i>作品 </li>
+  <li class="menu-item" nz-submenu routerLink="/article">
+    <span title class="portfolio">
+      <i class="anticon anticon-setting"></i>个人</span>
+    <ul style="display: none">
+      <li>
+        <span title>笔记</span>
+        <ul>
+          <li>Java</li>
+          <li>Javascript</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li class="menu-item" nz-menu-item routerLink="/about">服务</li>
+  <li class="menu-item" nz-menu-item nzDisabled routerLink="/article">
+    <i class="anticon anticon-appstore"></i>专栏</li>
+</ul>
+<div class="search-container">
+  <div class="write-btn" routerLink="/editor">
+    写文章
+  </div>
+  <input placeholder="'输入你想要的内容'" [(ngModel)]="searchValue" style="width: 30rem;" (click)="onSearch($event)">
+  <div class="search-list" *ngIf="searchValue">
+    <ul>
+      <li *ngFor="let contact of (contacts | selectContact : searchValue)">{{contact.title}}</li>
+    </ul>
+  </div>
+</div>
