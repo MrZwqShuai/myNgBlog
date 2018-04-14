@@ -6,6 +6,7 @@ import { AboutComponent } from './pages/about/about.component';
 import { DetailComponent } from './pages/detail/detail.component';
 import { TagComponent } from './pages/tag/tag.component';
 import { EditorComponent } from './pages/editor/editor.component';
+import { SearchComponent } from './pages/search/search.component';
 
 export const ROUTE_CONFIG = [{
   path: '',
@@ -29,4 +30,7 @@ export const ROUTE_CONFIG = [{
 }, {
   path: 'editor',
   component: EditorComponent
+}, {
+  path: 'article/search',
+  component: SearchComponent
 }]

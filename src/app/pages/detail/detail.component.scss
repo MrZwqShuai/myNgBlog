@@ -43,3 +43,39 @@
         }
     }
 }
+
+
+// for phone
+@media only screen and (max-width: 767px) {
+    .head-title{
+        text-align: center;
+    }
+    .article-container{
+        width: 100%;
+        margin: 3rem auto 0 auto;
+        .head-title{
+            text-align: center;
+        }
+        .article-content{
+            margin-top: .6rem;
+            .content{
+                margin-bottom: 0;
+                font-size: .6rem;
+                letter-spacing: 0;
+                overflow: hidden;
+                img {
+                    width: 100%;
+                }
+            }
+        }
+        .article-header-author{
+            margin-top: 0;
+            .right {
+                margin-left: .5rem;
+            }
+        }
+    }
+    .article-container img{
+        width: 100%;
+    }
+}

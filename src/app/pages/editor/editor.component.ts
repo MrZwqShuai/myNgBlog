@@ -14,6 +14,10 @@ export class EditorComponent implements OnInit {
   @ViewChild('Editor') myEditor: ElementRef;
   @ViewChild('uploadImgForm') myUploadImgForm: ElementRef;
 
+
+  public metas: Array<Object> = [];
+  public tagId: number = 0;
+
   public menuCollection: Array<Object> = [{
     name: '加粗',
     feature: 'bold'
@@ -76,6 +80,7 @@ export class EditorComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.getAllMeta();
   }
 
   ngAfterViewInit() {
@@ -187,12 +192,32 @@ export class EditorComponent implements OnInit {
   saveArticle() {
     console.log(this.myEditor.nativeElement.innerHTML, this.title);
     let content = this.myEditor.nativeElement.innerHTML;
-    this._speacialColumnServiceService.saveOneArticleByUser(this.title, content)
-      .subscribe((data) => {
+    console.log(typeof this.tagId);
+    this._speacialColumnServiceService.saveOneArticleByUser(this.title, content, Number(this.tagId))
+      .subscribe((data: any) => {
         console.log(data);
+        if(data.code === 0) {
+          alert('保存成功');
+        } else {
+          alert(data.message);
+        }
       }, (error) => {
         console.log(error);
       })
   }
 
+  // 获取meta
+  getAllMeta() {
+    this._speacialColumnServiceService.getAllMeta()
+      .subscribe((data: any) => {
+        console.log(data);
+        if(data.code === 0) {
+          this.metas = data.data;
+        } else {
+          console.log(data.message);
+        }
+      }, (error) => {
+        console.log(error);
+      })
+  }
 }

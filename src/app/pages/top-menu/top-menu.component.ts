@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { RouterModule, Router } from '@angular/router';
+import { HomeService } from '../service/home.service';
+import { CommonService } from '../service/common.service';
 
 @Component({
   selector: 'top-menu',
@@ -17,10 +20,16 @@ export class TopMenuComponent implements OnInit {
     title: "张文强真帅哦"
   }];
  
-  constructor() { }
+  public showPhoneSearchBtn: boolean = this._homeService.getShowPhoneSearchBtn();
+  // 用于判断失去焦点是否来自搜索框
+  public blurFromSearchBtn: boolean = true;
+
+  constructor(public _homeService: HomeService, private _commonService: CommonService, private _router: Router) { }
 
   ngOnInit() {
     this.searchArticle();
+    console.log(this._homeService.getShowPhoneSearchBtn())
+    this.showPhoneSearchBtn = this._homeService.getShowPhoneSearchBtn();
   }
 
   searchArticle() {
@@ -30,4 +39,35 @@ export class TopMenuComponent implements OnInit {
   onSearch(event: string) {
     console.log(event);
   } 
+
+  showSearchInput(searchValue) {
+    if(this._homeService.getShowPhoneSearchBtn()) {
+      this.findArticleByKeyWords(searchValue);
+      return 
+    }
+    this.showPhoneSearchBtn = this._homeService.setShowPhoneSearchBtn(true);
+  }
+
+  findArticleByKeyWords(keyWords: string | number) {
+    this.blurFromSearchBtn = false;
+    console.log(keyWords + '搜索中...');
+    this._homeService.getArticleByKeywords(keyWords)
+      .subscribe((data) => {
+        console.log(data, '----');
+        if(data.code === 0) {
+          this._commonService.articleByKeywords = data.data.articles;
+          this._commonService.keywords = keyWords;
+        } else {
+          alert(data.message);
+        }
+      })
+    this._router.navigate(['article/search']);
+  }
+
+  hideSearchInput() {
+    if(this.blurFromSearchBtn) {
+      return;
+    }
+    this.showPhoneSearchBtn = this._homeService.setShowPhoneSearchBtn(false);
+  }
 }

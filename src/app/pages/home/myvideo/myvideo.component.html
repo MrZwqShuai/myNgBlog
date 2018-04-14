@@ -1,5 +1,5 @@
 <div class="video-container">
-    <video id="myvideo" src="http://www.w3school.com.cn/i/movie.ogg" width="90%" height="56.2%"></video>
+    <video id="myvideo" src="assets/video/qt.mp4" poster="assets/images/qt.jpg" width="90%" height="56.2%" webkit-playsinline="true"></video>
     <a class="play">
         <img src="assets/images/play.png" alt="" *ngIf="playStatus; else pauseStatus" (click)="playVideo()">
         <ng-template #pauseStatus><img src="assets/images/pause.png" alt="" (click)="pauseVideo()"></ng-template>
@@ -11,7 +11,7 @@
 <!--浮层video-->
 <div class="full-video" *ngIf="showFullScreen">
     <div class="video-box">
-      <video src="http://www.w3school.com.cn/i/movie.ogg" controls="controls"></video>
+      <video src="assets/video/qt.mp4" poster="assets/images/qt.jpg" controls="controls"></video>
     </div>
     <span class="close-full-video" (click)="closeVideo()"><img src="assets/images/close-full-video.png"></span>
 </div>

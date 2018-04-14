@@ -68,3 +68,11 @@
 .waveAnimation .waveBottom {
     animation: move_wave 15s linear infinite;
 }
+
+
+/* // for phone */
+@media only screen and (max-width: 767px) {
+    .waveWrapper{
+        display: none;
+    }
+}

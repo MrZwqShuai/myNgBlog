@@ -37,6 +37,7 @@ export class MyvideoComponent implements OnInit {
 
   showFullVideo() {
     this.showFullScreen = true;
+    this.pauseVideo();
   }
 
   closeVideo() {

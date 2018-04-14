@@ -37,6 +37,7 @@
   .top-menu {
     display: flex;
     justify-content: space-between;
+    align-items: center;
     height: 100%;
   }
 }
@@ -50,6 +51,7 @@
   }
   .header-content {
     height: auto;
+    opacity: .85;
     .logo-container {
       display: flex;
       align-items: center;
@@ -59,14 +61,14 @@
         display: none;
       }
       .phone-menu-btn{
-        width: 1.25rem;
+        width: 1.05rem;
         height: 100%;
         margin: 0 .6rem;
         .line{
           position: absolute;
           display: block;
-          width: 1.25rem;
-          height: 0.15rem;
+          width: 1rem;
+          height: 2px;
           background-color: #fff;
           transform: translateY(0px) translateX(0) rotate(0deg);
           transition: transform ease .3s;
@@ -82,7 +84,7 @@
           top: 66%;
         }
         .open-action-top{
-          transform: translateY(.35rem) translateX(0) rotate(45deg);
+          transform: translateY(.25rem) translateX(0) rotate(45deg);
         }
         .open-action-bottom{
           transform: translateY(-.45rem) translateX(0) rotate(-45deg);
@@ -91,6 +93,45 @@
         
       }
     }
+    .top-menu {
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      height: 100%;
+    }
   }
 }
 
+.homepage-slider{
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  transform: translate3d(-100%, 0, 0);
+  transition: transform .2s cubic-bezier(.25,.1,.25,1);
+  background-color: #1595fd; 
+  z-index: 2;
+}
+.slide-in{
+  transform: translate3d(0%, 0, 0);
+}
+
+.homepage-slider-box{
+  .wchat-me{
+    margin-top: 4rem;
+    text-align: center;
+    font-size: .6rem;
+    font-weight: normal;
+    color: #fff;
+  }
+  .erweima{
+    width: 10rem;
+    margin: auto;
+    img{
+      width: 100%;
+      height: auto;
+    }
+  }
+
+}

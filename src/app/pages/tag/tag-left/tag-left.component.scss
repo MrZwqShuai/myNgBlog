@@ -31,6 +31,7 @@
     clear: left;
     .tab-ul {
       width: 21rem;
+      padding-left: 0;
       overflow: hidden;
     }
     li {
@@ -162,4 +163,93 @@
 // routeractive css
 .scaleActive {
   font-size: red;
+}
+
+
+// for phone
+@media only screen and (max-width: 767px) {
+  .tag-left-container{
+    width: 100%;
+    .tag-main-top{
+      display: flex;
+      align-items: center;
+      height: auto;
+      .meta-info{
+        margin-left: .8rem;
+        .title{
+          margin: 0 auto;
+          font-size: 1rem;
+        }
+      }
+      .avatar-collection{
+        width: 3rem;
+        height: auto;
+      }
+    }
+    .tab-dashboard{
+      .tab-ul{
+        width: 100%;
+        padding-left: 0;
+      }
+      li{
+        height: 1.8rem;
+        line-height: 1.8rem;
+      }
+    }
+    
+  .load-more-container {
+    display: none;
+  }
+  .article-list-container {
+    margin-top: 0;
+    .article-container-left{
+        min-height: auto;
+        .article-header-author{
+            display: flex;
+            align-items: center;
+        }
+        .content{
+            width: 100%;
+        }
+        .title{
+            margin: .1rem auto;
+            font-size: .8rem;
+            font-weight: normal;
+            color: #333;
+            text-decoration: none;
+        }
+        .article-header-author{
+            .author-name{
+                font-size: .6rem;
+            }
+        }
+        .meta{
+            margin: .3rem auto .6rem;
+            .note-tag{
+                padding: .12rem .5rem;
+                text-decoration: none;
+                font-size: .6rem;
+                color: #fff;
+                background-color: #ec6149;
+            }
+            .note-view{
+                width: 2rem;
+                text-indent: 1.2rem;
+                background: url('../../../../assets/images/view.png') no-repeat;
+                background-size: 1rem auto;
+                background-position-y: -.035rem;
+            }
+            .note-view,.note-comment,.note-like{
+                display: inline-block;
+                margin-left: .5rem;
+                text-decoration: none;
+                font-size: .6rem;
+            }
+        }
+    }
+    .article-container-right{
+        display: none;
+    }
+}
+  }
 }

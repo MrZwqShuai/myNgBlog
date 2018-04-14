@@ -27,6 +27,11 @@
         <div class="edit-title">
            <input type="text" class="title-inp" placeholder="输入标题..." [(ngModel)]="title">
         </div>
+        <div class="edit-artile-type">
+          <select name="" id="" class="type-select"[(ngModel)]="tagId">
+            <option [value]="meta.id" *ngFor="let meta of metas index as i">{{meta.name}}</option>
+          </select>
+        </div>
         <div class="edit-area" contentEditable="true" #Editor>
         <p><br /></p>
         </div>

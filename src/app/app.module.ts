@@ -9,6 +9,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { HomeService } from './pages/service/home.service';
 import { SpeacialColumnServiceService } from './pages/service/speacial-column.service';
 import { DetailService } from './pages/service/detail.service';
+import { CommonService } from './pages/service/common.service';
 
 import { AppComponent } from './app.component';
 import { HomeComponent } from './pages/home/home.component';
@@ -31,6 +32,7 @@ import { TagComponent } from './pages/tag/tag.component';
 import { TagLeftComponent } from './pages/tag/tag-left/tag-left.component';
 import { TagRightComponent } from './pages/tag/tag-right/tag-right.component';
 import { EditorComponent } from './pages/editor/editor.component';
+import { SearchComponent } from './pages/search/search.component';
 
 @NgModule({
   declarations: [
@@ -50,7 +52,8 @@ import { EditorComponent } from './pages/editor/editor.component';
     TagComponent,
     TagLeftComponent,
     TagRightComponent,
-    EditorComponent
+    EditorComponent,
+    SearchComponent
   ],
   imports: [
     BrowserModule,
@@ -60,7 +63,7 @@ import { EditorComponent } from './pages/editor/editor.component';
     BrowserAnimationsModule,
     RouterModule.forRoot(ROUTE_CONFIG, { useHash: true })
   ],
-  providers: [HomeService, SpeacialColumnServiceService, DetailService,
+  providers: [HomeService, SpeacialColumnServiceService, DetailService, CommonService,
     {provide: LocationStrategy, useClass: HashLocationStrategy}],
   bootstrap: [AppComponent]
 })

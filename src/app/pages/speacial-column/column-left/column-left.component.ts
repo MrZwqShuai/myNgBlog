@@ -1,6 +1,6 @@
-import { Component, OnInit, ElementRef, Renderer2 } from '@angular/core';
+import { Component, OnInit, Input, ElementRef, Renderer2 } from '@angular/core';
 import { Router } from '@angular/router';
-import { SpeacialColumnServiceService } from '../../../pages/service/speacial-column.service';
+import { SpeacialColumnServiceService } from '../../service/speacial-column.service';
 import { COLUMNNAVLIST } from '../../static-data/static-nav';
 
 @Component({
@@ -9,6 +9,10 @@ import { COLUMNNAVLIST } from '../../static-data/static-nav';
   styleUrls: ['./column-left.component.scss']
 })
 export class ColumnLeftComponent implements OnInit {
+  
+  @Input() showSearchResult: boolean = false;
+  @Input() keywords: string | number = '';
+  @Input() articleLstBySearch: Array<object> = [];
 
   public navList = COLUMNNAVLIST;
   // 控制li切换的样式
@@ -17,36 +21,50 @@ export class ColumnLeftComponent implements OnInit {
   public articleEl: ElementRef;
   public errorSign: string | boolean;
   public notes: Array<Object> = [
-    // {
-    //   author: '江流儿',
-    //   createDate: '2018/1/22',
-    //   title: '这是标题',
-    //   content: '      ❤ 有读者在后台问我，说:“他觉得大学上得他挺无奈的。刚上大学的他，完全没了高中的上进努力，平时上课要么睡觉，要么玩手机，老师讲的什么内容也几乎一无所知，期末考试全靠拿着厚厚...',
-    //   meta: '这是标签'
-    // }
   ]
+
   constructor(public router: Router, public elementRef: ElementRef, public renderer: Renderer2, public _speacialColumnServiceService: SpeacialColumnServiceService) {
   }
 
   ngOnInit() {
     this.articleEl = this.elementRef.nativeElement.querySelector('.article-list-container');
-    this.getArticleByUser();
+    this.initArticleList();
+    console.log(this.articleLstBySearch, 'articleLstBySearch')
   }
+
+  /**
+   * 初始化列表
+   */
+  initArticleList() {
+    if(this.showSearchResult) {
+      this.getArticleBySearch();
+    } else {
+      this.getArticleByUser(0);
+    }
+  }
+
   selectNav(i: number) {
     this.idx = i;
     this.selectLoading(this.articleEl, '.3');
-    this.getArticleByUser();
+    this.getArticleByUser(i);
   }
   selectLoading(el: ElementRef, opacity: string) {
     this.renderer.setStyle(el, 'opacity', opacity);
   }
 
+  /**
+   * 通过搜索传递文章列表
+   */
+  getArticleBySearch() {
+    this.notes = this.articleLstBySearch;
+  }
+
   // 通过用户名获取文章列表
-  getArticleByUser() {
-    return this._speacialColumnServiceService.getArticleByUser()
+  getArticleByUser(navIdx: number) {
+    return this._speacialColumnServiceService.getArticleByUser(navIdx)
       .subscribe((notesData: any) => {
         console.log(notesData, 2);
-        this.notes = notesData.data;
+        this.articleLstBySearch = notesData.data;
         this.selectLoading(this.articleEl, '1');
       }, (error: any) => {
         this.closeError(error);

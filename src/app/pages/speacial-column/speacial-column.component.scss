@@ -2,3 +2,13 @@
     width: 77rem;
     margin: 5.5rem auto 0;
 }
+// for phone
+@media only screen and (max-width: 767px) {
+    .speacial-column-container {
+        width: 100%;
+        margin-top: 2rem;
+    }
+    .speacial-right{
+        display: none;
+    }
+}

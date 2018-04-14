@@ -171,7 +171,7 @@
   height: 400px !important;
 }
 
-// 手机布局
+// for phone
 @media only screen and (max-width: 767px) {
   .home-content{
     .home-content-left {
@@ -184,11 +184,23 @@
       .center-vieo-container{
         width: 100%;
         height: auto;
+        margin: .5rem auto;
         .video-main{
           width: 100%;
         }
         .video-desc{
           width: 100%;
+          margin-bottom: .3rem;
+          .desc-more{
+            margin-top: 0;
+            float: right;
+          }
+        }
+      }
+      .center-picture-set{
+        .pic-box{
+          width: 49%;
+          height: auto;
         }
       }
     }

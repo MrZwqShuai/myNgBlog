@@ -7,20 +7,29 @@ import 'rxjs/RX';
 export class SpeacialColumnServiceService {
 
   private BASEURL: string = 'http://47.98.137.213:8080/springmvc-study';
-  private ZHUANLAN_URL: string = `${this.BASEURL}/article/author/1`;
+  private DEVBASEURL: string = 'http://localhost:8087';
+  private ZHUANLAN_URL: string = `${this.BASEURL}/article/author`;
   private META_URL: string = `${this.BASEURL}/meta`;
   private POSTARTICLE_URL: string = `${this.BASEURL}/article/add`;
   private POSTIMG_URL: string = `${this.BASEURL}/article/img/add`;
+  // private POSTIMG_URL: string = `${this.BASEURL}/article/img/add`;
   // private TAG_URL: string = `http://localhost:8087/t/7`
 
   constructor(private _http: Http) { }
 
-  getArticleByUser(): Observable<any[]> {
-    return this._http.get(this.ZHUANLAN_URL)
+  getArticleByUser(navIdx: number): Observable<any[]> {
+    let options = {
+      params: {
+        uid: 1,
+        createDateSort: navIdx
+      }
+    }
+    return this._http.get(this.ZHUANLAN_URL, options)
       .map(this.extractData)
       .catch(this.handleError);
   }
 
+  // 获得文章的标签
   getAllMeta(): Observable<any[]> {
     return this._http.get(this.META_URL)
       .map(this.extractData)
@@ -36,10 +45,11 @@ export class SpeacialColumnServiceService {
   }
 
   // 用户增加一篇文章
-  saveOneArticleByUser(title, content): Observable<any[]> {
+  saveOneArticleByUser(title: string | number, content: string, tagId: number): Observable<any[]> {
     let body = {
       title: title,
-      content: content
+      content: content,
+      tagId: tagId
     }
     console.log(body, String(body.content));
     return this._http.post(this.POSTARTICLE_URL,body)

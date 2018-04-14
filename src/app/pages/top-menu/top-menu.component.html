@@ -12,21 +12,18 @@
     <i class="anticon anticon-appstore"></i>作品 </li>
   <li class="menu-item" nz-submenu routerLink="/article">
     <span title class="portfolio">
-      <i class="anticon anticon-setting"></i>个人</span>
-    <ul style="display: none">
-      <li>
-        <span title>笔记</span>
-        <ul>
-          <li>Java</li>
-          <li>Javascript</li>
-        </ul>
-      </li>
-    </ul>
+      <i class="anticon anticon-setting"></i>随笔</span>
   </li>
   <li class="menu-item" nz-menu-item routerLink="/about">服务</li>
   <li class="menu-item" nz-menu-item nzDisabled routerLink="/article">
     <i class="anticon anticon-appstore"></i>专栏</li>
 </ul>
+<div class="search-inp-phone" [ngClass]="{'show-search-btn' : _homeService.getShowPhoneSearchBtn()}">
+  <input placeholder="输入你想要的内容" [(ngModel)]="searchValue" style="width: 100%;" (click)="onSearch($event)" (blur)="hideSearchInput()">
+</div>
+<div class="search-article-phone" (click)="showSearchInput(searchValue)">
+  <img src="assets/images/search.png" alt="搜索">
+</div>
 <div class="search-container">
   <div class="write-btn" routerLink="/editor">
     写文章
