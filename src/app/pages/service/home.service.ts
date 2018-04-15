@@ -9,7 +9,7 @@ export class HomeService {
     
     // private HOMEINFOS_URL: string = `http://localhost:8087/%E5%BC%A0%E6%96%87%E5%BC%BA`;
     private DEVBASEURL: string = `http://localhost:8087`;
-    private BASEURL: string = `http://47.98.137.213:8080`;
+    private BASEURL: string = `http://47.98.137.213:8080/springmvc-study/`;
     private HOMEINFOS_URL: string = `http://47.98.137.213:8080/springmvc-study/%E5%BC%A0%E6%96%87%E5%BC%BA`;
     // 用于顶部搜索框展示
     private showPhoneSearchBtn: boolean = false;

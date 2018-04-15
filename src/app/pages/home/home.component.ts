@@ -17,7 +17,6 @@ export class HomeComponent implements OnInit {
   avatar: String = "assets/images/avatar.png";
   // 博主的基本信息
   userInfo: any;
-  screenImg: string = '';
   arrays = [];
   panels = [
     {
@@ -61,7 +60,6 @@ export class HomeComponent implements OnInit {
   ngOnInit() {
     this.getHomeInfos()
     this.avatar = "assets/images/avatar.png";'assets/images/banner.jpg'
-    this.screenImg = 'assets/images/banner.jpg'
     this.arrays = ['assets/images/banner.jpg', 'assets/images/banner.jpg', 'assets/images/banner.jpg', 'assets/images/banner.jpg', 'assets/images/banner.jpg', 'assets/images/banner.jpg', 'assets/images/banner.jpg', 'assets/images/banner.jpg', 'assets/images/banner.jpg', 'assets/images/banner.jpg', 'assets/images/banner.jpg', 'assets/images/banner.jpg', 'assets/images/banner.jpg', 'assets/images/banner.jpg', 'assets/images/banner.jpg'];
   }
 

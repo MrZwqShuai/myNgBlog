@@ -5,7 +5,7 @@
             <li><a href="" class="nav-link" routerLink="/about">SERVICES</a></li>
             <li><a href="" class="nav-link" routerLink="/portfolio">CONTACT</a></li>
           </ul> -->
-<ul class="navigation">
+<ul class="navigation" [style.opacity]="_homeService.getShowPhoneSearchBtn() ? 0 : 1">
   <li class="menu-item" nz-menu-item routerLink="/home">
     <i class="anticon anticon-mail"></i>首页</li>
   <li class="menu-item" nz-menu-item nzDisabled routerLink="/about">
@@ -28,8 +28,8 @@
   <div class="write-btn" routerLink="/editor">
     写文章
   </div>
-  <input placeholder="'输入你想要的内容'" [(ngModel)]="searchValue" style="width: 30rem;" (click)="onSearch($event)">
-  <div class="search-list" *ngIf="searchValue">
+    <input placeholder="输入你想要的内容" class="search-inp-pc" [(ngModel)]="searchValue" style="width: 30rem;" (click)="onSearch($event)">
+ <div class="search-list" *ngIf="searchValue">
     <ul>
       <li *ngFor="let contact of (contacts | selectContact : searchValue)">{{contact.title}}</li>
     </ul>

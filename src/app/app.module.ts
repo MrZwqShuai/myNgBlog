@@ -33,6 +33,7 @@ import { TagLeftComponent } from './pages/tag/tag-left/tag-left.component';
 import { TagRightComponent } from './pages/tag/tag-right/tag-right.component';
 import { EditorComponent } from './pages/editor/editor.component';
 import { SearchComponent } from './pages/search/search.component';
+import { NgSwiperComponent } from './pages/ng-swiper/ng-swiper.component';
 
 @NgModule({
   declarations: [
@@ -53,7 +54,8 @@ import { SearchComponent } from './pages/search/search.component';
     TagLeftComponent,
     TagRightComponent,
     EditorComponent,
-    SearchComponent
+    SearchComponent,
+    NgSwiperComponent
   ],
   imports: [
     BrowserModule,
