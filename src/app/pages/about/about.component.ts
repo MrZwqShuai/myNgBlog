@@ -15,6 +15,7 @@ export class AboutComponent implements OnInit {
   
   bodyStyle = { padding: 0 };
   cards: Array<string> = ['1', '2', '3', '1', '2', '3', '1', '2', '3']
+  cardHeadImg: string = 'https://upload.jianshu.io/collections/images/283250/%E6%BC%AB%E7%94%BB%E4%B8%93%E9%A2%98.jpg?imageMogr2/auto-orient/strip|imageView2/1/w/180/h/180'
 
   constructor() { }
 

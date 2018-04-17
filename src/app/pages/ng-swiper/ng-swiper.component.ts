@@ -1,5 +1,4 @@
 import { Component, OnInit, Input, ViewChild, ElementRef, Renderer2 } from '@angular/core';
-import { setInterval } from 'timers';
 
 @Component({
   selector: 'app-ng-swiper',
@@ -13,7 +12,7 @@ export class NgSwiperComponent implements OnInit {
   @ViewChild('sliderContent')
   sliderContent: ElementRef;
 
-  banners: Array<object> = [{
+  banners: Array<Object> = [{
     imgurl: 'assets/images/banner.jpg',
     path: '1'
   }, {

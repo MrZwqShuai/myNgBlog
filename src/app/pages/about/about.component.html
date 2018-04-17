@@ -3,10 +3,17 @@
    
     </div> -->
     <div class="about-container-card">
-    <div class="card-box">
-      <div class="header"></div>
-      <div class="content"></div>
-      <div class="footer"></div>
+    <div class="card-box" *ngFor="let card of cards; index as i">
+      <div class="header">
+        <img [src]="cardHeadImg">
+      </div>
+      <div class="content">
+        <h3>NodeJs</h3>
+        <p>javascript是世界上最好的语言</p>
+      </div>
+      <div class="footer">
+        共120篇文章
+      </div>
     </div>
   </div>
 </div>
