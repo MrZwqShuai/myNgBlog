@@ -1,8 +1,11 @@
 .about-container {
-    margin-top: 4rem;
 }
 .about-container-card{
-  width: 15%;
-  float: left;
-  margin-left: 1%;
+  width: 960px;
+  margin: auto;
+  .card-box{
+    width: 8rem;
+    height: 10rem;
+    background-color: #444;
+  }
 }

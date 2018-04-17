@@ -1,3 +1,14 @@
-<div class="banner">
-    <img [src]="screenImg" alt="">
+<div class="banner-slider">
+    <ul class="slider-content" #sliderContent>
+        <li *ngFor="let banner of banners" class="slider-item">
+            <a href="javascript:;">
+                <img [src]="banner.imgurl" alt="">
+            </a>
+        </li>
+    </ul>
+    <div class="slider-pagination">
+        <ul>
+            <li *ngFor="let banner of banners; index as i" class="pagination" [style.opacity]="currentPagination == i ? '.9' : '.2'" (click)="setSliderPaginationClick(i)"></li>
+        </ul>
+    </div>
 </div>
