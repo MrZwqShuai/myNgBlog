@@ -6,6 +6,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
 import { HttpModule } from '@angular/http';
 import { HttpClientModule } from '@angular/common/http';
 
+import { CoreModule } from './core';
+
 import { HomeService } from './pages/service/home.service';
 import { SpeacialColumnServiceService } from './pages/service/speacial-column.service';
 import { DetailService } from './pages/service/detail.service';
@@ -34,7 +36,6 @@ import { TagRightComponent } from './pages/tag/tag-right/tag-right.component';
 import { EditorComponent } from './pages/editor/editor.component';
 import { SearchComponent } from './pages/search/search.component';
 import { NgSwiperComponent } from './pages/ng-swiper/ng-swiper.component';
-import { LoadingComponent } from './core/loading/loading/loading.component';
 
 @NgModule({
   declarations: [
@@ -57,7 +58,6 @@ import { LoadingComponent } from './core/loading/loading/loading.component';
     EditorComponent,
     SearchComponent,
     NgSwiperComponent,
-    LoadingComponent
   ],
   imports: [
     BrowserModule,
@@ -65,6 +65,7 @@ import { LoadingComponent } from './core/loading/loading/loading.component';
     HttpModule,
     HttpClientModule,
     BrowserAnimationsModule,
+    CoreModule,
     RouterModule.forRoot(ROUTE_CONFIG, { useHash: true })
   ],
   providers: [HomeService, SpeacialColumnServiceService, DetailService, CommonService,
