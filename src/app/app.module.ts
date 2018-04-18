@@ -34,6 +34,7 @@ import { TagRightComponent } from './pages/tag/tag-right/tag-right.component';
 import { EditorComponent } from './pages/editor/editor.component';
 import { SearchComponent } from './pages/search/search.component';
 import { NgSwiperComponent } from './pages/ng-swiper/ng-swiper.component';
+import { LoadingComponent } from './core/loading/loading/loading.component';
 
 @NgModule({
   declarations: [
@@ -55,7 +56,8 @@ import { NgSwiperComponent } from './pages/ng-swiper/ng-swiper.component';
     TagRightComponent,
     EditorComponent,
     SearchComponent,
-    NgSwiperComponent
+    NgSwiperComponent,
+    LoadingComponent
   ],
   imports: [
     BrowserModule,
