@@ -1,5 +1,9 @@
 import { Injectable } from '@angular/core';
 import { Http } from '@angular/http';
+import {
+  HttpClient, HttpEvent, HttpEventType, HttpProgressEvent,
+  HttpRequest, HttpResponse, HttpErrorResponse
+} from '@angular/common/http';
 import { Observable } from 'rxjs/RX';
 import 'rxjs/Rx';
 
@@ -14,29 +18,29 @@ export class HomeService {
     // 用于顶部搜索框展示
     private showPhoneSearchBtn: boolean = false;
 
-    constructor(private _http: Http) {
+    constructor(private _http: Http, private http: HttpClient,) {
     }
 
-    getArticleByKeywords(keywords: string | number) {
+
+    getArticleByKeywords(keywords: string | number): Observable<HttpResponse<any>> {
         let options = {
             params: {
                 keywords: keywords
             }
         };
-        return this._http.get(`${this.BASEURL}/article/search`, options)
+        return this.http.get(`${this.BASEURL}/article/search`)
           .map(this.extractData)
           .catch(this.handleError);
     }
 
     getHomeInfos(): Observable<any[]> {
-        return this._http.get(this.HOMEINFOS_URL)
+        return this.http.get(this.HOMEINFOS_URL)
         .map(this.extractData)
         .catch(this.handleError);
     }
 
     private extractData(res) {
-        let body = res.json();
-        return body || {};
+        return res
     }
 
     private handleError(error: any) {

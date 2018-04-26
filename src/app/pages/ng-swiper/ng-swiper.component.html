@@ -8,7 +8,7 @@
     </ul>
     <div class="slider-pagination">
         <ul>
-            <li *ngFor="let banner of banners; index as i" class="pagination" [style.opacity]="currentPagination == i ? '.9' : '.2'" (click)="setSliderPaginationClick(i)"></li>
+            <li *ngFor="let banner of banners; index as i" class="pagination" [style.opacity]="currentPagination == i ? '.9' : '.2'" (click)="sliderStartUp(i)"></li>
         </ul>
     </div>
 </div>

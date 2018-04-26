@@ -7,11 +7,13 @@ import { HttpModule } from '@angular/http';
 import { HttpClientModule } from '@angular/common/http';
 
 import { CoreModule } from './core';
+console.log(CoreModule, '----CoreModule-----')
 
 import { HomeService } from './pages/service/home.service';
 import { SpeacialColumnServiceService } from './pages/service/speacial-column.service';
 import { DetailService } from './pages/service/detail.service';
 import { CommonService } from './pages/service/common.service';
+import { AuthService } from './http-interceptors/auth.service'
 
 import { AppComponent } from './app.component';
 import { HomeComponent } from './pages/home/home.component';
@@ -37,6 +39,11 @@ import { EditorComponent } from './pages/editor/editor.component';
 import { SearchComponent } from './pages/search/search.component';
 import { NgSwiperComponent } from './pages/ng-swiper/ng-swiper.component';
 
+
+
+import { httpInterceptorProviders } from './http-interceptors/index';
+console.log(httpInterceptorProviders, 'httpInterceptorProviders')
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -57,19 +64,18 @@ import { NgSwiperComponent } from './pages/ng-swiper/ng-swiper.component';
     TagRightComponent,
     EditorComponent,
     SearchComponent,
-    NgSwiperComponent,
+    NgSwiperComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
-    HttpModule,
     HttpClientModule,
-    BrowserAnimationsModule,
+    HttpModule,
     CoreModule,
+    BrowserAnimationsModule,
     RouterModule.forRoot(ROUTE_CONFIG, { useHash: true })
   ],
-  providers: [HomeService, SpeacialColumnServiceService, DetailService, CommonService,
-    {provide: LocationStrategy, useClass: HashLocationStrategy}],
+  providers: [HomeService, SpeacialColumnServiceService, AuthService, DetailService, CommonService, httpInterceptorProviders],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

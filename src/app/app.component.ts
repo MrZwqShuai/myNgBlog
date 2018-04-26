@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, ViewContainerRef } from '@angular/core';
 import { HomeService } from './pages/service/home.service';
+import { LoadingService } from './core/loading/loading.service';
 
 @Component({
   selector: 'app-root',
@@ -11,8 +12,8 @@ export class AppComponent {
   title = 'app';
   openAction: Boolean = false;
 
-  constructor(public _homeService: HomeService) {
-
+  constructor(public _homeService: HomeService, private loadingService: LoadingService, private viewContainerRef: ViewContainerRef) {
+    loadingService.loadViewContainerRef = viewContainerRef;
   }
   // 打开菜单
   tapMenu() {

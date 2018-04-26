@@ -3,7 +3,7 @@ import { Component, ChangeDetectionStrategy, OnInit, ElementRef, Renderer2 } fro
 @Component({
   selector: 'app-loading',
   templateUrl: './loading.component.html',
-  styleUrls: ['./loading.component.css'],
+  styleUrls: ['./loading.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class LoadingComponent implements OnInit {
@@ -17,7 +17,7 @@ export class LoadingComponent implements OnInit {
     this.updateStatusLoading(true);
   }
 
-  updateStatusLoading(isShow: boolean) {
+  updateStatusLoading(isShow: boolean): void {
     if(isShow) {
       this._renderer2.addClass(this.elementRef.nativeElement, 'show');
       return;
