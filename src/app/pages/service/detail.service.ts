@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Http } from '@angular/http';
-import { HttpParams } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs/RX';
 import 'rxjs/RX';
 
@@ -14,7 +14,7 @@ export class DetailService {
   // private NGBLOG_URL: string = `${this.DEVBASEURL}/article`;
   private NGBLOG_URL: string = `http://47.98.137.213:8080/springmvc-study/article`;
 
-  constructor(private _http: Http) { }
+  constructor(private _http: HttpClient) { }
 
   getOneArticleById(id): Observable<any[]> {
     return this._http.get(`${this.NGBLOG_URL}/getOneArticle/?articleId=${id}`)
@@ -25,8 +25,7 @@ export class DetailService {
 
 
   private extractData(res) {
-    let body = res.json();
-    return body || {};
+    return res;
   }
 
 

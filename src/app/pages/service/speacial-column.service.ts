@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Http } from '@angular/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs/RX';
 import 'rxjs/RX';
 
@@ -15,16 +16,11 @@ export class SpeacialColumnServiceService {
   // private POSTIMG_URL: string = `${this.BASEURL}/article/img/add`;
   // private TAG_URL: string = `http://localhost:8087/t/7`
 
-  constructor(private _http: Http) { }
+  constructor(private _http: HttpClient) { }
 
   getArticleByUser(navIdx: number): Observable<any[]> {
-    let options = {
-      params: {
-        uid: 1,
-        createDateSort: navIdx
-      }
-    }
-    return this._http.get(this.ZHUANLAN_URL, options)
+    const params = new HttpParams({fromString: `uid=1&createDateSort=${navIdx}`});
+    return this._http.get(this.ZHUANLAN_URL, {params})
       .map(this.extractData)
       .catch(this.handleError);
   }
@@ -69,10 +65,8 @@ export class SpeacialColumnServiceService {
    }
 
   private extractData(res) {
-    let body = res.json();
-    return body || {};
+    return res;
   }
-
 
   private handleError(error: any) {
     let errMsg = (error.message) ? error.message :

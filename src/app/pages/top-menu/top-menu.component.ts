@@ -3,6 +3,7 @@ import { RouterModule, Router } from '@angular/router';
 import { HomeService } from '../service/home.service';
 import { CommonService } from '../service/common.service';
 
+
 @Component({
   selector: 'top-menu',
   templateUrl: './top-menu.component.html',
@@ -52,7 +53,7 @@ export class TopMenuComponent implements OnInit {
     this.blurFromSearchBtn = false;
     console.log(keyWords + '搜索中...');
     this._homeService.getArticleByKeywords(keyWords)
-      .subscribe((data) => {
+      .subscribe((data: any) => {
         console.log(data, '----');
         if(data.code === 0) {
           this._commonService.articleByKeywords = data.data.articles;
