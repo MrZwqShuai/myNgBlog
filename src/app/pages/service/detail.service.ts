@@ -4,9 +4,6 @@ import { HttpClient, HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs/RX';
 import 'rxjs/RX';
 
-const params = new HttpParams()
-   .set('articleId', '1');
-
 @Injectable()
 export class DetailService {
 

@@ -1,8 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Http } from '@angular/http';
 import {
-  HttpClient, HttpEvent, HttpEventType, HttpProgressEvent,
-  HttpRequest, HttpResponse, HttpErrorResponse
+  HttpClient, HttpParams,HttpRequest
 } from '@angular/common/http';
 import { Observable } from 'rxjs/RX';
 import 'rxjs/Rx';
@@ -23,12 +22,12 @@ export class HomeService {
 
 
     getArticleByKeywords(keywords: string | number): Observable<HttpResponse<any>> {
-        let options = {
-            params: {
-                keywords: keywords
+        const params = new HttpParams(
+            {
+                fromString: `keywords=${keywords}`
             }
-        };
-        return this.http.get(`${this.BASEURL}/article/search`)
+        )
+        return this.http.get(`${this.BASEURL}/article/search`, {params})
           .map(this.extractData)
           .catch(this.handleError);
     }

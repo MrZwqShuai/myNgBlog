@@ -7,7 +7,6 @@ import { HttpModule } from '@angular/http';
 import { HttpClientModule } from '@angular/common/http';
 
 import { CoreModule } from './core';
-console.log(CoreModule, '----CoreModule-----')
 
 import { HomeService } from './pages/service/home.service';
 import { SpeacialColumnServiceService } from './pages/service/speacial-column.service';
@@ -42,7 +41,8 @@ import { NgSwiperComponent } from './pages/ng-swiper/ng-swiper.component';
 
 
 import { httpInterceptorProviders } from './http-interceptors/index';
-console.log(httpInterceptorProviders, 'httpInterceptorProviders')
+import { VideoColumnComponent } from './pages/video-column/video-column.component';
+import { NgVideoComponent } from './pages/ng-video/ng-video.component';
 
 @NgModule({
   declarations: [
@@ -64,7 +64,9 @@ console.log(httpInterceptorProviders, 'httpInterceptorProviders')
     TagRightComponent,
     EditorComponent,
     SearchComponent,
-    NgSwiperComponent
+    NgSwiperComponent,
+    VideoColumnComponent,
+    NgVideoComponent,
   ],
   imports: [
     BrowserModule,

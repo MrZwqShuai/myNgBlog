@@ -7,6 +7,7 @@ import { DetailComponent } from './pages/detail/detail.component';
 import { TagComponent } from './pages/tag/tag.component';
 import { EditorComponent } from './pages/editor/editor.component';
 import { SearchComponent } from './pages/search/search.component';
+import { VideoColumnComponent } from './pages/video-column/video-column.component';
 
 export const ROUTE_CONFIG = [{
   path: '',
@@ -33,4 +34,7 @@ export const ROUTE_CONFIG = [{
 }, {
   path: 'article/search',
   component: SearchComponent
+}, {
+  path: 'video',
+  component: VideoColumnComponent
 }]
