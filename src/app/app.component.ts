@@ -1,5 +1,5 @@
 import { Component, ViewContainerRef } from '@angular/core';
-import { HomeService } from './pages/service/home.service';
+import { HomeService } from './blog-app/service/home.service';
 import { LoadingService } from './core/loading/loading.service';
 
 @Component({

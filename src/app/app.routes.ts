@@ -1,13 +1,13 @@
 import { RouterModule } from '@angular/router';
 
-import { HomeComponent } from './pages/home/home.component';
-import { SpeacialColumnComponent } from './pages/speacial-column/speacial-column.component';
-import { AboutComponent } from './pages/about/about.component';
-import { DetailComponent } from './pages/detail/detail.component';
-import { TagComponent } from './pages/tag/tag.component';
-import { EditorComponent } from './pages/editor/editor.component';
-import { SearchComponent } from './pages/search/search.component';
-import { VideoColumnComponent } from './pages/video-column/video-column.component';
+import { HomeComponent } from './blog-app/home/home.component';
+import { SpeacialColumnComponent } from './blog-app/speacial-column/speacial-column.component';
+import { AboutComponent } from './blog-app/about/about.component';
+import { DetailComponent } from './blog-app/detail/detail.component';
+import { TagComponent } from './blog-app/tag/tag.component';
+import { EditorComponent } from './blog-app/editor/editor.component';
+import { SearchComponent } from './blog-app/search/search.component';
+import { VideoColumnComponent } from './blog-app/video-column/video-column.component';
 
 export const ROUTE_CONFIG = [{
   path: '',

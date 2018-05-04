@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { DomSanitizer } from '@angular/platform-browser';
 
-import { DetailService } from '../../pages/service/detail.service';
+import { DetailService } from '../../blog-app/service/detail.service';
 import { DomAdapter } from '@angular/platform-browser/src/dom/dom_adapter';
 
 @Component({

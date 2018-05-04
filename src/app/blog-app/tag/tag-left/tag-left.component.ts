@@ -1,7 +1,7 @@
 import { Component, OnInit, ElementRef, Renderer2 } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Router } from '@angular/router';
-import { SpeacialColumnServiceService } from '../../../pages/service/speacial-column.service';
+import { SpeacialColumnServiceService } from '../../../blog-app/service/speacial-column.service';
 import { ColumnLeftComponent } from '../../speacial-column/column-left/column-left.component';
 import { TagNAVLIST } from '../../static-data/static-nav'
 
