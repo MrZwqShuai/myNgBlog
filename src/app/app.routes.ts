@@ -1,6 +1,6 @@
 import { RouterModule } from '@angular/router';
 
-import { HomeComponent } from './blog-app/home/home.component';
+import { HomeComponent } from './first-screen/home/home.component';
 import { SpeacialColumnComponent } from './blog-app/speacial-column/speacial-column.component';
 import { AboutComponent } from './blog-app/about/about.component';
 import { DetailComponent } from './blog-app/detail/detail.component';
@@ -15,26 +15,8 @@ export const ROUTE_CONFIG = [{
   redirectTo: 'home'
 },{
   path: 'home',
-  component: HomeComponent
+  loadChildren: 'app/first-screen/first-screen.module#FirstScreenModule'
 }, {
-  path: 'article',
-  component: SpeacialColumnComponent
-}, {
-  path: 'about',
-  component: AboutComponent
-}, {
-  path: 'article/p',
-  component: DetailComponent
-}, {
-  path: 't',
-  component: TagComponent
-}, {
-  path: 'editor',
-  component: EditorComponent
-}, {
-  path: 'article/search',
-  component: SearchComponent
-}, {
-  path: 'video',
-  component: VideoColumnComponent
+  path: '',
+  loadChildren: 'app/blog-app/blog-app.module#BlogAppModule'
 }]
