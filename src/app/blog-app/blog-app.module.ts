@@ -3,12 +3,10 @@ import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 
-// import { TopMenuComponent } from './top-menu/top-menu.component';
 import { BlogAppComponent } from './blog-app.component';
 import { PortfolioComponent } from './portfolio/portfolio.component';
 import { AboutComponent } from './about/about.component';
 import { DetailComponent } from './detail/detail.component';
-// import { MyvideoComponent } from './first-screen/home/myvideo/myvideo.component';
 import { SpeacialColumnComponent } from './speacial-column/speacial-column.component';
 import { ColumnLeftComponent } from './speacial-column/column-left/column-left.component';
 import { ColumnRightComponent } from './speacial-column/column-right/column-right.component';

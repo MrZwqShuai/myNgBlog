@@ -12,4 +12,5 @@ export class VideoColumnComponent implements OnInit {
   ngOnInit() {
   }
 
+
 }

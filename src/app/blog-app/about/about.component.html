@@ -3,12 +3,12 @@
    
     </div> -->
     <div class="about-container-card">
-    <div class="card-box" *ngFor="let card of cards; index as i">
+    <div class="card-box" *ngFor="let card of cards; index as i" (click)="navigateToDetail(card)">
       <div class="header">
         <img [src]="cardHeadImg">
       </div>
       <div class="content">
-        <h3>NodeJs</h3>
+        <h3>{{card.name}}</h3>
         <p>javascript是世界上最好的语言</p>
       </div>
       <div class="footer">

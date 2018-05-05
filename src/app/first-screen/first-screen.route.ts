@@ -7,7 +7,8 @@ export const ROUTER_CONFIG: Routes = [
   {
     path: '', component: FirstScreenComponent,
     children: [
-      { path: '', pathMatch: 'full', redirectTo: 'home' },
+      { path: '', pathMatch: 'full', redirectTo: '/home/home' },
+      { path: 'home', component: HomeComponent}
     ]
   }
 ];

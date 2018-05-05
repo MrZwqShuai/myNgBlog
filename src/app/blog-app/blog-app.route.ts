@@ -14,7 +14,7 @@ export const ROUTER_CONFIG: Routes = [
     path: '', component: BlogAppComponent,
     children: [
       {
-        path: '', pathMatch: 'full', redirectTo: '/'
+        path: '', pathMatch: 'full', redirectTo: '/article'
       }, {
         path: 'article',
         component: SpeacialColumnComponent

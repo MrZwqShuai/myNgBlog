@@ -19,6 +19,7 @@ import { ROUTER_CONFIG } from './first-screen.route';
     FirstScreenComponent,
     HomeComponent,
     MyvideoComponent,
+    NgSwiperComponent,
     NgSwiperComponent
   ],
   providers: [
