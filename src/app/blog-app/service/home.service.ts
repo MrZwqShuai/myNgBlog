@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Http } from '@angular/http';
-// import { WqBLogHttp, GET, POST, DELETE, UPDATE } from  'blog-http';
+import { WqBLogHttp, GET, POST, DELETE, UPDATE } from  'blog-http';
 import {
   HttpClient, HttpParams,HttpRequest,HttpResponse
 } from '@angular/common/http';
@@ -8,7 +8,7 @@ import { Observable } from 'rxjs/RX';
 import 'rxjs/Rx';
 
 @Injectable()
-export class HomeService extends WqBLogHttp {
+export class HomeService {
 
     
     // private HOMEINFOS_URL: string = `http://localhost:8087/%E5%BC%A0%E6%96%87%E5%BC%BA`;
@@ -19,10 +19,8 @@ export class HomeService extends WqBLogHttp {
     private showPhoneSearchBtn: boolean = false;
 
     constructor(private _http: Http, protected http: HttpClient,) {
-        super(http);
     }
 
-    @GET('article')
     getArticleByKeywords(keywords: string | number): Observable<HttpResponse<any>> {
         const params = new HttpParams(
             {
