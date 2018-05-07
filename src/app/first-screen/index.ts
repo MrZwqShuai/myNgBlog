@@ -1,1 +1,1 @@
-export * from './first-screen.module';
+export * from './first-screen.module';export * from './first-screen.module';

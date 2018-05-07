@@ -25,7 +25,7 @@
   <img src="assets/images/search.png" alt="搜索">
 </div>
 <div class="search-container">
-  <div class="write-btn" routerLink="/editor">
+  <div class="write-btn" (click)="writeArticle()">
     写文章
   </div>
     <input placeholder="输入你想要的内容" class="search-inp-pc" [(ngModel)]="searchValue" style="width: 30rem;" (click)="onSearch($event)">

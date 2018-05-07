@@ -71,4 +71,8 @@ export class TopMenuComponent implements OnInit {
     }
     this.showPhoneSearchBtn = this._homeService.setShowPhoneSearchBtn(false);
   }
+
+  writeArticle() {
+    alert('Permission denied');
+  }
 }
