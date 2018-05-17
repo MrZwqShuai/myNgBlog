@@ -5,6 +5,8 @@ import { Router } from '@angular/router';
 
 import { SpeacialColumnServiceService } from '../service/speacial-column.service'
 
+declare const require: any;
+
 @Component({
   selector: 'app-about',
   templateUrl: './about.component.html',
