@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Http } from '@angular/http';
-// import { WqBLogHttp, GET, POST, DELETE, UPDATE } from  'blog-http';
+import {  GET, POST, DELETE, UPDATE } from  '../../../../types/blog-http';
 import {
   HttpClient, HttpParams,HttpRequest,HttpResponse
 } from '@angular/common/http';
