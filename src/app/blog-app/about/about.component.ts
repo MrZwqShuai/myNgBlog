@@ -5,6 +5,8 @@ import { Router } from '@angular/router';
 
 import { SpeacialColumnServiceService } from '../service/speacial-column.service'
 
+declare const require: any;
+
 @Component({
   selector: 'app-about',
   templateUrl: './about.component.html',
@@ -18,7 +20,24 @@ export class AboutComponent implements OnInit {
   
   bodyStyle = { padding: 0 };
   cards: Array<Object> = [];
-  cardHeadImg: string = 'https://upload.jianshu.io/collections/images/283250/%E6%BC%AB%E7%94%BB%E4%B8%93%E9%A2%98.jpg?imageMogr2/auto-orient/strip|imageView2/1/w/180/h/180'
+  cardHeadImg: Array<string> = [
+    require('../../../assets/images/front-end.jpg'),
+    require('../../../assets/images/back-end.jpg'),
+    require('../../../assets/images/nodejs.jpg'),
+    require('../../../assets/images/javascript.jpg'),
+    require('../../../assets/images/nodejs.jpg'),
+    require('../../../assets/images/nodejs.jpg'),
+    require('../../../assets/images/nodejs.jpg'),
+    require('../../../assets/images/nodejs.jpg'),
+    require('../../../assets/images/nodejs.jpg'),
+    require('../../../assets/images/nodejs.jpg'),
+    require('../../../assets/images/nodejs.jpg'),
+    require('../../../assets/images/nodejs.jpg'),
+    require('../../../assets/images/nodejs.jpg'),
+    require('../../../assets/images/nodejs.jpg'),
+    require('../../../assets/images/nodejs.jpg'),
+    require('../../../assets/images/nodejs.jpg')
+  ]
 
   constructor(private router: Router, private _speacialColumnServiceService: SpeacialColumnServiceService) { }
 

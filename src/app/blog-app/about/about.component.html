@@ -5,7 +5,7 @@
     <div class="about-container-card">
     <div class="card-box" *ngFor="let card of cards; index as i" (click)="navigateToDetail(card)">
       <div class="header">
-        <img [src]="cardHeadImg">
+        <img [src]="cardHeadImg[i]">
       </div>
       <div class="content">
         <h3>{{card.name}}</h3>
