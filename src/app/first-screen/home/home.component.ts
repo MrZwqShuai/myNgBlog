@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { HomeService } from '../../blog-app/service/home.service';
 
 interface UserInfo {
-  data: object;
+  data: Object;
 }
 
 @Component({
