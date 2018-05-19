@@ -111,7 +111,7 @@ export class NgVideoComponent implements OnInit {
 
   dragStart(target: TouchEvent): void {
     if (this.endX) {
-      this.startX = Math.abs(this.endX - this.moveX);
+      this.startX = this.endX - this.moveX
     } else {
       this.startX = target.changedTouches[0].clientX;
     }
@@ -119,13 +119,14 @@ export class NgVideoComponent implements OnInit {
   }
 
   dragMove(target: TouchEvent): void {
+    console.log(target.changedTouches[0].clientX, '鼠标的位置')
     if (target.changedTouches[0].clientX <= this.minDragDistance) {
       this.moveX = this.minDragDistance - this.progressTrack.nativeElement.offsetLeft - this.dragBtn.nativeElement.offsetWidth / 2;
     } else if (target.changedTouches[0].clientX >= this.maxDragDistance) {
       console.log('超出最大范围')
       this.moveX = this.maxDragDistance - this.progressTrack.nativeElement.offsetLeft - this.dragBtn.nativeElement.offsetWidth / 2;
     } else {
-      this.moveX = target.changedTouches[0].clientX - this.startX;
+      this.moveX = target.changedTouches[0].clientX - this.progressTrack.nativeElement.offsetLeft;
     }
     console.log(this.moveX)
     this._renderer2.setStyle(this.dragBtn.nativeElement, 'transform', `translate3d(${this.moveX}px ,0, 0)`);
