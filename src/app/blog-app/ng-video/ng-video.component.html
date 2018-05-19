@@ -1,18 +1,35 @@
 <div class="ng-video">
   <div id="myNgVideo">
     <div class="x-video">
-      <video class="video" src="assets/video/qt.mp4"></video>
+      <video class="video" src="assets/video/qt.mp4" preload="none" webkit-playsinline="true" playsinline="true" preload="metadata"
+        raw-controls="true" x-webkit-airplay="true" x5-video-orientation="portraint"></video>
     </div>
     <div class="ng-control-interface" (click)="showVideoControls()">
       <div class="ng-control-play" (click)="playVideoBefore()">
         <img src="assets/images/play-2.png" alt="播放">
       </div>
       <div class="ng-control-dashboard" (click)="disableDashboardHide()" [ngStyle]="{'display': isSHowControls ? 'block' : 'none'}">
-        <div class="ng-control-playorpause" (click)="pauseorplayVideo()">
-          <img src="assets/images/play-2.png" alt="播放" *ngIf="playStatus; else pause">
-          <ng-template #pause>
-            <img src="assets/images/pause-1.png" alt="暂停">
-          </ng-template>
+        <div class="x-control">
+          <div class="ng-control-playorpause" (click)="pauseorplayVideo()">
+            <img src="assets/images/play-2.png" alt="播放" *ngIf="playStatus; else pause">
+            <ng-template #pause>
+              <img src="assets/images/pause-1.png" alt="暂停">
+            </ng-template>
+          </div>
+          <div class="ng-control-progress">
+            <span>00: 00</span>
+            <div class="progress-track" #progressTrack>
+              <span class="drag-btn-box" (touchstart)="dragStart($event)" (touchmove)="dragMove($event)" (touchend)="dragEnd($event)" #dragBtn>
+                <span class="drag-btn"></span>
+              </span>
+              <span></span>
+              <span></span>
+            </div>
+            <span>{{totalDuration}}</span>
+          </div>
+          <div class="ng-control-fullscreen">
+            <img src="assets/images/full-screen-1.png" alt="全屏">
+          </div>
         </div>
       </div>
     </div>
