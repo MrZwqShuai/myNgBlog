@@ -1,7 +1,7 @@
 <div class="ng-video">
   <div id="myNgVideo">
     <div class="x-video">
-      <video class="video" src="assets/video/qt.mp4" preload="none" webkit-playsinline="true" playsinline="true" preload="metadata"
+      <video class="video" src="assets/video/qt.mp4" poster="assets/images/qt.jpg" preload="none" webkit-playsinline="true" playsinline="true" preload="metadata"
         raw-controls="true" x-webkit-airplay="true" x5-video-orientation="portraint"></video>
     </div>
     <div class="ng-control-interface" (click)="showVideoControls()">
@@ -19,7 +19,7 @@
           <div class="ng-control-progress">
             <span>00: 00</span>
             <div class="progress-track" #progressTrack>
-              <span class="drag-btn-box" (touchstart)="dragStart($event)" (touchmove)="dragMove($event)" (touchend)="dragEnd($event)" #dragBtn>
+              <span class="drag-btn-box" (mousedown)="dragStart($event)" (mousemove)="dragMove($event)" (mouseup)="dragEnd($event)" #dragBtn>
                 <span class="drag-btn"></span>
               </span>
               <span></span>

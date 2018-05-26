@@ -21,7 +21,7 @@ import { NgVideoComponent } from './ng-video/ng-video.component';
 
 import { HomeService } from '../blog-app/service/home.service';
 
-import { StringSlicePipe } from './pipe/stringPipe';
+import { StringSlicePipe, ChinesePipe } from './pipe/stringPipe';
 
 import { ROUTER_CONFIG } from './blog-app.route';
 @NgModule({
@@ -32,6 +32,7 @@ import { ROUTER_CONFIG } from './blog-app.route';
   ],
   declarations: [
     StringSlicePipe,
+    ChinesePipe,
     BlogAppComponent,
     AboutComponent,
     DetailComponent,

@@ -1,6 +1,6 @@
-// import { animate, AnimationEntryMetadata, state, style, transition, trigger } from '@angular/core';
+// import { animate, AnimationMetadata, state, style, transition, trigger } from '@angular/animations';
 
-// export const slideInDownAnimation: AnimationEntryMetadata = trigger('routeAnimation', [
+// export const slideInDownAnimation: AnimationMetadata = trigger('routeAnimation', [
 //   state('*',
 //     style({
 //       opacity: 1,

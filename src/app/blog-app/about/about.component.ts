@@ -14,7 +14,7 @@ declare const require: any;
   // animations: [slideInDownAnimation]
 })
 export class AboutComponent implements OnInit {
-  @HostBinding('@routeAnimation') routeAnimation = true;
+  // @HostBinding('@routeAnimation') routeAnimation = true;
   @HostBinding('style.display') display = 'block';
   // @HostBinding('style.position') position = 'absolute';
   

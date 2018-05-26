@@ -7,6 +7,10 @@
         text-indent: .5rem;
         border-width: 1px;
         border-bottom: 1px dotted #9E9E9E;
+        a{
+            text-decoration: none;
+            color: #444;
+        }
     }
     .hot-column-item:hover{
         color: #1495fd;
@@ -15,6 +19,7 @@
         margin-top: 1.5rem;
         .news-content{
             .news-ul{
+                padding-left: 0;
                 overflow: hidden;
                 li {
                     margin-top: .4rem;
@@ -158,7 +163,7 @@
     text-indent: .5rem;
     border-radius: 1rem;
     background: rgba(158, 158, 158, 0.14);
-    color: #673ab7;
+    // color: #673ab7;
 }
 
 .column-right-color {

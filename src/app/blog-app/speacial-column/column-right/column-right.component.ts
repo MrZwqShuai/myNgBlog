@@ -10,11 +10,14 @@ import { SpeacialColumnServiceService } from '../../service/speacial-column.serv
 export class ColumnRightComponent implements OnInit {
 
   public hotNotes: Array<Object> = [{
-    title: '程序生涯'
+    title: '程序生涯',
+    article: 'http://47.98.137.213/blog/#/article/p?articleId=96&title=%E6%88%91%E7%9A%84%E7%A8%8B%E5%BA%8F%E7%94%9F%E6%B6%AF'
   }, {
-    title: '篮球生涯'
+    title: '篮球故事',
+    article: 'http://47.98.137.213/blog/#/article/p?articleId=97&title=%E6%88%91%E7%9A%84%E7%AF%AE%E7%90%83%E6%95%85%E4%BA%8B'
   }, {
-    title: '游戏生涯'
+    title: '游戏动漫',
+    article: 'http://47.98.137.213/blog/#/article/p?articleId=98&title=%E6%88%91%E7%9A%84%E6%B8%B8%E6%88%8F%E4%BA%BA%E7%94%9F'
   }];
 
   public news: Array<Object> = [{

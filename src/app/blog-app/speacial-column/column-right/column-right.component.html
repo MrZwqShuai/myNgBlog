@@ -4,7 +4,7 @@
       热门文章
     </h3>
     <div class="hot-column-list">
-      <div class="hot-column-item column-right-color" *ngFor="let hotNote of hotNotes, let i = index">{{i+1}}.{{hotNote.title}}</div>
+      <div class="hot-column-item column-right-color" *ngFor="let hotNote of hotNotes, let i = index"><a [href]="hotNote.article">{{i+1}}.{{hotNote.title}}</a></div>
     </div>
   </div>
   <div class="newest-article">
