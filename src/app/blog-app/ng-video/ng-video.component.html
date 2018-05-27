@@ -19,10 +19,10 @@
           <div class="ng-control-progress">
             <span>00: 00</span>
             <div class="progress-track" #progressTrack>
-              <span class="drag-btn-box" (mousedown)="dragStart($event)" (mousemove)="dragMove($event)" (mouseup)="dragEnd($event)" #dragBtn>
+              <span class="drag-btn-box" (touchdown)="dragStart($event)" (touchmove)="dragMove($event)" (touchup)="dragEnd($event)" #dragBtn>
                 <span class="drag-btn"></span>
               </span>
-              <span></span>
+              <span class="progress-bar" #progressBar></span>
               <span></span>
             </div>
             <span>{{totalDuration}}</span>

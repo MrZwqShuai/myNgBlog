@@ -12,6 +12,7 @@ export class NgVideoComponent implements OnInit {
 
   @ViewChild('dragBtn') dragBtn: ElementRef;
   @ViewChild('progressTrack') progressTrack: ElementRef;
+  @ViewChild('progressBar') progressBar: ElementRef;
 
   video: Video;
 
@@ -128,6 +129,7 @@ export class NgVideoComponent implements OnInit {
     }
     console.log(this.moveX)
     this._renderer2.setStyle(this.dragBtn.nativeElement, 'transform', `translate3d(${this.moveX}px ,0, 0)`);
+    this._renderer2.setStyle(this.progressBar.nativeElement, 'width', `${this.moveX}px`);
     let speedProgress: number = this.moveX / (this.progressTrack.nativeElement.offsetWidth - this.dragBtn.nativeElement.offsetWidth / 2);
     this.video.currentTime = speedProgress * this.video.duration;
   }
