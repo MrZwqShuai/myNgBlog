@@ -18,6 +18,8 @@ export class NgVideoComponent implements OnInit {
 
   isSHowControls: boolean = false;
 
+  isLoadWating: boolean = false;
+
   hasPlayVideo: boolean = false;
 
   playStatus: boolean = false;
@@ -28,7 +30,7 @@ export class NgVideoComponent implements OnInit {
 
   endX: number = 0;
 
-  totalDuration: string = '00: 00';
+  totalDuration: string = '00:00';
 
   /**
    * 移动的最小距离
@@ -45,38 +47,46 @@ export class NgVideoComponent implements OnInit {
   ngOnInit() {
     this.video = this._elementRef.nativeElement.querySelector('.video');
     this.listenVideoProgtess(this.video);
+    this.listenVideoLoadMetadata(this.video);
     this.minDragDistance = this.progressTrack.nativeElement.offsetLeft + this.dragBtn.nativeElement.offsetWidth / 2;
     this.maxDragDistance = this.progressTrack.nativeElement.offsetLeft + this.progressTrack.nativeElement.offsetWidth + this.dragBtn.nativeElement.offsetWidth / 2;
   }
 
+  showLoading() {
+    this.isLoadWating = true;
+  }
+
+  hideLoading() {
+    this.isLoadWating = false;
+  }
+
   listenVideoProgtess(resource: HTMLElement) {
     resource.addEventListener('progress', () => {
-      // console.log('正在请求数据..', this.video.currentTime)
     })
   }
 
-  listenVideoWaiting(resource: HTMLElement) {
+  listenVideoLoadMetadata(resource: HTMLElement) {
+    resource.addEventListener('loadedmetadata', () => {
+    this.totalDuration = this.getVideoTime(this.video.duration);
+      console.log('加载元数据...');
+    })
+  }
+
+
+  listenVideoWait(resource: HTMLElement) {
     resource.addEventListener('waiting', () => {
-      console.log('监听等待下载..')
-    })
-    // this.listenVideoCanPlay(resource);
-  }
-
-  listenVideoStalled(resource: HTMLElement) {
-    resource.addEventListener('stalled', () => {
-      console.log('网络失速..')
+      this.showLoading();
     })
   }
 
   listenVideoError(resource: HTMLElement) {
     resource.addEventListener('error', () => {
-      console.log('请求数据出错..')
     })
   }
 
   listenVideoCanPlay(resource: HTMLElement) {
     resource.addEventListener('canplay', () => {
-      console.log('监听可以播放..')
+      this.hideLoading();
     })
   }
 
@@ -90,7 +100,7 @@ export class NgVideoComponent implements OnInit {
   playVideo() {
     this.video.play();
     this.listenVideoCanPlay(this.video);
-    this.totalDuration = this.getVideoHours(this.video.duration);
+    this.listenVideoWait(this.video);
   }
 
   pauseorplayVideo() {
@@ -114,20 +124,16 @@ export class NgVideoComponent implements OnInit {
     } else {
       this.startX = target.changedTouches[0].clientX;
     }
-    console.log('开始距离', this.startX)
   }
 
   dragMove(target: TouchEvent): void {
-    console.log(target.changedTouches[0].clientX, '鼠标的位置')
     if (target.changedTouches[0].clientX <= this.minDragDistance) {
       this.moveX = this.minDragDistance - this.progressTrack.nativeElement.offsetLeft - this.dragBtn.nativeElement.offsetWidth / 2;
     } else if (target.changedTouches[0].clientX >= this.maxDragDistance) {
-      console.log('超出最大范围')
       this.moveX = this.maxDragDistance - this.progressTrack.nativeElement.offsetLeft - this.dragBtn.nativeElement.offsetWidth / 2;
     } else {
       this.moveX = target.changedTouches[0].clientX - this.progressTrack.nativeElement.offsetLeft;
     }
-    console.log(this.moveX)
     this._renderer2.setStyle(this.dragBtn.nativeElement, 'transform', `translate3d(${this.moveX}px ,0, 0)`);
     this._renderer2.setStyle(this.progressBar.nativeElement, 'width', `${this.moveX}px`);
     let speedProgress: number = this.moveX / (this.progressTrack.nativeElement.offsetWidth - this.dragBtn.nativeElement.offsetWidth / 2);
@@ -149,7 +155,7 @@ export class NgVideoComponent implements OnInit {
   /**
    * 秒换算时分秒
    */
-  getVideoHours(seconds: number): string {
+  getVideoTime(seconds: number): string {
     let duration: number = this.video.duration;
     let second: number = parseInt(String(seconds));
     let minute: number = 0;
@@ -165,15 +171,15 @@ export class NgVideoComponent implements OnInit {
     let result: string = "" + parseInt(String(seconds));
     if (minute > 0) {
       if (second < 10) {
-        result = minute + ": " + `0${second}`
+        result = minute + ":" + `0${second}`
       } else {
-        result = minute + ": " + second
+        result = minute + ":" + second
       }
     } else if (hours > 0) {
       if (minute < 10) {
-        result = hours + ": " + `0${minute}`
+        result = hours + ":" + `0${minute}`
       } else {
-        result = hours + ": " + minute
+        result = hours + ":" + minute
       }
     }
     return result
