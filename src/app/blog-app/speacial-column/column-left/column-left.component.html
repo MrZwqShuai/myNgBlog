@@ -6,7 +6,7 @@
     <div class="line-tab">
     </div>
   </div>
-  <!-- 这里应该把列表页 搜索页写成一个组件 没做好 -->
+  <!-- 这里应该把列表页 搜索页写成一个组件 -->
   <div class="search-article-result" *ngIf="showSearchResult">
       <div class="result-box" *ngIf="articleLstBySearch.length; then resultTotal else resultNull">
       </div>
@@ -45,6 +45,7 @@
   </div>
     </div>
   </div>
+  <app-go-top></app-go-top>
   <!--加载更多-->
   <!-- <div class="load-more-container">
     <div class="load-more">

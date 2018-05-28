@@ -18,6 +18,7 @@ import { EditorComponent } from './editor/editor.component';
 import { SearchComponent } from './search/search.component';
 import { VideoColumnComponent } from './video-column/video-column.component';
 import { NgVideoComponent } from './ng-video/ng-video.component';
+import { GoTopComponent } from './go-top/go-top.component';
 
 import { HomeService } from '../blog-app/service/home.service';
 
@@ -47,6 +48,7 @@ import { ROUTER_CONFIG } from './blog-app.route';
     SearchComponent,
     VideoColumnComponent,
     NgVideoComponent,
+    GoTopComponent,
   ],
   providers: [
     HomeService

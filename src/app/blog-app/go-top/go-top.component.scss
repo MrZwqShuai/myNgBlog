@@ -1,0 +1,13 @@
+.go-top-wrap{
+    position: fixed;
+    right: 30px;
+    bottom: 70px;
+    opacity: .8;
+}
+// for phone
+@media only screen and (max-width: 767px) {
+    .go-top-wrap{
+        right: 10px;
+        height: 10px;
+    }
+}
