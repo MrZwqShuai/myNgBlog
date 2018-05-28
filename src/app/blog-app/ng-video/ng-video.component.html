@@ -1,8 +1,8 @@
 <div class="ng-video">
   <div id="myNgVideo">
     <div class="x-video">
-      <video class="video" src="assets/video/qt.mp4" poster="assets/images/qt.jpg" preload="none" webkit-playsinline="true" playsinline="true" preload="metadata"
-        raw-controls="true" x-webkit-airplay="true" x5-video-orientation="portraint"></video>
+      <video class="video" src="assets/video/qt.mp4" poster="assets/images/qt.jpg" webkit-playsinline="true" playsinline="true" preload="metadata"
+        raw-controls="true" x-webkit-airplay="true"  x5-video-player-type="h5" x5-video-orientation="portraint" style="width: 100%; height: 100%; display: block; position: relative;"></video>
     </div>
     <div class="ng-control-interface" (click)="showVideoControls()">
       <div class="ng-control-screen"> 
@@ -22,9 +22,9 @@
             </ng-template>
           </div>
           <div class="ng-control-progress">
-            <span>00:00</span>
+            <span class="time-indices">{{currentDuration}}</span>
             <div class="progress-track" #progressTrack>
-              <span class="drag-btn-box" (touchdown)="dragStart($event)" (touchmove)="dragMove($event)" (touchup)="dragEnd($event)" #dragBtn>
+              <span class="drag-btn-box" (touchstart)="dragStart($event)" (touchmove)="dragMove($event)" (touchend)="dragEnd($event)" #dragBtn>
                 <span class="drag-btn">
                   <i class="ponit"></i>
                 </span>
@@ -32,7 +32,7 @@
               <span class="progress-bar" #progressBar></span>
               <span></span>
             </div>
-            <span>{{totalDuration}}</span>
+            <span class="time-indices">{{totalDuration}}</span>
           </div>
           <div class="ng-control-fullscreen">
             <img src="assets/images/full-screen-1.png" alt="全屏">

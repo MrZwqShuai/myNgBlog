@@ -1,4 +1,4 @@
-import { Component, OnInit, Renderer2, ElementRef, ViewChild } from '@angular/core';
+import { Component, OnInit, OnDestroy, Renderer2, ElementRef, ViewChild } from '@angular/core';
 import { Video } from './ng-video-interface';
 
 @Component({
@@ -30,7 +30,13 @@ export class NgVideoComponent implements OnInit {
 
   endX: number = 0;
 
+  speedProgress: number;
+
   totalDuration: string = '00:00';
+
+  currentDuration: string = "00:00";
+
+  timer: any;
 
   /**
    * 移动的最小距离
@@ -52,6 +58,10 @@ export class NgVideoComponent implements OnInit {
     this.maxDragDistance = this.progressTrack.nativeElement.offsetLeft + this.progressTrack.nativeElement.offsetWidth + this.dragBtn.nativeElement.offsetWidth / 2;
   }
 
+  ngOnDestroy() {
+    this.clearTimer(this.timer)
+  }
+
   showLoading() {
     this.isLoadWating = true;
   }
@@ -67,8 +77,7 @@ export class NgVideoComponent implements OnInit {
 
   listenVideoLoadMetadata(resource: HTMLElement) {
     resource.addEventListener('loadedmetadata', () => {
-    this.totalDuration = this.getVideoTime(this.video.duration);
-      console.log('加载元数据...');
+      this.totalDuration = this.getVideoTime(this.video.duration);
     })
   }
 
@@ -99,6 +108,7 @@ export class NgVideoComponent implements OnInit {
 
   playVideo() {
     this.video.play();
+    this.getRealTimeForVideo();
     this.listenVideoCanPlay(this.video);
     this.listenVideoWait(this.video);
   }
@@ -136,8 +146,8 @@ export class NgVideoComponent implements OnInit {
     }
     this._renderer2.setStyle(this.dragBtn.nativeElement, 'transform', `translate3d(${this.moveX}px ,0, 0)`);
     this._renderer2.setStyle(this.progressBar.nativeElement, 'width', `${this.moveX}px`);
-    let speedProgress: number = this.moveX / (this.progressTrack.nativeElement.offsetWidth - this.dragBtn.nativeElement.offsetWidth / 2);
-    this.video.currentTime = speedProgress * this.video.duration;
+    this.speedProgress = this.moveX / (this.progressTrack.nativeElement.offsetWidth - this.dragBtn.nativeElement.offsetWidth / 2);
+    this.video.currentTime = this.speedProgress * this.video.duration;
   }
 
   dragEnd(target: TouchEvent): void {
@@ -150,6 +160,22 @@ export class NgVideoComponent implements OnInit {
     }
     this.video.play();
     this.playStatus = false
+  }
+
+  clearTimer(time: any) {
+    clearInterval(time);
+  }
+
+  /**
+   * 监听视频实时进度
+   */
+  getRealTimeForVideo() {
+    this.timer = setInterval(() => {
+      this.speedProgress = this.video.currentTime / this.video.duration;
+      this.currentDuration = this.getVideoTime(Math.floor(this.video.currentTime));
+      this._renderer2.setStyle(this.dragBtn.nativeElement, 'transform', `translate3d(${this.speedProgress * this.progressTrack.nativeElement.offsetWidth}px, 0, 0)`);
+      this._renderer2.setStyle(this.progressBar.nativeElement, 'width', `${this.speedProgress * this.progressTrack.nativeElement.offsetWidth}px`);
+    }, 1000);
   }
 
   /**
@@ -171,15 +197,21 @@ export class NgVideoComponent implements OnInit {
     let result: string = "" + parseInt(String(seconds));
     if (minute > 0) {
       if (second < 10) {
-        result = minute + ":" + `0${second}`
+        result = "   " + minute + ":" + `0${second}`
       } else {
-        result = minute + ":" + second
+        result = "   " + minute + ":" + second
       }
     } else if (hours > 0) {
       if (minute < 10) {
-        result = hours + ":" + `0${minute}`
+        result = " " + hours + ":" + `0${minute}`
       } else {
-        result = hours + ":" + minute
+        result = " " + hours + ":" + minute
+      }
+    } else {
+      if (second < 10) {
+        result = '00:' + `0${seconds}`
+      } else {
+        result = '00:' + seconds;
       }
     }
     return result

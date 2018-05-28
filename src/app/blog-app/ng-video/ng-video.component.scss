@@ -38,6 +38,7 @@
       bottom: 0;
       .x-control {
         display: flex;
+        justify-content: center;
         align-items: center;
         height: 100%;
       }
@@ -57,9 +58,12 @@
         margin: 0 .15rem;
         font-size: .6rem;
         color: #dedede;
+        .time-indices{
+          width: 1.5rem;
+        }
         .progress-track {
           position: relative;
-          width: 8.2rem;
+          width: 8rem;
           height: 2px;
           display: flex;
           align-items: center;
