@@ -37,8 +37,11 @@ export class TopMenuComponent implements OnInit {
     console.log(this.searchValue);
   }
 
-  onSearch(event: string) {
-    console.log(event);
+  onSearch(event: KeyboardEvent) {
+    console.log(event.keyCode);
+    if(event.keyCode == 13) {
+      this.findArticleByKeyWords(this.searchValue);
+    }
   } 
 
   showSearchInput(searchValue) {
@@ -51,10 +54,8 @@ export class TopMenuComponent implements OnInit {
 
   findArticleByKeyWords(keyWords: string | number) {
     this.blurFromSearchBtn = false;
-    console.log(keyWords + '搜索中...');
     this._homeService.getArticleByKeywords(keyWords)
       .subscribe((data: any) => {
-        console.log(data, '----');
         if(data.code === 0) {
           this._commonService.articleByKeywords = data.data.articles;
           this._commonService.keywords = keyWords;

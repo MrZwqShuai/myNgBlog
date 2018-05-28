@@ -1,4 +1,4 @@
-<div class="column-left-container">
+<div class="column-left-container" [ngStyle]="{float: showSearchResult ? 'none' : 'left'}">
   <div class="tab-dashboard" *ngIf="!showSearchResult">
     <ul class="tab-ul">
       <li *ngFor="let nav of navList,let i = index" [ngClass]="{'nav-active': i==idx}" (click)="selectNav(i)">{{nav.title}}</li>
@@ -46,11 +46,11 @@
     </div>
   </div>
   <!--加载更多-->
-  <div class="load-more-container">
+  <!-- <div class="load-more-container">
     <div class="load-more">
       <span>点击加载更多内容</span>
     </div>
-  </div>
+  </div> -->
   <!-- 提示框 -->
   <div class="error-box" *ngIf="errorSign">
    <div>出错啦</div>

@@ -1,7 +1,15 @@
 .column-left-container {
   width: 46rem;
+  // width: 690px;
   height: auto;
-  float: left;
+  margin: auto;
+  .search-article-result {
+    margin-top: 4rem;
+    text-align: center;
+    font-size: 28px;
+    font-weight: 200;
+    opacity: .7;
+  }
   .tab-dashboard {
     .tab-ul {
       width: 21rem;
@@ -142,7 +150,7 @@
 // for phone
 @media only screen and (max-width: 767px) {
   .search-article-result {
-      margin-top: 2rem;
+    margin-top: 2rem;
     text-transform: uppercase;
     text-align: center;
     font-size: 1.2rem;
@@ -221,4 +229,3 @@
     }
   }
 }
-
