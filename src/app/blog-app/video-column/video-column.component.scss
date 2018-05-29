@@ -1,6 +1,13 @@
-.video-column-wrapper{
-  margin-top: 2.5rem;
-  .video-item{
+.video-column-wrapper {
+  margin-top: 70px;
+  .video-item {
     margin-bottom: .5rem;
+  }
+}
+
+// for phone
+@media only screen and (max-width: 767px) {
+  .video-column-wrapper {
+    margin-top: 2.5rem;
   }
 }

@@ -7,7 +7,29 @@ import { Component, OnInit } from '@angular/core';
 })
 export class VideoColumnComponent implements OnInit {
 
-  videoList: Array<number> = [1, 2, 3, 4, 5];
+  videoList: Array<object> = [
+    {
+      title: '不能说的秘密',
+      resource: 'assets/video/qt.mp4',
+      poster: ''
+    }, {
+      title: '艾佛森10分钟超长集锦',
+      resource: 'assets/video/Allen-Iverson.mp4',
+      poster: ''
+    }, {
+      title: '全明星20佳进球',
+      resource: 'assets/video/all-star.mp4',
+      poster: ''
+    }, {
+      title: '2018常规赛20大转身过人',
+      resource: 'assets/video/guoren.mp4',
+      poster: ''
+    }, {
+      title: '欧文过人集锦',
+      resource: 'assets/video/Kyrie-Irving.mp4',
+      poster: ''
+    }
+  ];
   
   constructor() { }
 

@@ -1,6 +1,6 @@
-import { Component, OnInit, OnDestroy, Renderer2, ElementRef, ViewChild } from '@angular/core';
+import { Component, OnInit, Input, OnDestroy, Renderer2, ElementRef, ViewChild } from '@angular/core';
 import { Video } from './ng-video-interface';
-
+  
 @Component({
   selector: 'app-ng-video',
   templateUrl: './ng-video.component.html',
@@ -9,6 +9,8 @@ import { Video } from './ng-video-interface';
 
 
 export class NgVideoComponent implements OnInit {
+
+  @Input() videoMedia: object;
 
   @ViewChild('dragBtn') dragBtn: ElementRef;
   @ViewChild('progressTrack') progressTrack: ElementRef;
