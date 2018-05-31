@@ -1,7 +1,6 @@
-import { Component, OnInit } from '@angular/core';
-import { HostBinding } from '@angular/core';
+import { Component, OnInit, HostBinding } from '@angular/core';
 import { Router } from '@angular/router';
-// import { slideInDownAnimation } from '../common/animation'
+import { slideInDownAnimation } from '../common/animation'
 
 import { SpeacialColumnServiceService } from '../service/speacial-column.service'
 
@@ -11,10 +10,10 @@ declare const require: any;
   selector: 'app-about',
   templateUrl: './about.component.html',
   styleUrls: ['./about.component.scss'],
-  // animations: [slideInDownAnimation]
+  animations: [slideInDownAnimation]
 })
 export class AboutComponent implements OnInit {
-  // @HostBinding('@routeAnimation') routeAnimation = true;
+  @HostBinding('@routeAnimation') routeAnimation = true;
   @HostBinding('style.display') display = 'block';
   // @HostBinding('style.position') position = 'absolute';
   

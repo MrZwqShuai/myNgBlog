@@ -1,23 +1,23 @@
-// import { animate, AnimationMetadata, state, style, transition, trigger } from '@angular/animations';
+import { animate, AnimationMetadata, state, style, transition, trigger } from '@angular/animations';
 
-// export const slideInDownAnimation: AnimationMetadata = trigger('routeAnimation', [
-//   state('*',
-//     style({
-//       opacity: 1,
-//       transform: 'translateX(0)'
-//     })
-//   ),
-//   transition(':enter', [
-//     style({
-//       opacity: 0,
-//       transform: 'translateX(-100%)'
-//     }),
-//     animate('0.2s ease-in')
-//   ]),
-//   transition(':leave', [
-//     animate('0.5s ease-out', style({
-//       opacity: 0,
-//       transform: 'translateX(100%)'
-//     }))
-//   ])
-// ])
+export const slideInDownAnimation: AnimationMetadata = trigger('routeAnimation', [
+  state('*',
+    style({
+      opacity: 1,
+      transform: 'translateX(0)'
+    })
+  ),
+  transition(':enter', [
+    style({
+      opacity: 0,
+      transform: 'translateX(-100%)'
+    }),
+    animate('0.2s ease-in')
+  ]),
+  transition(':leave', [
+    animate('0.5s ease-out', style({
+      opacity: 0,
+      transform: 'translateX(100%)'
+    }))
+  ])
+])

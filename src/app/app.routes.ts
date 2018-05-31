@@ -4,9 +4,9 @@ import { RouterModule } from '@angular/router';
 export const ROUTE_CONFIG = [{
   path: '',
   pathMatch: 'full',
-  redirectTo: '/home/home'
+  redirectTo: '/home'
 },{
-  path: 'home',
+  path: '',
   loadChildren: 'app/first-screen/first-screen.module#FirstScreenModule'
 }, {
   path: '',

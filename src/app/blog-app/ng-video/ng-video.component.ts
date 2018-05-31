@@ -10,7 +10,7 @@ import { Video } from './ng-video-interface';
 
 export class NgVideoComponent implements OnInit {
 
-  @Input() videoMedia: object;
+  @Input() videoMedia: {title: string, resource: string, poster: string};
 
   @ViewChild('dragBtn') dragBtn: ElementRef;
   @ViewChild('progressTrack') progressTrack: ElementRef;

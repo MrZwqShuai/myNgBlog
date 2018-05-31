@@ -1,5 +1,6 @@
 <div class="video-column-wrapper">
   <div class="video-item" *ngFor="let videoItem of videoList">
+      <app-barrage-screen class="barrage-screen" [barrageWave]="barrageWave"></app-barrage-screen>
     <app-ng-video [videoMedia]="videoItem"></app-ng-video>
   </div>
 </div>

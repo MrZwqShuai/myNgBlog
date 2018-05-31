@@ -1,13 +1,14 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, HostBinding } from '@angular/core';
 
 @Component({
   selector: 'app-video-column',
   templateUrl: './video-column.component.html',
-  styleUrls: ['./video-column.component.scss']
+  styleUrls: ['./video-column.component.scss'],
 })
 export class VideoColumnComponent implements OnInit {
 
-  videoList: Array<object> = [
+
+  videoList: Array<{ title: string, resource: string, poster: string }> = [
     {
       title: '不能说的秘密',
       resource: 'assets/video/qt.mp4',
@@ -30,7 +31,7 @@ export class VideoColumnComponent implements OnInit {
       poster: ''
     }
   ];
-  
+
   constructor() { }
 
   ngOnInit() {

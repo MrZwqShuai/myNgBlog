@@ -19,6 +19,7 @@ import { SearchComponent } from './search/search.component';
 import { VideoColumnComponent } from './video-column/video-column.component';
 import { NgVideoComponent } from './ng-video/ng-video.component';
 import { GoTopComponent } from './go-top/go-top.component';
+import { BarrageScreenComponent } from './barrage-screen/barrage-screen.component';
 
 import { HomeService } from '../blog-app/service/home.service';
 
@@ -49,6 +50,7 @@ import { ROUTER_CONFIG } from './blog-app.route';
     VideoColumnComponent,
     NgVideoComponent,
     GoTopComponent,
+    BarrageScreenComponent,
   ],
   providers: [
     HomeService
