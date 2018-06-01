@@ -1,4 +1,8 @@
 .ng-video {
+  position: relative;
+  top: 0;
+  left: 0;
+  z-index: 3;
   .video-title{
     max-width: 1000px;
     margin: auto;
@@ -128,3 +132,5 @@
     transform: rotate(360deg);
   }
 }
+
+

@@ -1,5 +1,6 @@
 import { Component, OnInit, Input, OnDestroy, Renderer2, ElementRef, ViewChild } from '@angular/core';
 import { Video } from './ng-video-interface';
+import { BarrageScreenComponent } from '../barrage-screen/barrage-screen.component';
   
 @Component({
   selector: 'app-ng-video',
@@ -11,10 +12,12 @@ import { Video } from './ng-video-interface';
 export class NgVideoComponent implements OnInit {
 
   @Input() videoMedia: {title: string, resource: string, poster: string};
+  @Input() openBarrage: boolean = true;
 
   @ViewChild('dragBtn') dragBtn: ElementRef;
   @ViewChild('progressTrack') progressTrack: ElementRef;
   @ViewChild('progressBar') progressBar: ElementRef;
+  @ViewChild(BarrageScreenComponent) barrageScreenComponent: BarrageScreenComponent;
 
   video: Video;
 
@@ -110,7 +113,11 @@ export class NgVideoComponent implements OnInit {
 
   playVideo() {
     this.video.play();
+    this.barrageScreenComponent.draw();
     this.getRealTimeForVideo();
+    this.barrageScreenComponent.textList.forEach((t) => {
+            this.barrageScreenComponent.shoot(t);
+        })
     this.listenVideoCanPlay(this.video);
     this.listenVideoWait(this.video);
   }

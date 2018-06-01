@@ -34,10 +34,10 @@ export class BarrageScreenComponent implements OnInit {
         let rect = this.barrage.nativeElement.getBoundingClientRect();
         this.w = rect.right - rect.left;
         this.h = rect.bottom - rect.top;
-        this.draw();
-        this.textList.forEach((t) => {
-            this.shoot(t);
-        })
+        // this.draw();
+        // this.textList.forEach((t) => {
+        //     this.shoot(t);
+        // })
     }
 
     //添加弹幕列表
@@ -98,8 +98,5 @@ export class BarrageScreenComponent implements OnInit {
     getOffset() {
         return +(Math.random() * 4).toFixed(1) + 1;
     }
-
-}
-
 
 }
