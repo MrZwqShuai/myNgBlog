@@ -9,7 +9,10 @@ export class BarrageScreenComponent implements OnInit {
 
     @ViewChild('barrage') barrage: ElementRef
 
-    @Input() barrageWave: object[] = [{}];
+    @Input() barrageWave: string[] = ['弹幕', '666', '233333333',
+        'javascriptshi是最好的语言', 'html', 'css', '前端框架', 'Vue', 'React',
+        'Angular', '测试弹幕效果'
+    ];
 
     barrageList: object[] = [];
 
@@ -19,10 +22,7 @@ export class BarrageScreenComponent implements OnInit {
 
     h: any;
 
-    textList: string[] = ['弹幕', '666', '233333333',
-        'javascript', 'html', 'css', '前端框架', 'Vue', 'React',
-        'Angular', '测试弹幕效果'
-    ];
+
 
 
 
@@ -31,9 +31,10 @@ export class BarrageScreenComponent implements OnInit {
     ngOnInit() {
         console.log(this.barrage.nativeElement, '----')
         this.ctx = this.barrage.nativeElement.getContext('2d');
-        let rect = this.barrage.nativeElement.getBoundingClientRect();
-        this.w = rect.right - rect.left;
-        this.h = rect.bottom - rect.top;
+        let rect: DOMRectInit = this.barrage.nativeElement.getBoundingClientRect();
+        console.log(rect, 'rect');
+        this.w = rect.width;
+        this.h = rect.height;
         // this.draw();
         // this.textList.forEach((t) => {
         //     this.shoot(t);
@@ -80,6 +81,7 @@ export class BarrageScreenComponent implements OnInit {
     //绘制文字
     drawText(barrage) {
         this.ctx.fillStyle = barrage.color;
+        // this.ctx.font = "bold .7rem 黑体";
         this.ctx.fillText(barrage.value, barrage.left, barrage.top);
     }
 

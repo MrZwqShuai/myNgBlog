@@ -1,7 +1,7 @@
 import { Component, OnInit, Input, OnDestroy, Renderer2, ElementRef, ViewChild } from '@angular/core';
 import { Video } from './ng-video-interface';
 import { BarrageScreenComponent } from '../barrage-screen/barrage-screen.component';
-  
+
 @Component({
   selector: 'app-ng-video',
   templateUrl: './ng-video.component.html',
@@ -11,7 +11,7 @@ import { BarrageScreenComponent } from '../barrage-screen/barrage-screen.compone
 
 export class NgVideoComponent implements OnInit {
 
-  @Input() videoMedia: {title: string, resource: string, poster: string};
+  @Input() videoMedia: { title: string, resource: string, poster: string };
   @Input() openBarrage: boolean = true;
 
   @ViewChild('dragBtn') dragBtn: ElementRef;
@@ -52,6 +52,14 @@ export class NgVideoComponent implements OnInit {
    * 最大距离
    */
   maxDragDistance: number = 0;
+
+  /**
+   * 视频弹幕
+   */
+  barrageWave: string[] = ['弹幕', '666', '233333333',
+    'javascriptshi是最好的语言', 'html', 'css', '前端框架', 'Vue', 'React',
+    'Angular', '测试弹幕效果'
+  ];
 
   constructor(private _renderer2: Renderer2, private _elementRef: ElementRef) { }
 
@@ -115,9 +123,9 @@ export class NgVideoComponent implements OnInit {
     this.video.play();
     this.barrageScreenComponent.draw();
     this.getRealTimeForVideo();
-    this.barrageScreenComponent.textList.forEach((t) => {
-            this.barrageScreenComponent.shoot(t);
-        })
+    this.barrageWave.forEach((v) => {
+      this.barrageScreenComponent.shoot(v);
+    })
     this.listenVideoCanPlay(this.video);
     this.listenVideoWait(this.video);
   }
